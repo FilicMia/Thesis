@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "x,y,z\n2088202.299,-11757191.370,25391471.881\n11092568.240,-14198201.090,21471165.950\n35606984.591,-4447027.239,9101378.572\n3966929.048,7362851.831,26388447.172\n\n",
+    "created" : 1492357502671.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "904551664",
+    "id" : "3E03465E",
+    "lastKnownWriteTime" : 1492357522,
+    "last_content_update" : 1492357522601,
+    "path" : "~/Documents/Diplomski/Rsimulation/satellites.txt",
+    "project_path" : "satellites.txt",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "text"
+}
