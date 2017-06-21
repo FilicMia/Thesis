@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: diplomski.aux
+The style file: babamspl.bst
+Database file #1: diplomski.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty language in GPS:overview
+Warning--empty language in bookProcessing
+Warning--missing publisher in bookProcessing
+Warning--empty language in GPS:1
+You've used 3 entries,
+            2664 wiz_defined-function locations,
+            618 strings with 6274 characters,
+and the built_in function-call counts, 963 in all, are:
+= -- 55
+> -- 21
+< -- 1
++ -- 9
+- -- 6
+* -- 135
+:= -- 141
+add.period$ -- 3
+call.type$ -- 3
+change.case$ -- 12
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 53
+empty$ -- 105
+format.name$ -- 21
+if$ -- 177
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 5
+newline$ -- 33
+num.names$ -- 6
+pop$ -- 35
+preamble$ -- 1
+purify$ -- 9
+quote$ -- 0
+skip$ -- 23
+stack$ -- 0
+substring$ -- 15
+swap$ -- 15
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 10
+warning$ -- 4
+while$ -- 6
+width$ -- 4
+write$ -- 44
+(There were 4 warnings)
