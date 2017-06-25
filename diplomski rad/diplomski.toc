@@ -1,0 +1,37 @@
+\select@language {croatian}
+\contentsline {chapter}{Sadr\v {z}aj}{v}{section*.1}
+\contentsline {chapter}{Uvod}{1}{chapter*.2}
+\contentsline {chapter}{\chapternumberline {1}Globalni navigacijski satelitski sustav (GNSS)}{3}{chapter.1}
+\contentsline {chapter}{\chapternumberline {2}Globalni pozicijski sustav (GPS)}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}C/A PRN kod}{8}{section.2.1}
+\contentsline {subsection}{C/A PRN kod i primjene}{8}{section*.6}
+\contentsline {section}{\numberline {2.2}P kod}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Pogre\IeC {\v s}ke odre\IeC {\dj }ivanja polo\IeC {\v z}aja i vrste}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Navigation Message}{12}{section.2.4}
+\contentsline {section}{\numberline {2.5}Proces odre\IeC {\dj }ivanja polo\IeC {\v z}aja}{13}{section.2.5}
+\contentsline {chapter}{\chapternumberline {3}Algoritam procjene polo\IeC {\v z}aja (APP)}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Iterativna metoda najmanjih kvadrata}{20}{section.3.1}
+\contentsline {subsection}{Analize pogre\IeC {\v s}ke metode najmanjih kvadrata}{23}{section*.18}
+\contentsline {section}{\numberline {3.2}Metoda pomo\IeC {\'c}u zatvorene formule}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Metoda najbli\IeC {\v z}eg susjeda}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}Vjerojatnosne metode}{24}{section.3.4}
+\contentsline {chapter}{\chapternumberline {4}Dizajn i izvedba algoritma, procjena to\IeC {\v c}nosti}{25}{chapter.4}
+\contentsline {subsection}{Zahtjevi algoritma}{25}{section*.19}
+\contentsline {subsubsection}{RINEX}{25}{section*.20}
+\contentsline {subsubsection}{Programski odre\IeC {\dj }en GPS prijemnik}{25}{section*.21}
+\contentsline {subsection}{Izvedba}{25}{section*.22}
+\contentsline {subsection}{Procjena to\IeC {\v c}nosti}{25}{section*.23}
+\contentsline {section}{\numberline {4.1}Pobolj\IeC {\v s}ani algoritam i njegova izvedba}{26}{section.4.1}
+\contentsline {subsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja}{26}{section*.24}
+\contentsline {subsection}{Izvedba}{26}{section*.25}
+\contentsline {subsection}{Procjena to\IeC {\v c}nosti}{26}{section*.26}
+\contentsline {section}{\numberline {4.2}Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Zaklju\IeC {\v c}ak}{26}{section.4.3}
+\contentsline {chapter}{Bibliografija}{27}{chapter*.27}
+\select@language {croatian}
+\select@language {croatian}
+\select@language {croatian}
+\select@language {croatian}
+\contentsline {appendix}{\chapternumberline {A}Taylorov red potencija}{35}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Jakobijeva matrica funkcije $\mathbf {h}$, $J$}{37}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }da"}{39}{appendix.C}

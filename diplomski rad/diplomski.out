@@ -1,0 +1,22 @@
+\BOOKMARK [0][-]{section*.1}{Sadr\236aj}{}% 1
+\BOOKMARK [0][-]{chapter*.2}{Uvod}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Globalni navigacijski satelitski sustav \(GNSS\)}{}% 3
+\BOOKMARK [0][-]{chapter.2}{Globalni pozicijski sustav \(GPS\)}{}% 4
+\BOOKMARK [1][-]{section.2.1}{C/A PRN kod}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{P kod}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Pogre\235ke odreivanja polo\236aja i vrste}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{Navigation Message}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.5}{Proces odreivanja polo\236aja}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{Algoritam procjene polo\236aja \(APP\)}{}% 10
+\BOOKMARK [1][-]{section.3.1}{Iterativna metoda najmanjih kvadrata}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.2}{Metoda pomocu zatvorene formule}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.3}{Metoda najbli\236eg susjeda}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.4}{Vjerojatnosne metode}{chapter.3}% 14
+\BOOKMARK [0][-]{chapter.4}{Dizajn i izvedba algoritma, procjena tocnosti}{}% 15
+\BOOKMARK [1][-]{section.4.1}{Pobolj\235ani algoritam i njegova izvedba}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{Usporedba osnovnog i pobolj\235anog algoritma}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.3}{Zakljucak}{chapter.4}% 18
+\BOOKMARK [0][-]{chapter*.27}{Bibliografija}{}% 19
+\BOOKMARK [0][-]{appendix.A}{Taylorov red potencija}{}% 20
+\BOOKMARK [0][-]{appendix.B}{Jakobijeva matrica funkcije h, J}{}% 21
+\BOOKMARK [0][-]{appendix.C}{Mjere kvalitete "zvije\236da"}{}% 22

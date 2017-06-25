@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="600" height="300" id="svg2" sodipodi:version="0.32" inkscape:version="0.45.1" version="1.0" sodipodi:docbase="C:\Documents and Settings\JJB\My Documents\My Pictures\Electronics" sodipodi:docname="MAC.svg" inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs id="defs4"/>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" gridtolerance="10000" guidetolerance="10" objecttolerance="10" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="1" inkscape:cx="167.22351" inkscape:cy="54.148947" inkscape:document-units="px" inkscape:current-layer="layer1" width="600px" height="300px" gridspacingx="5px" gridspacingy="5px" showgrid="true" inkscape:grid-points="true" inkscape:window-width="1386" inkscape:window-height="874" inkscape:window-x="50" inkscape:window-y="-4"/>
+  <metadata id="metadata7">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+    <rect style="opacity:1;fill:#ffb380;fill-opacity:1;stroke:#000000;stroke-width:1.99999988;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:5.99999964, 5.99999964;stroke-dashoffset:0;stroke-opacity:1" id="rect2409" width="79" height="265" x="260" y="29"/>
+    <rect style="opacity:1;fill:#d5f6ff;fill-opacity:1;stroke:#000000;stroke-width:2.00000024;stroke-linecap:square;stroke-opacity:1" id="rect2160" width="225" height="219.99998" x="25" y="29.000004"/>
+    <g id="g2274" transform="matrix(0,1,-1,0,363,-88)">
+      <path inkscape:transform-center-y="-5" id="path2276" d="M 190,175 L 160,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2278" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <rect style="opacity:1;fill:#ffeeaa;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-opacity:1" id="rect2162" width="225" height="265.0593" x="350" y="29.000004"/>
+    <g id="g2403" transform="translate(72.5,-111)">
+      <path inkscape:transform-center-y="-5" id="path2405" d="M 189.19354,175 L 135,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2407" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <g id="g2239" transform="translate(-2.7439117e-2,-10.976521)">
+      <rect y="64.966125" x="50.027439" height="19.999622" width="174.96561" id="rect2168" style="opacity:1;fill:#5599ff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-opacity:1"/>
+      <text id="text2170" y="80" x="104.5" style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" xml:space="preserve"><tspan style="font-size:16px" y="80" x="104.5" id="tspan2172" sodipodi:role="line">Message</tspan></text>
+    </g>
+    <g id="g2397" transform="translate(183,-111)">
+      <path inkscape:transform-center-y="-5" id="path2399" d="M 189.19354,175 L 135,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2401" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <g id="g2392" transform="translate(0,-41)">
+      <rect y="95" x="265.06174" height="19.985336" width="69.872421" id="rect2164" style="opacity:1;fill:#5599ff;fill-opacity:1;stroke:#000000;stroke-width:1.99999988;stroke-linecap:square;stroke-opacity:1"/>
+      <text id="text2174" y="109.45313" x="299.70313" style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" xml:space="preserve"><tspan style="font-size:16px;text-align:center;text-anchor:middle" y="109.45313" x="299.70313" id="tspan2176" sodipodi:role="line">Message</tspan></text>
+    </g>
+    <g id="g2310" transform="translate(180,20)">
+      <path inkscape:transform-center-y="-5" id="path2312" d="M 189.19354,175 L 135,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2314" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <use x="0" y="0" xlink:href="#g2200" id="use2244" transform="translate(113.01922,8.7895e-3)" width="600" height="300"/>
+    <g id="g2280" transform="matrix(0,1,-1,0,703,-9.5)">
+      <path inkscape:transform-center-y="-5" id="path2282" d="M 190,175 L 160,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2284" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <use x="0" y="0" xlink:href="#g2194" id="use2250" transform="translate(341.95312,-1)" width="600" height="300"/>
+    <g id="g2386" transform="matrix(0,1,-1,0,702.5,-89)">
+      <path inkscape:transform-center-y="-5" id="path2388" d="M 190,175 L 160,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2390" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <use x="0" y="0" xlink:href="#g2239" id="use2256" transform="translate(325,1.07732e-2)" width="600" height="300"/>
+    <g id="g2270" transform="matrix(0,1,-1,0,363,-8.5)">
+      <path inkscape:transform-center-y="-5" id="path2266" d="M 190,175 L 160,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2268" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <g id="g2194" transform="translate(-2.5,-11)">
+      <rect y="115" x="147.5" height="50" width="80" id="rect2186" style="opacity:1;fill:#ff8080;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-opacity:1"/>
+      <text id="text2188" y="134.5" x="187.79688" style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" xml:space="preserve"><tspan y="134.5" x="187.79688" id="tspan2190" sodipodi:role="line">MAC</tspan><tspan id="tspan2192" y="154.5" x="187.79688" sodipodi:role="line">Algorithm</tspan></text>
+      <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 147.5,140 L 117.5,140" id="path2258" inkscape:transform-center-y="-5"/>
+      <path style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 138,142 L 147.5,140 L 138,138 L 138,142 z " id="path2260" sodipodi:nodetypes="cccc" inkscape:transform-center-x="-10.25" inkscape:transform-center-y="-5"/>
+      <text xml:space="preserve" style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="112.64063" y="144.14844" id="text2182"><tspan sodipodi:role="line" id="tspan2184" x="112.64063" y="144.14844" style="font-size:16px;text-align:end;text-anchor:end">Secret Key</tspan></text>
+    </g>
+    <g id="g2336" transform="matrix(-0.7071068,0.7071068,0.7071068,0.7071068,487.37437,-42.380771)" inkscape:transform-center-x="10.92677">
+      <path inkscape:transform-center-y="-5" id="path2338" d="M 189.64648,175 L 159.99999,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" inkscape:transform-center-x="1.0779593e-005"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2340" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <use x="0" y="0" xlink:href="#g2200" id="use2248" transform="translate(338,-4e-7)" width="600" height="300"/>
+    <g id="g2304" transform="translate(80,20)">
+      <path inkscape:transform-center-y="-5" id="path2306" d="M 189.19354,175 L 135,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2308" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <g id="g2200" transform="matrix(1.0192308,0,0,1,-118.26923,60.187492)">
+      <rect y="124.80372" x="272.98218" height="19.985552" width="54.037064" id="rect2166" style="opacity:1;fill:#55d400;fill-opacity:1;stroke:#ff0000;stroke-width:1.98104239;stroke-linecap:square;stroke-opacity:1"/>
+      <text id="text2178" y="140.85352" x="299.60938" style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" xml:space="preserve"><tspan style="font-size:16px;text-align:center;text-anchor:middle" y="140.85352" x="299.60938" id="tspan2180" sodipodi:role="line">MAC</tspan></text>
+    </g>
+    <g id="g2327" transform="matrix(0.7071068,0.7071068,-0.7071068,0.7071068,437.79289,-43.194477)" inkscape:transform-center-x="-10.92677">
+      <path inkscape:transform-center-y="-5" id="path2329" d="M 189.64648,175 L 159.99999,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" inkscape:transform-center-x="1.0779593e-005"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2331" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <use x="0" y="0" xlink:href="#g2200" id="use2246" transform="translate(213,-1.0000004)" width="600" height="300"/>
+    <g id="g2322" transform="translate(2.5,-20)">
+      <path id="path2316" d="M 435,245 L 460,230 L 485,245 L 460,260 L 435,245 z " style="fill:#c8b7b7;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+      <text id="text2318" y="251" x="460.23438" style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" xml:space="preserve"><tspan y="251" x="460.23438" id="tspan2320" sodipodi:role="line">=?</tspan></text>
+    </g>
+    <text xml:space="preserve" style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#008000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="394.38477" y="267.33594" id="text2342"><tspan sodipodi:role="line" id="tspan2344" x="394.38477" y="267.33594">Message is</tspan><tspan sodipodi:role="line" x="394.38477" y="284.83594" id="tspan2352">authentic</tspan></text>
+    <text xml:space="preserve" style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="525.61914" y="267.33594" id="text2346"><tspan sodipodi:role="line" id="tspan2348" x="525.61914" y="267.33594">Message has</tspan><tspan sodipodi:role="line" x="525.61914" y="284.83594" id="tspan2350">been altered</tspan></text>
+    <g id="g2366" transform="matrix(-0.7071068,0.7071068,0.7071068,0.7071068,440.39339,-4.361749)" inkscape:transform-center-x="10.92677">
+      <path inkscape:transform-center-y="-5" id="path2368" d="M 189.64648,175 L 159.99999,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" inkscape:transform-center-x="1.0779593e-005"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2370" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <g id="g2372" transform="matrix(0.7071068,0.7071068,-0.7071068,0.7071068,484.60661,-4.861749)" inkscape:transform-center-x="-10.92677">
+      <path inkscape:transform-center-y="-5" id="path2374" d="M 189.64648,175 L 159.99999,175" style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" inkscape:transform-center-x="1.0779593e-005"/>
+      <path inkscape:transform-center-y="-5" inkscape:transform-center-x="-10.25" sodipodi:nodetypes="cccc" id="path2376" d="M 183,177 L 192.5,175 L 183,173 L 183,177 z " style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999988px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"/>
+    </g>
+    <text xml:space="preserve" style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#008000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="431.79688" y="244.95313" id="text2378"><tspan sodipodi:role="line" id="tspan2380" x="431.79688" y="244.95313">Y</tspan></text>
+    <text xml:space="preserve" style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="494.5625" y="245" id="text2382"><tspan sodipodi:role="line" id="tspan2384" x="494.5625" y="245">N</tspan></text>
+    <text xml:space="preserve" style="font-size:20px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="136.96875" y="19.148438" id="text3380"><tspan sodipodi:role="line" id="tspan3382" x="136.96875" y="19.148438">Sender</tspan></text>
+    <text xml:space="preserve" style="font-size:20px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="461.70313" y="19.453125" id="text3384"><tspan sodipodi:role="line" id="tspan3386" x="461.70313" y="19.453125">Receiver</tspan></text>
+    <text xml:space="preserve" style="font-size:20px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="300.30469" y="19.148438" id="text3388"><tspan sodipodi:role="line" id="tspan3390" x="300.30469" y="19.148438">Channel</tspan></text>
+    <text xml:space="preserve" style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Arial" x="24.5" y="275" id="text3400"><tspan sodipodi:role="line" id="tspan3402" x="24.5" y="275">MAC = Message Authentication Code</tspan></text>
+  </g>
+</svg>

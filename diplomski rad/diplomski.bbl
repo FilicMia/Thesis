@@ -1,0 +1,69 @@
+\begin{thebibliography}{1}
+  \providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+  \providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+  % \MRhref is called by the amsart/book/proc definition of \MR.
+  \providecommand{\MRhref}[2]{%
+    \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+  }
+  \providecommand{\href}[2]{#2}
+  \providebibliographyfont{name}{}%
+  \providebibliographyfont{lastname}{}%
+  \providebibliographyfont{title}{\emph}%
+  \providebibliographyfont{jtitle}{\btxtitlefont}%
+  \providebibliographyfont{etal}{}%
+  \providebibliographyfont{journal}{}%
+  \providebibliographyfont{volume}{\textbf}%
+  \providebibliographyfont{ISBN}{\MakeUppercase}%
+  \providebibliographyfont{ISSN}{\MakeUppercase}%
+  \providebibliographyfont{url}{\url}%
+  \providebibliographyfont{numeral}{}%
+  \providecommand\btxprintamslanguage[1]{\ (#1)}
+  \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+
+\expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem {math:positioning}
+\btxnamefont {Simo \btxlastnamefont {Ali-Löytty}}, \btxnamefont {Jussi
+  \btxlastnamefont {Collin}}, \btxnamefont {Helena \btxlastnamefont
+  {Leppäkoski}}, \btxnamefont {Hanna \btxlastnamefont {Sairo}}\btxandcomma {}
+  \btxandlong {} \btxnamefont {Niilo \btxlastnamefont {Sirola}},
+  \btxpublisherfont {\btxtitlefont {\btxifchangecase {Mathematics and methods
+  for positioning}{Mathematics and methods for Positioning}}}, 2008,
+  \url{http://math.tut.fi/courses/MAT-45806/mathematics_and_methods_for_positioning_2008.pdf}
+  [Online: accessed \today].
+
+\bibitem {gps:2}
+\btxnamefont {\btxlastnamefont {Anon.}}, \btxjtitlefont {\btxifchangecase
+  {Vulnerability assessment of the transportation infrastructure relying on the
+  global positioning system}{Vulnerability assessment of the transportation
+  infrastructure relying on the Global Positioning System}}, \btxjournalfont
+  {John A. Volpe National Transportation Systems Center, Tech. Rep.} (2001).
+
+\bibitem {GPS:overview}
+\btxnamefont {\btxlastnamefont {{DANA, P. H.}}}, \btxtitlefont
+  {\btxifchangecase {Global positioning system overview}{Global positioning
+  system overview}}, \url{http://www.colorado.edu/geography/gcraft/notes/},
+  1994, [Online; accessed 9-Feb-2017].
+
+\bibitem {bookProcessing}
+\btxnamefont {\btxlastnamefont {{J. Sanz Subirana, J.M. Juan Zornoza and M.
+  Hernández-Pajares}}}, \btxtitlefont {\btxifchangecase {{Fundamentals and
+  Algorithms}}{{Fundamentals and Algorithms}}}, \btxpublisherfont
+  {\btxvolumeshort {.}~1}, \btxprintmonthyear{.}{May}{2013}{long},
+  \url{http://gage.upc.edu/sites/default/files/TEACHING_MATERIAL/GNSS_Book/ESA_GNSS-Book_TM-23_Vol_I.pdf}[Online;
+  accessed \today].
+
+\bibitem {GPS:1}
+\btxnamefont {United\btxfnamespacelong States \btxlastnamefont {military}},
+  \btxtitlefont {\btxifchangecase {Global positioning system standard
+  positioning service signal specification}{GLOBAL POSITIONING SYSTEM STANDARD
+  POSITIONING SERVICE SIGNAL SPECIFICATION}},
+  \url{http://www.gps.gov/technical/ps/1995-SPS-signal-specification.pdf},
+  1995, [Online; accessed 30-Jan-2017].
+
+\bibitem {math:tay}
+\btxnamefont {\btxlastnamefont {{PMF}}}, \btxtitlefont {\btxifchangecase
+  {Redovi potencija i taylorovi redovi}{Redovi potencija i Taylorovi redovi}},
+  \url{https://web.math.pmf.unizg.hr/nastava/analiza/files/ch3_3.pdf}, 2009,
+  [Online; accessed 9-Feb-2017].
+
+\end{thebibliography}
