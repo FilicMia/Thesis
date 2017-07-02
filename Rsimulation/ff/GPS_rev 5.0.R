@@ -8,16 +8,14 @@ library(limSolve)
 library(matrixcalc)
 
 #options(error=recover)
+getwd()
+npass <- 0 # po?etni postav brojila iteracija
 
-setwd('G:\\')
+x <- read.csv('satellites5.txt', header = FALSE) # u?itavanje polo?aja satelita
 
-npass <- 0 # poèetni postav brojila iteracija
-
-x <- read.csv('satellites5.txt', header = FALSE) # uèitavanje položaja satelita
-
-pr <- read.csv('pseudoranges5a.txt', header = FALSE) # uèitavanje izmjerenih pseudoudaljenosti 
-# datoteka xxxa.txt - nekorigirane pogreške
-# datoteka xxxb.txt - korigirane pogreške
+pr <- read.csv('pseudoranges5a.txt', header = FALSE) # u?itavanje izmjerenih pseudoudaljenosti 
+# datoteka xxxa.txt - nekorigirane pogre?ke
+# datoteka xxxb.txt - korigirane pogre?ke
 
 pr <- as.vector(pr[,1])
 pr <- t(t(pr))
@@ -26,22 +24,22 @@ if(length(pr) < length(x)){
   stop('Not enough satellites - unable to estimate position. The script will quit.')
 }
 
-dx <- c(11,11,11,11) # postav poèetnih uvjeta za iteraciju - razlika susjednih iteracija (zaustavlja iteraciju)
-X <- t(t(c(0, 0, 0, 0))) # postav poèetnih uvjeta za iteraciju (procjena položaja)
+dx <- c(11,11,11,11) # postav po?etnih uvjeta za iteraciju - razlika susjednih iteracija (zaustavlja iteraciju)
+X <- t(t(c(0, 0, 0, 0))) # postav po?etnih uvjeta za iteraciju (procjena polo?aja)
 
 # Definicija matrica i fizkalnih konstanti
 H <- matrix(nrow = length(t(pr)), ncol = length(x)+1)
 R <- c(1,1)
 dpr <- c(1,1)
-C <- diag(length(t(pr))) # matrica kovarijancija za Weighted LS solution - u poèetku postavljena kao jedinièna matrica
-                         # za regular position estimation (pretpostavljena potpuna kompenzacija pogrešaka)
+C <- diag(length(t(pr))) # matrica kovarijancija za Weighted LS solution - u po?etku postavljena kao jedini?na matrica
+                         # za regular position estimation (pretpostavljena potpuna kompenzacija pogre?aka)
 c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
-eps <- 1.0 # najveæa prihvatljiva pogreška komponente odreðivanja položaja [m], eps = max(eps(x), eps(y), eps(z))
+eps <- 1.0 # najve?a prihvatljiva pogre?ka komponente odre?ivanja polo?aja [m], eps = max(eps(x), eps(y), eps(z))
 
 err <- c(0,0,0)
 rlevel <- 11
 
-while(eps < rlevel){ # iteracija - sve dok sve pogreške po komponentama ne budu manje od eps
+while(eps < rlevel){ # iteracija - sve dok sve pogre?ke po komponentama ne budu manje od eps
 for(i in 1:length(t(pr))){
   R[i] <- sqrt((x[i,1] - X[1])^2 + (x[i,2] - X[2])^2 + (x[i,3] - X[3])^2)
   
@@ -71,7 +69,7 @@ for(i in 1:length(t(pr))){
   
   }
 
-  # Postupak procjene položaja
+  # Postupak procjene polo?aja
   
   #dx <- qr.coef(qr(H), dpr) # Metoda A: non-WLSA
   
@@ -81,7 +79,7 @@ for(i in 1:length(t(pr))){
   
   npass <- npass + 1
   
-  cat(c(npass, dx[1], dx[2], dx[3]),' \r',file="dx.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i toènosti postupka
+  cat(c(npass, dx[1], dx[2], dx[3]),' \r',file="dx.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i to?nosti postupka
   err[1] <- X[1] - 918074.1038
   err[2] <- X[2] - 5703773.539
   err[3] <- X[3] -2693918.9285 
@@ -122,10 +120,10 @@ plot(np1, log(abs(xx)), type = 'l', col = 'red', main = 'WLSA Position estimatio
 lines(np1, log(abs(yy)), type = 'l', col = 'green')
 lines(np1, log(abs(zz)), type = 'l', col = 'blue')
 
-file.remove('dx.txt','X.txt') # Brisanje privremenih daztoteka korištenih za crtanje dijagrama
+file.remove('dx.txt','X.txt') # Brisanje privremenih daztoteka kori?tenih za crtanje dijagrama
 
 ### TO DO (kozmetika!)
 
-# Izbor WLSA - non-WLSA obavlja se ruèno komentiranjem/ oslobaðanjem L76 (non-WLSA) i L78 (WLSA)
-# L112 i L121 ruèno popravljen naslov
-# Ubaciti još jednu petlju u kojoj æe prvo biti izveden jedan, a zatim drugi model (pomoæu signalne zastavice)
+# Izbor WLSA - non-WLSA obavlja se ru?no komentiranjem/ osloba?anjem L76 (non-WLSA) i L78 (WLSA)
+# L112 i L121 ru?no popravljen naslov
+# Ubaciti jo? jednu petlju u kojoj ?e prvo biti izveden jedan, a zatim drugi model (pomo?u signalne zastavice)
