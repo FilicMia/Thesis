@@ -568,7 +568,7 @@ $\delta$ još nazivamo i zaustavni kriterij.
 Jedan iterativni postupak rješavanja problema \ref{eq:minimization} je Newton-Gaussova metoda (iterativna metoda najmanjih kvadrata).
 Newton-Gaussova metoda linearizira $\mathbf{p}(\mathbf{x})$ u okolini od $\mathbf{x_k}$ pomoću prvog člana razvoja funkcije u Taylorov red\label{stranica:NGLin} u točki $\mathbf{x}_k$:
 \begin{align}\label{eq:approx}
-	\mathbf{p}(\mathbf{x_k}+ \Delta \mathbf{x_k}) \approx \mathbf{p}(\mathbf{x_k}) + \mathbf{p}'(\mathbf{x_k})\cdot \Delta \mathbf{x_k}
+	\mathbf{p}(\mathbf{x_k}+ \Delta \mathbf{x_k}) \approx \mathbf{p}(\mathbf{x_k}) + \mathbf{p}'(\mathbf{ x_k})\cdot \Delta \mathbf{x_k}
 \end{align}
 
 $\Delta \mathbf{x_k}$ se odabire na način tako da
@@ -606,7 +606,7 @@ Algoritam iterativne metode najmanjih je dan u nastavku.
 	$k = 0$ \;
 	\While{$ \left \| \mathbf{x}_{k} - \mathbf{x}_{k-1}\right\| \geq \delta $}{
 		$J_k = \mathbf{p}'(\mathbf{x}_k)$ \;
-		$\Delta \mathbf{x}_k = -\frac{J_k}{\mathbf{p}(\mathbf{x}_k)}$ \;
+		$\Delta \mathbf{x}_k = - J_k^{-1} \cdot \mathbf{p}(\mathbf{x}_k) $ \;
 		$\mathbf{x}_{k+1} =\mathbf{x}_k + \Delta \mathbf{x}_k$ \;
 	$k ++$\;
 	} 
@@ -637,7 +637,7 @@ Sada, algoritam \ref{code:iterLSM} prelazi u algoritam \ref{code:iterLSMW}.
 	$k = 0$ \;
 	\While{$ \left \| \mathbf{x}_{k} - \mathbf{x}_{k-1}\right\| \geq \delta $}{
 		$J_k = \mathbf{p}'(\mathbf{x}_k)$ \;
-		$\Delta \mathbf{x}_k = -\frac{\Sigma^{-\frac{1}{2}}J_k}{\Sigma^{-\frac{1}{2}}(\mathbf{p}(\mathbf{x}_k))}$ \;
+		$\Delta \mathbf{x}_k = - (\Sigma^{-\frac{1}{2}}J_k ) ^{-1} ( \Sigma^{-\frac{1}{2}}(\mathbf{p}(\mathbf{x}_k))$ \;
 		$\mathbf{x}_{k+1} =\mathbf{x}_k + \Delta \mathbf{x}_k$ \;
 		$k ++$\;
 	} 
@@ -920,36 +920,49 @@ jednadžbi sustava \ref{eq:new} dobivamo:
 (d_3-d)^2 = (x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2} + p_3(\textbf{x})\notag \\
 (d_4-d)^2 = (x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2} + p_4(\textbf{x})\notag
 \end{align}
-gdje je $ p_i(\textbf{x}) = - \sqrt{(x-x_i)^{2}+(y-y_i)^{2}+(z-z_i)^{2}}v_i + v_i^2$.
+gdje je 
+\begin{align*}
+p_i(\textbf{x}) & = 2\sqrt{(x-x_i)^{2}+(y-y_i)^{2}+(z-z_i)^{2}}v_i + v_i^2 \\
+& = (d_i-d)^2 - (x_i-x)^{2} - (y_i-y)^{2} - (z_i-z)^{2}.
+\end{align*}
 Označimo 
-$$p'(\mathbf{x}) := (p_1(\textbf{x}),p_2(\textbf{x}),p_3(\textbf{x}),p_4(\textbf{x}))$$
+\begin{align*} \mathbf{\tilde{p}}(\mathbf{x}) := (p_1(\textbf{x}),p_2(\textbf{x}),p_3(\textbf{x}),p_4(\textbf{x}))^T
+\end{align*}
 pa minimizacijski problem \ref{eq:minimization} prelazi u
 \begin{align}\label{eq:minimisation3}
-\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{p'}(\mathbf{x})^T\mathbf{p'}(\mathbf{x}).
+\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{\tilde{p}}(\mathbf{x})^T\mathbf{\tilde{p}}(\mathbf{x}).
 \end{align}
 Analogno \ref{eq:minimisation2} prelazi u 
 \begin{align}\label{eq:minimisation4}
-\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{p'}(\mathbf{x})^T \Sigma ^{-1}\mathbf{p'}(\mathbf{x}).
+\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{\tilde{p}}(\mathbf{x})^T \Sigma ^{-1}\mathbf{\tilde{p}}(\mathbf{x}).
 \end{align}
 \vspace{0.5cm}
-\\Označimo s 
-$$ A:=  
-\begin{bmatrix}
-(d_1-d)^2 & (x-x_1)^{2} & (y-y_1)^{2} & (z-z_1)^{2} \notag \\
-(d_2-d)^2 & (x-x_2)^{2} & (y-y_2)^{2} & (z-z_2)^{2} \notag \\
-(d_3-d)^2 & (x-x_3)^{2} & (y-y_3)^{2} & (z-z_3)^{2} \notag \\
-(d_4-d)^2 & (x-x_4)^{2} & (y-y_4)^{2} & (z-z_4)^{2} \notag \\
+Nadalje, $$ \mathbf{\tilde{p}'}(\mathbf{x}) = (p_1'(\textbf{x}),p_2'(\textbf{x}),p_3'(\textbf{x}),p_4'(\textbf{x}))^T 
+= \begin{bmatrix}
+  2(x_1-x) &  2(y_1-y) &  2(z_1-z) & - 2c(d_1-cd_T)\\
+  2(x_2-x) &  2(y_2-y) &  2(z_2-z) & - 2c(d_2-cd_T) \\
+  2(x_3-x) &  2(y_3-y) &  2(z_3-z) & - 2c(d_3-cd_T) \\
+  2(x_4-x) &  2(y_4-y) &  2(z_4-z) & - 2c(d_4-cd_T) 
 \end{bmatrix}
 $$
-$$ I':=  diag(-1,1,1,1) $$
-$$  \mathbf{1} = diag[ 1, 1, 1, 1]$$
-$$ D' = \text{dijagonala matrica}(A I' A^T)  = diag(- (d_i-d)^2 + (x-x_i)^{2} + (y-y_i)^{2} + (z-z_i)^{2})$$
-imamo 
+\\Označimo s 
 \begin{align*}
-\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{p'}(\mathbf{x})^T\mathbf{p'}(\mathbf{x}) = \text{arg min}_\mathbf{x} (D')^TD'
+& P := \begin{bmatrix}
+ (x_1-x) & (y_1-y) & (z_1-z) & (d_1-d) \\
+ (x_2-x) & (y_2-y) & (z_2-z) & (d_2-d) \\
+ (x_3-x) & (y_3-y) & (z_3-z) & (d_3-d) \\
+ (x_4-x) & (y_4-y) & (z_4-z) & (d_4-d) 
+\end{bmatrix} \\
+& \tilde{I} := diag(1,1,1,-c).
 \end{align*}
-Ovim perturbacijama, dobivamo sljedeću izvedbu algoritma \ref{code:iterLSMW}.
+$$ \mathbf{\tilde{P'}}:= 2 P\tilde{I} $$
+Imamo $$
+\Delta \mathbf{x_k} = -(2 \Sigma^{-\frac{1}{2}} P\tilde{I} )^{-1}(\Sigma^{-\frac{1}{2}}\mathbf{\tilde{p}}(\mathbf{x_k}))
+\\= -\frac{1}{2}(\Sigma^{-\frac{1}{2}} P\tilde{I} )^{-1}(\Sigma^{-\frac{1}{2}}\mathbf{\tilde{p}}(\mathbf{x_k}))
+$$
+Opisanim perturbacijama, dobivamo sljedeću izvedbu algoritma \ref{code:iterLSMW}.
 \begin{lstlisting}[language=R]
+library("MASS","matrixcalc")
 #pseudo-udaljenosti
 c = 299792458
 R = read.csv('pseudoranges.txt', header = TRUE);
@@ -958,25 +971,114 @@ R <- as.matrix(R$R)
 S = read.csv('satellites.txt')
 S <- as.matrix(S)
 x_0 = c(0,0,0,0)
-error = c(3,3,3,3)
+delt = c(3,3,3,3)
 
-unutar = append(R,S)
-A = matrix(unutar,4,4) # [d,x,y,z]
+unutar = append(S,R)
+RS = matrix(unutar,4,4) # [x,y,z,dT]
 
-while(norm(t(error)) > 2){
-	preRhoVector = t(apply(A, 1, function(x) (x-x_0))) #x-x_0
-	D = t(t(apply(preRhoVector,1, function(x) norm(t(x),'F')))) # D' = diagonala(A^TI'A)
-	DD = D
-	DD[1] = -D[1]
-
-	error <- t(D)%*%DD
-	x_0 = x_0 + error
+while(norm(t(delt)) > 1){
+	P = t(apply(RS, 1, function(x) (x-x_0))) #x-x_0
+	PP = P
+	PP[,4] = - c*P[,4] #4. red s -c
+	
+	PX = P*P
+	PX = PX%*%c(-1,-1,-1,1)
+	
+	delt <- -(1/2)*svd.inverse(PP)%*%PX
+	x_0 = x_0 + delt #(x,y,z,dT)
+	print(delt)  
 }
-\end{lstlisting}
-
-Tom izvedbom dobivamo numerički nestabilan sustav kojidivergira.
+\end{lstlisting} %dipl1.R
+Algoritam konvergira prema 
+$$
+\mathbf{x} =
+\begin{bmatrix}
+4.695567e+06 &
+-3.433585e+06 &
+3.888512e+06 &
+6.352458e-04 
+\end{bmatrix}
+$$
 
 \subsection{Odabran pristup}
+Budući da je sustav koji opisuje problem određivanja položaja nelineraran, 
+možemo ga prvo linearizirati, a tek zatim primjeniti metodu najmanjih kvadrata \cite{googleSchoolar1}.
+Prvo se promatra se modifikacija sustava \ref{eq:1}:
+\begin{align}\label{eq:new1}
+f_1(\mathbf{x}) = (x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2} - (d_1-d)^2 = 0 \notag \\
+f_2(\mathbf{x}) = (x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2} - (d_2-d)^2 = 0 \\
+f_3(\mathbf{x}) = (x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2} - (d_3-d)^2 = 0 \notag \\
+f_4(\mathbf{x}) = (x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2} - (d_4-d)^2 = 0 \notag
+\end{align}
+Linearizacijom jednadžbi sustava na isti način kao $\mathbf{p}(\mathbf{x})$ sa stranice \pageref{stranica:NGLin} (za Gauss-Newtonovu metodu), dobivamo:
+\begin{align*}
+f_i(\mathbf{x} + \Delta\mathbf{x}) = f_i(\mathbf{x}) + \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z + \frac{\partial f}{\partial d_T}\Delta d_T 
+\end{align*}
+Odnosno,
+\begin{align*}
+f_i(\mathbf{x} + \Delta\mathbf{x}) - f_i(\mathbf{x}) &= \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z + \frac{\partial f}{\partial d_T}\Delta d_T  \\ &= 
+\begin{bmatrix}
+\frac{\partial f_i}{\partial x} &
+\frac{\partial f_i}{\partial y} &
+\frac{\partial f_i}{\partial z} &
+\frac{\partial f_i}{\partial d_T}
+\end{bmatrix}
+\begin{bmatrix}
+\Delta x \\
+\Delta y \\
+\Delta z \\
+\Delta d_T
+\end{bmatrix}
+\end{align*}
+Uz
+\begin{align}
+A := & \begin{bmatrix}
+\frac{\partial f_1}{\partial x} &
+\frac{\partial f_1}{\partial y} &
+\frac{\partial f_1}{\partial z} &
+\frac{\partial f_1}{\partial d_T} \\
+\frac{\partial f_2}{\partial x} &
+\frac{\partial f_2}{\partial y} &
+\frac{\partial f_2}{\partial z} &
+\frac{\partial f_2}{\partial d_T} \\
+\frac{\partial f_3}{\partial x} &
+\frac{\partial f_3}{\partial y} &
+\frac{\partial f_3}{\partial z} &
+\frac{\partial f_3}{\partial d_T} \\
+\frac{\partial f_4}{\partial x} &
+\frac{\partial f_4}{\partial y} &
+\frac{\partial f_4}{\partial z} &
+\frac{\partial f_4}{\partial d_T}
+\end{bmatrix} \\
+= & 2\begin{bmatrix}
+-(x_1-x) & -(y_1-y) & -(z_1-z) & c(d_1-cd_T) \\
+-(x_2-x) & -(y_2-y) & -(z_2-z) & c(d_2-cd_T) \\ 
+-(x_3-x) & -(y_3-y) & -(z_3-z) & c(d_3-cd_T) \\ 
+-(x_4-x) & -(y_4-y) & -(z_4-z) & c(d_4-cd_T) \\
+\end{bmatrix} = 2P \tilde{I}\\
+\mathbf{x} := & \begin{bmatrix}
+\Delta x \\
+\Delta y \\
+\Delta z \\
+\Delta d_T
+\end{bmatrix}\\
+\mathbf{b} := &
+\begin{bmatrix}
+f_1(\mathbf{x} + \Delta\mathbf{x}) - f_1(\mathbf{x}) \\
+f_2(\mathbf{x} + \Delta\mathbf{x}) - f_2(\mathbf{x}) \\
+f_3(\mathbf{x} + \Delta\mathbf{x}) - f_3(\mathbf{x}) \\
+f_4(\mathbf{x} + \Delta\mathbf{x}) - f_4(\mathbf{x})
+\end{bmatrix}
+\end{align}
+dobivamo sustav:
+\begin{align}
+\mathbf{A}\mathbf{x} = \mathbf{b}
+\end{align}
+koji rješavamo metodom iterativnih najmanjih kvadrata minimizirajući izraz
+$$\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2$$.
+
+
+
 %DODATI U LITERATURU str 366.
 %https://web.math.pmf.unizg.hr/~singer/num_alg/num_anal.pdf
 

@@ -13,49 +13,50 @@ Warning--missing publisher in math:positioning
 Warning--empty language in gps:2
 Warning--missing pages in gps:2
 Warning--empty language in GPS:overview
+Warning--empty language in googleSchoolar1
 Warning--empty language in bookProcessing
 Warning--missing publisher in bookProcessing
 Warning--empty language in GPS:1
 Warning--empty language in math:tay
-You've used 6 entries,
+You've used 7 entries,
             2664 wiz_defined-function locations,
-            633 strings with 6868 characters,
-and the built_in function-call counts, 2060 in all, are:
-= -- 116
-> -- 63
+            639 strings with 7092 characters,
+and the built_in function-call counts, 2410 in all, are:
+= -- 137
+> -- 76
 < -- 1
-+ -- 26
-- -- 20
-* -- 324
-:= -- 305
-add.period$ -- 6
-call.type$ -- 6
-change.case$ -- 28
++ -- 31
+- -- 24
+* -- 377
+:= -- 355
+add.period$ -- 7
+call.type$ -- 7
+change.case$ -- 33
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 113
-empty$ -- 212
-format.name$ -- 59
-if$ -- 374
+cite$ -- 17
+duplicate$ -- 132
+empty$ -- 249
+format.name$ -- 71
+if$ -- 441
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 11
-newline$ -- 42
-num.names$ -- 12
-pop$ -- 70
+int.to.str$ -- 7
+missing$ -- 12
+newline$ -- 45
+num.names$ -- 14
+pop$ -- 85
 preamble$ -- 1
-purify$ -- 22
+purify$ -- 26
 quote$ -- 0
-skip$ -- 48
+skip$ -- 57
 stack$ -- 0
-substring$ -- 30
-swap$ -- 39
+substring$ -- 35
+swap$ -- 45
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
-warning$ -- 9
-while$ -- 12
-width$ -- 7
-write$ -- 62
+type$ -- 24
+warning$ -- 10
+while$ -- 14
+width$ -- 8
+write$ -- 68
 (There was 1 error message)

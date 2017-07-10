@@ -23,17 +23,17 @@
 \contentsline {subsection}{Naivan pristup}{30}{section*.21}
 \contentsline {subsubsection}{Izvedba}{30}{section*.22}
 \contentsline {subsection}{Pobolj\IeC {\v s}an pristup}{30}{section*.23}
-\contentsline {subsection}{Odabran pristup}{31}{section*.24}
-\contentsline {subsubsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja}{31}{section*.25}
-\contentsline {subsubsection}{Izvedba}{32}{section*.26}
-\contentsline {subsubsection}{Procjena to\IeC {\v c}nosti}{32}{section*.27}
-\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{32}{section*.28}
-\contentsline {section}{\numberline {4.4}Zaklju\IeC {\v c}ak}{32}{section.4.4}
-\contentsline {chapter}{Bibliografija}{33}{chapter*.29}
+\contentsline {subsection}{Odabran pristup}{32}{section*.24}
+\contentsline {subsubsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja}{33}{section*.25}
+\contentsline {subsubsection}{Izvedba}{33}{section*.26}
+\contentsline {subsubsection}{Procjena to\IeC {\v c}nosti}{33}{section*.27}
+\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{34}{section*.28}
+\contentsline {section}{\numberline {4.4}Zaklju\IeC {\v c}ak}{34}{section.4.4}
+\contentsline {chapter}{Bibliografija}{35}{chapter*.29}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
-\contentsline {appendix}{\chapternumberline {A}Taylorov red potencija}{41}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Jakobijeva matrica funkcije $\mathbf {h}$, $J$}{43}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }da"}{45}{appendix.C}
+\contentsline {appendix}{\chapternumberline {A}Taylorov red potencija}{43}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Jakobijeva matrica funkcije $\mathbf {h}$, $J$}{45}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }da"}{47}{appendix.C}
