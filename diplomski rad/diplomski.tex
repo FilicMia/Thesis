@@ -48,6 +48,31 @@
 \renewcommand*{\algorithmcfname}{Algoritam}
 \renewcommand*{\algorithmautorefname}{algoritam}
 
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+	}
+
 % Paket graphicx sluzi za manipuliranje grafikom 
  % ukoliko se koristi XeLaTeX onda je \usepackage[xetex]{graphicx}
 % Paket amsmath je vec ukljucen
@@ -485,14 +510,14 @@ izračuna.
 Uz oznake 
 \begin{align}
 \mathbf{\rho} := (d_1, d_2, d_3, d_4)^T \\ 
-\mathbf{x} := (x,y,z,d)^T \\ 
+\mathbf{x} := (x,y,z,d_T)^T \\ 
 \mathbf{s}_i := (x_i,y_i,z_i)^T \\ 
 \mathbf{h} (\mathbf{x}) := 
 \begin{bmatrix}
-||(s_1-\mathbf{x}_{1:3})|| + x_4\\
-||(s_2-\mathbf{x}_{1:3})|| + x_4\\
-||(s_3-\mathbf{x}_{1:3})|| + x_4\\
-||(s_4-\mathbf{x}_{1:3})|| + x_4
+||(s_1-\mathbf{x}_{1:3})|| + x_4\cdot c\\
+||(s_2-\mathbf{x}_{1:3})|| + x_4\cdot c\\
+||(s_3-\mathbf{x}_{1:3})|| + x_4\cdot c\\
+||(s_4-\mathbf{x}_{1:3})|| + x_4\cdot c
 \end{bmatrix} \\
 \mathbf{v} := (v_i,v_2,v_3,v_4)^T \label{eq:v}
 \end{align}%
@@ -864,31 +889,105 @@ Dakle, $\hat{\mathbf{x}} = \text{arg min}_x \left( \mathbf{p}^T (\mathbf{x}) \Si
 što odgovara izrazu \ref{eq:minimisation2} uz matricu težina jednaku $cov(\mathbf{v})^{-1}$.
 
 \chapter{Dizajn i izvedba algoritma, procjena točnosti}\label{sec:izvedba}
-%MIAMIAMIAMIAMIAMAIMAIMIAMIA
-
-%DODATI U LITERATURU str 366.
-%https://web.math.pmf.unizg.hr/~singer/num_alg/num_anal.pdf
-Kratki opis koraka koje smo napravili prilikom izvedbe.
-\subsection{Zahtjevi algoritma}
-Ulaz (U rinex) + uzorak za usporedbu(RINEX)
-\subsubsection{RINEX}
+Nakon proučavanja literature, odlučili smo se za izvedbu temeljnog algoritma 
+za određivanje položaja: algoritma težinskih najmanjih kvadrata (vidi stranicu \pageref{code:iterLSMW}, algoritam \ref{code:iterLSMW}).
+\\Za dobivene psudo udaljenosti (vidi \ref{sssec:rinex}), i 
+položaj satelita u \textit{ECEF XYZ} koordinatnom sustavu u $RINEX$ formatu, izračunavamo položaj
+prijemnika i pogrešku sata prijemnika.
+\section{Programski jezik R}
+\section{Zahtjevi algoritma}
+Za pokretanje procesa određivanja položaja, potrebno je prvo prikupiti podatke u \textit{RINEX} obliku. Podatci su prikupljeni koristeći programski određen GPS prijemnik izveden na vlastitom računalu.
+\subsection{RINEX}\label{sssec:rinex}
 -objašnjenje pojma + primjeri. + otkuda nam.
-\subsubsection{Programski određen GPS prijemnik}
+\subsection{Programski određen GPS prijemnik}
 +zašto i kako smo ga koristili. i dobili podatke. (User manual?)
 
-\subsection{Izvedba}
+\section{Izvedba}
+Direktna izvedba algoritma sa stranice \pageref{code:iterLSMW}, dobivamo 
+izvedbu koja nije općepromjenjiva.
+Naime, matrica sustava ima veliku uvjetovanost pa sustav postaje numerički nestabilan.
+\subsection{Naivan pristup}
+-neki od onih
+\subsubsection{Izvedba}
 R kod
-\subsection{Procjena točnosti}
-+uočene pogreške, uvjetovanost matrice.
-\section{Poboljšani algoritam i njegova izvedba}
-\subsection{Numerička metoda koja dovodi do poboljšanja}
+
+\subsection{Poboljšan pristup}
+Prebacujući član $d=d_T \cdot c$ na lijevu stranu i kvadrirajući obje strane
+jednadžbi sustava \ref{eq:new} dobivamo:
+\begin{align}\label{eq:newIzvedba}
+(d_1-d)^2 = (x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2} + p_1(\textbf{x})\notag \\
+(d_2-d)^2 = (x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2} + p_2(\textbf{x})\\
+(d_3-d)^2 = (x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2} + p_3(\textbf{x})\notag \\
+(d_4-d)^2 = (x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2} + p_4(\textbf{x})\notag
+\end{align}
+gdje je $ p_i(\textbf{x}) = - \sqrt{(x-x_i)^{2}+(y-y_i)^{2}+(z-z_i)^{2}}v_i + v_i^2$.
+Označimo 
+$$p'(\mathbf{x}) := (p_1(\textbf{x}),p_2(\textbf{x}),p_3(\textbf{x}),p_4(\textbf{x}))$$
+pa minimizacijski problem \ref{eq:minimization} prelazi u
+\begin{align}\label{eq:minimisation3}
+\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{p'}(\mathbf{x})^T\mathbf{p'}(\mathbf{x}).
+\end{align}
+Analogno \ref{eq:minimisation2} prelazi u 
+\begin{align}\label{eq:minimisation4}
+\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{p'}(\mathbf{x})^T \Sigma ^{-1}\mathbf{p'}(\mathbf{x}).
+\end{align}
+\vspace{0.5cm}
+\\Označimo s 
+$$ A:=  
+\begin{bmatrix}
+(d_1-d)^2 & (x-x_1)^{2} & (y-y_1)^{2} & (z-z_1)^{2} \notag \\
+(d_2-d)^2 & (x-x_2)^{2} & (y-y_2)^{2} & (z-z_2)^{2} \notag \\
+(d_3-d)^2 & (x-x_3)^{2} & (y-y_3)^{2} & (z-z_3)^{2} \notag \\
+(d_4-d)^2 & (x-x_4)^{2} & (y-y_4)^{2} & (z-z_4)^{2} \notag \\
+\end{bmatrix}
+$$
+$$ I':=  diag(-1,1,1,1) $$
+$$  \mathbf{1} = diag[ 1, 1, 1, 1]$$
+$$ D' = \text{dijagonala matrica}(A I' A^T)  = diag(- (d_i-d)^2 + (x-x_i)^{2} + (y-y_i)^{2} + (z-z_i)^{2})$$
+imamo 
+\begin{align*}
+\hat{\mathbf{x}} = \text{arg min}_\mathbf{x} \mathbf{p'}(\mathbf{x})^T\mathbf{p'}(\mathbf{x}) = \text{arg min}_\mathbf{x} (D')^TD'
+\end{align*}
+Ovim perturbacijama, dobivamo sljedeću izvedbu algoritma \ref{code:iterLSMW}.
+\begin{lstlisting}[language=R]
+#pseudo-udaljenosti
+c = 299792458
+R = read.csv('pseudoranges.txt', header = TRUE);
+R <- as.matrix(R$R)
+#ucitaj koordinate satelita
+S = read.csv('satellites.txt')
+S <- as.matrix(S)
+x_0 = c(0,0,0,0)
+error = c(3,3,3,3)
+
+unutar = append(R,S)
+A = matrix(unutar,4,4) # [d,x,y,z]
+
+while(norm(t(error)) > 2){
+	preRhoVector = t(apply(A, 1, function(x) (x-x_0))) #x-x_0
+	D = t(t(apply(preRhoVector,1, function(x) norm(t(x),'F')))) # D' = diagonala(A^TI'A)
+	DD = D
+	DD[1] = -D[1]
+
+	error <- t(D)%*%DD
+	x_0 = x_0 + error
+}
+\end{lstlisting}
+
+Tom izvedbom dobivamo numerički nestabilan sustav kojidivergira.
+
+\subsection{Odabran pristup}
+%DODATI U LITERATURU str 366.
+%https://web.math.pmf.unizg.hr/~singer/num_alg/num_anal.pdf
+
+\subsubsection{Numerička metoda koja dovodi do poboljšanja}
 Zašto , kako smo došli do toga!
-\subsection{Izvedba}
+\subsubsection{Izvedba}
 R kod
-\subsection{Procjena točnosti}
+\subsubsection{Procjena točnosti}
 kako već
 
-\section{Usporedba osnovnog i poboljšanog algoritma} + zaključak zašto je bolji.
+\subsection{Usporedba osnovnog i poboljšanog algoritma} + zaključak zašto je bolji.
 
 \section{Zaključak}
 

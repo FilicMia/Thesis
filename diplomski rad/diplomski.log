@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.17)  2 JUL 2017 11:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.6.17)  10 JUL 2017 10:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1068,23 +1068,48 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \c@algocf=\count176
 \algocf@algoframe=\box40
 \algocf@algobox=\box41
-) (./diplomski.aux)
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count177
+\lst@gtempboxa=\box42
+\lst@token=\toks41
+\lst@length=\count178
+\lst@currlwidth=\dimen187
+\lst@column=\count179
+\lst@pos=\count180
+\lst@lostspace=\dimen188
+\lst@width=\dimen189
+\lst@newlines=\count181
+\lst@lineno=\count182
+\lst@maxwidth=\dimen190
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count183
+\lst@skipnumbers=\count184
+\lst@framebox=\box43
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(./diplomski.aux)
 \openout1 = `diplomski.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
-LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 104.
+LaTeX Font Info:    ... okay on input line 104.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1125,22 +1150,22 @@ babelbib extension \btxifchangecaseoff added to \extrascroatian
 babelbib: Set bibliography fall-back language to croatian
 babelbib: Load BibTeX extensions \bibscroatian for croatian
 babelbib: Set language for keywords in the bibliography fixed to croatian
-\AtBeginShipoutBox=\box42
-Package hyperref Info: Link coloring OFF on input line 79.
+\AtBeginShipoutBox=\box44
+Package hyperref Info: Link coloring OFF on input line 104.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count177
+\c@section@level=\count185
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 79.
-LaTeX Info: Redefining \ref on input line 79.
-LaTeX Info: Redefining \pageref on input line 79.
-LaTeX Info: Redefining \nameref on input line 79.
+LaTeX Info: Redefining \nameref on input line 104.
+LaTeX Info: Redefining \ref on input line 104.
+LaTeX Info: Redefining \pageref on input line 104.
+LaTeX Info: Redefining \nameref on input line 104.
 (./diplomski.out) (./diplomski.out)
 \@outlinefile=\write4
 \openout4 = `diplomski.out'.
@@ -1148,25 +1173,27 @@ LaTeX Info: Redefining \nameref on input line 79.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count178
-\scratchdimen=\dimen187
-\scratchbox=\box43
-\nofMPsegments=\count179
-\nofMParguments=\count180
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count181
-\MPscratchDim=\dimen188
-\MPnumerator=\count182
-\makeMPintoPDFobject=\count183
-\everyMPtoPDFconversion=\toks42
+\scratchcounter=\count186
+\scratchdimen=\dimen191
+\scratchbox=\box45
+\nofMPsegments=\count187
+\nofMParguments=\count188
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count189
+\MPscratchDim=\dimen192
+\MPnumerator=\count190
+\makeMPintoPDFobject=\count191
+\everyMPtoPDFconversion=\toks43
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
+\c@lstlisting=\count192
+LaTeX Font Info:    Try loading font information for U+msa on input line 108.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
+LaTeX Font Info:    Try loading font information for U+msb on input line 108.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1182,25 +1209,25 @@ oc)
 
 ] [2
 
-] <images/pictureNav.jpg, id=146, 303.14597pt x 186.73792pt>
+] <images/pictureNav.jpg, id=151, 303.14597pt x 186.73792pt>
 File: images/pictureNav.jpg Graphic file (type jpg)
 
 <use images/pictureNav.jpg>
-Package pdftex.def Info: images/pictureNav.jpg used on input line 106.
+Package pdftex.def Info: images/pictureNav.jpg used on input line 131.
 (pdftex.def)             Requested size: 259.49178pt x 159.85632pt.
 
-<images/GNSSsegmenti.png, id=150, 803.0pt x 520.94624pt>
+<images/GNSSsegmenti.png, id=155, 803.0pt x 520.94624pt>
 File: images/GNSSsegmenti.png Graphic file (type png)
 
 <use images/GNSSsegmenti.png>
-Package pdftex.def Info: images/GNSSsegmenti.png used on input line 121.
+Package pdftex.def Info: images/GNSSsegmenti.png used on input line 146.
 (pdftex.def)             Requested size: 259.49178pt x 168.34369pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3 <./images/pictureNav.jpg>]
-Overfull \hbox (21.68082pt too wide) in paragraph at lines 148--150
+Overfull \hbox (21.68082pt too wide) in paragraph at lines 173--175
 [][]\OT1/cmr/bx/n/12 Definicija 1.0.2 \OT1/cmr/m/n/12 (Po-zi-ci-oni-ra-nje)\OT1
 /cmr/bx/n/12 . []\OT1/cmr/m/it/12 Po-zi-ci-oni-ra-nje na-zi-vamo pos-tu-pak odr
 e[]divanja polo^^Tzaja
@@ -1209,65 +1236,65 @@ e[]divanja polo^^Tzaja
 [4 <./images/GNSSsegmenti.png>] [5] [6
 
 ]
-<images/GPS_Signals.png, id=180, 723.6636pt x 390.258pt>
+<images/GPS_Signals.png, id=185, 723.6636pt x 390.258pt>
 File: images/GPS_Signals.png Graphic file (type png)
 
 <use images/GPS_Signals.png>
-Package pdftex.def Info: images/GPS_Signals.png used on input line 176.
+Package pdftex.def Info: images/GPS_Signals.png used on input line 201.
 (pdftex.def)             Requested size: 172.99013pt x 93.28867pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7 <./images/GPS_Signals.png>] <images/deltat.png, id=193, 642.4pt x 347.2975p
+ [7 <./images/GPS_Signals.png>] <images/deltat.png, id=198, 642.4pt x 347.2975p
 t>
 File: images/deltat.png Graphic file (type png)
 
 <use images/deltat.png>
-Package pdftex.def Info: images/deltat.png used on input line 207.
+Package pdftex.def Info: images/deltat.png used on input line 232.
 (pdftex.def)             Requested size: 172.99013pt x 93.5225pt.
  [8 <./images/deltat.png>]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 235.
+(hyperref)                removing `\dj' on input line 260.
 
-<images/DOP.png, id=212, 656.4525pt x 417.56pt>
+<images/DOP.png, id=217, 656.4525pt x 417.56pt>
 File: images/DOP.png Graphic file (type png)
  <use images/DOP.png>
-Package pdftex.def Info: images/DOP.png used on input line 246.
+Package pdftex.def Info: images/DOP.png used on input line 271.
 (pdftex.def)             Requested size: 259.49178pt x 165.05862pt.
 
-<images/DOPLow.png, id=213, 905.3825pt x 1012.78375pt>
+<images/DOPLow.png, id=218, 905.3825pt x 1012.78375pt>
 File: images/DOPLow.png Graphic file (type png)
  <use images/DOPLow.png>
-Package pdftex.def Info: images/DOPLow.png used on input line 252.
+Package pdftex.def Info: images/DOPLow.png used on input line 277.
 (pdftex.def)             Requested size: 259.49178pt x 290.26901pt.
 
 Underfull \vbox (badness 3009) has occurred while \output is active []
 
  [9]
-<images/DOPHigh.png, id=222, 906.38625pt x 903.375pt>
+<images/DOPHigh.png, id=227, 906.38625pt x 903.375pt>
 File: images/DOPHigh.png Graphic file (type png)
  <use images/DOPHigh.png>
-Package pdftex.def Info: images/DOPHigh.png used on input line 258.
+Package pdftex.def Info: images/DOPHigh.png used on input line 283.
 (pdftex.def)             Requested size: 172.99013pt x 172.41496pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10 <./images/DOP.png> <./images/DOPLow.png>]
-Overfull \hbox (23.30392pt too wide) in paragraph at lines 277--277
+Overfull \hbox (23.30392pt too wide) in paragraph at lines 302--302
 []|\OT1/cmr/m/n/12 rasprostiranje 
  []
 
 
-Overfull \hbox (1.95831pt too wide) in paragraph at lines 280--280
+Overfull \hbox (1.95831pt too wide) in paragraph at lines 305--305
 []|\OT1/cmr/m/n/12 prijemnik|  
  []
 
-<images/multipath.jpg, id=228, 173.448pt x 134.4222pt>
+<images/multipath.jpg, id=233, 173.448pt x 134.4222pt>
 File: images/multipath.jpg Graphic file (type jpg)
 
 <use images/multipath.jpg>
-Package pdftex.def Info: images/multipath.jpg used on input line 297.
+Package pdftex.def Info: images/multipath.jpg used on input line 322.
 (pdftex.def)             Requested size: 172.99013pt x 134.07317pt.
 
 Underfull \vbox (badness 6412) has occurred while \output is active []
@@ -1277,52 +1304,52 @@ Underfull \vbox (badness 6412) has occurred while \output is active []
 Class memoir Warning: The material used in the headers is too large
 (14.92502pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 301.
+(in both cases you will find help in the memoir manual). on input line 326.
 
 [11 <./images/DOPHigh.png>] [12 <./images/multipath.jpg>]
-<images/NACONTENT.png, id=247, 744.7825pt x 492.84125pt>
+<images/NACONTENT.png, id=252, 744.7825pt x 492.84125pt>
 File: images/NACONTENT.png Graphic file (type png)
 
 <use images/NACONTENT.png>
-Package pdftex.def Info: images/NACONTENT.png used on input line 347.
+Package pdftex.def Info: images/NACONTENT.png used on input line 372.
 (pdftex.def)             Requested size: 259.49178pt x 171.71492pt.
  [13 <./images/NACONTENT.png>]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 370.
+(hyperref)                removing `\dj' on input line 395.
 
-<images/satellite_distance_13D.png, id=266, 638.385pt x 633.36626pt>
+<images/satellite_distance_13D.png, id=271, 638.385pt x 633.36626pt>
 File: images/satellite_distance_13D.png Graphic file (type png)
 
 <use images/satellite_distance_13D.png>
-Package pdftex.def Info: images/satellite_distance_13D.png used on input line 3
-82.
+Package pdftex.def Info: images/satellite_distance_13D.png used on input line 4
+07.
 (pdftex.def)             Requested size: 172.99013pt x 171.62968pt.
 
-<images/satellites_distance_23D.png, id=270, 1021.8175pt x 712.6625pt>
+<images/satellites_distance_23D.png, id=275, 1021.8175pt x 712.6625pt>
 File: images/satellites_distance_23D.png Graphic file (type png)
 
 <use images/satellites_distance_23D.png>
 Package pdftex.def Info: images/satellites_distance_23D.png used on input line 
-389.
+414.
 (pdftex.def)             Requested size: 259.49178pt x 180.98164pt.
  [14 <./images/satellite_distance_13D.png>] <images/satellites_distance_33D.png
-, id=285, 792.9625pt x 596.2275pt>
+, id=290, 792.9625pt x 596.2275pt>
 File: images/satellites_distance_33D.png Graphic file (type png)
 
 <use images/satellites_distance_33D.png>
 Package pdftex.def Info: images/satellites_distance_33D.png used on input line 
-397.
+422.
 (pdftex.def)             Requested size: 259.49178pt x 195.109pt.
  [15 <./images/satellites_distance_23D.png> <./images/satellites_distance_33D.p
 ng>]
-<images/ecefxyz.png, id=296, 590.205pt x 504.88625pt>
+<images/ecefxyz.png, id=301, 590.205pt x 504.88625pt>
 File: images/ecefxyz.png Graphic file (type png)
  <use images/ecefxyz.png>
-Package pdftex.def Info: images/ecefxyz.png used on input line 417.
+Package pdftex.def Info: images/ecefxyz.png used on input line 442.
 (pdftex.def)             Requested size: 259.49178pt x 221.98114pt.
 
-Overfull \hbox (31.01605pt too wide) in paragraph at lines 427--432
+Overfull \hbox (31.01605pt too wide) in paragraph at lines 452--457
 []\OT1/cmr/m/n/12 Primjetimo kako pro-ces odre[]divanja polo^^Tzaja pri-jem-nik
 a in-di-rek-tno zah-tjeva uskla[]denost
  []
@@ -1330,7 +1357,7 @@ a in-di-rek-tno zah-tjeva uskla[]denost
 [16 <./images/ecefxyz.png>] [17] [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 475--476
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
@@ -1343,7 +1370,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23]
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 722--724
+Underfull \hbox (badness 10000) in paragraph at lines 747--749
 
  []
 
@@ -1352,7 +1379,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 722--724
 Class memoir Warning: The material used in the headers is too large
 (29.42502pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 866.
+(in both cases you will find help in the memoir manual). on input line 891.
 
 
 Overfull \vbox (14.92502pt too high) has occurred while \output is active []
@@ -1364,15 +1391,61 @@ Overfull \vbox (14.92502pt too high) has occurred while \output is active []
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 866.
+(hyperref)                removing `\textasciicaron' on input line 891.
 
-[29]
+
+Overfull \hbox (7.38574pt too wide) in paragraph at lines 906--909
+\OT1/cmr/m/n/12 Direktna iz-vedba al-go-ritma sa stra-nice []22[], do-bi-vamo i
+z-vedbu koja nije op^^Scepromjenjiva.
+ []
+
+[29] [30] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2015/06/04 1.6 listings language file
+)
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 956.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <12> not available
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 956.
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 966.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 966.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 966.
+
+Overfull \hbox (25.76729pt too wide) in paragraph at lines 967--968
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (216.11696pt too wide) in paragraph at lines 968--969
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 972.
+[31]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 893.
+(hyperref)                removing `\textasciicaron' on input line 992.
 
-(./diplomski.bbl [30]
+(./diplomski.bbl [32]
 babelbib: Using the BibTeX style's default font for `name'.
 babelbib: Using the BibTeX style's default font for `lastname'.
 babelbib: Using the BibTeX style's default font for `title'.
@@ -1396,93 +1469,95 @@ Underfull \hbox (badness 2529) in paragraph at lines 56--62
 ONING SYS-TEM STAN-DARD
  []
 
-) [31
+) [33
 
-] [32
-
-] [33] [34
+] [34
 
 ] [35] [36
 
 ] [37] [38
 
-] [39] [40]
+] [39] [40
+
+] [41] [42]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1021.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1021.
+(hyperref)                removing `math shift' on input line 1120.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1021.
+(hyperref)                removing `math shift' on input line 1120.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1021.
+(hyperref)                removing `math shift' on input line 1120.
 
-[41
 
-] [42
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1120.
+
+[43
+
+] [44
 
 ]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 1049.
+(hyperref)                removing `\dj' on input line 1148.
 
 
 Class memoir Warning: The material used in the headers is too large
 (29.42502pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 1051.
+(in both cases you will find help in the memoir manual). on input line 1150.
 
-[43]
+[45]
 \tf@toc=\write5
 \openout5 = `diplomski.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1051.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1051.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1150.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1150.
  (./diplomski.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1051.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1051.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1150.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1150.
 
 Package rerunfilecheck Info: File `diplomski.out' has not changed.
-(rerunfilecheck)             Checksum: DB2201F8D10E0E8D99A1D18F94AD10EE;1467.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1051.
+(rerunfilecheck)             Checksum: 14177593EBB660897325B95D7CF801AF;1471.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1150.
  ) 
 Here is how much of TeX's memory you used:
- 15450 strings out of 494374
- 232116 string characters out of 6164954
- 505454 words of memory out of 5000000
- 18408 multiletter control sequences out of 15000+600000
- 20770 words of font info for 76 fonts, out of 8000000 for 9000
+ 17956 strings out of 494374
+ 263915 string characters out of 6164954
+ 530891 words of memory out of 5000000
+ 20853 multiletter control sequences out of 15000+600000
+ 21383 words of font info for 78 fonts, out of 8000000 for 9000
  350 hyphenation exceptions out of 8191
- 43i,16n,43p,442b,466s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on diplomski.pdf (48 pages, 1327587 bytes).
+ 43i,16n,43p,442b,2010s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msbm10.pfb>
+Output written on diplomski.pdf (50 pages, 1351985 bytes).
 PDF statistics:
- 670 PDF objects out of 1000 (max. 8388607)
- 568 compressed objects within 6 object streams
- 181 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 734 PDF objects out of 1000 (max. 8388607)
+ 627 compressed objects within 7 object streams
+ 212 named destinations out of 1000 (max. 500000)
+ 242 words of extra memory for PDF output out of 10000 (max. 10000000)
 

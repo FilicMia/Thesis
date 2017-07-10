@@ -15,22 +15,25 @@
 \contentsline {section}{\numberline {3.2}Metoda zatvorene forme}{24}{section.3.2}
 \contentsline {section}{\numberline {3.3}Metoda najbli\IeC {\v z}eg susjeda (maksimalne vjerodostojnosti)}{27}{section.3.3}
 \contentsline {chapter}{\chapternumberline {4}Dizajn i izvedba algoritma, procjena to\IeC {\v c}nosti}{29}{chapter.4}
-\contentsline {subsection}{Zahtjevi algoritma}{29}{section*.19}
-\contentsline {subsubsection}{RINEX}{29}{section*.20}
-\contentsline {subsubsection}{Programski odre\IeC {\dj }en GPS prijemnik}{29}{section*.21}
-\contentsline {subsection}{Izvedba}{29}{section*.22}
-\contentsline {subsection}{Procjena to\IeC {\v c}nosti}{29}{section*.23}
-\contentsline {section}{\numberline {4.1}Pobolj\IeC {\v s}ani algoritam i njegova izvedba}{30}{section.4.1}
-\contentsline {subsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja}{30}{section*.24}
-\contentsline {subsection}{Izvedba}{30}{section*.25}
-\contentsline {subsection}{Procjena to\IeC {\v c}nosti}{30}{section*.26}
-\contentsline {section}{\numberline {4.2}Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{30}{section.4.2}
-\contentsline {section}{\numberline {4.3}Zaklju\IeC {\v c}ak}{30}{section.4.3}
-\contentsline {chapter}{Bibliografija}{31}{chapter*.27}
+\contentsline {section}{\numberline {4.1}Programski jezik R}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}Zahtjevi algoritma}{29}{section.4.2}
+\contentsline {subsection}{RINEX}{29}{section*.19}
+\contentsline {subsection}{Programski odre\IeC {\dj }en GPS prijemnik}{29}{section*.20}
+\contentsline {section}{\numberline {4.3}Izvedba}{30}{section.4.3}
+\contentsline {subsection}{Naivan pristup}{30}{section*.21}
+\contentsline {subsubsection}{Izvedba}{30}{section*.22}
+\contentsline {subsection}{Pobolj\IeC {\v s}an pristup}{30}{section*.23}
+\contentsline {subsection}{Odabran pristup}{31}{section*.24}
+\contentsline {subsubsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja}{31}{section*.25}
+\contentsline {subsubsection}{Izvedba}{32}{section*.26}
+\contentsline {subsubsection}{Procjena to\IeC {\v c}nosti}{32}{section*.27}
+\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{32}{section*.28}
+\contentsline {section}{\numberline {4.4}Zaklju\IeC {\v c}ak}{32}{section.4.4}
+\contentsline {chapter}{Bibliografija}{33}{chapter*.29}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
-\contentsline {appendix}{\chapternumberline {A}Taylorov red potencija}{39}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Jakobijeva matrica funkcije $\mathbf {h}$, $J$}{41}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }da"}{43}{appendix.C}
+\contentsline {appendix}{\chapternumberline {A}Taylorov red potencija}{41}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Jakobijeva matrica funkcije $\mathbf {h}$, $J$}{43}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }da"}{45}{appendix.C}
