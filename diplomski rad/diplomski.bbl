@@ -74,4 +74,11 @@
   \url{https://web.math.pmf.unizg.hr/nastava/analiza/files/ch3_3.pdf}, 2009,
   [Online; accessed 9-Feb-2017].
 
+\bibitem {singer07}
+\btxnamefont {Saša \btxlastnamefont {Singer}}, \btxtitlefont {\btxifchangecase
+  {Numerička matematika, 7. predavanje}{Numerička matematika, 7.
+  predavanje}}, 2017,
+  \url{http://degiorgi.math.hr/~singer/num_mat/NM_1617/07.pdf}[Online; accessed
+  \today].
+
 \end{thebibliography}

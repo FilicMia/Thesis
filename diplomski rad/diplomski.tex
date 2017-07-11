@@ -709,6 +709,8 @@ s izvorom u kvaliteti "zviježđda".
 Izračuni gornjih mjera su točni onoliko koliko su pretpostavke
 o jednakosti varijance za $\Delta \mathbf{y}$ i $\Delta \mathbf{x}$
 istinite.
+
+Primjenu metode najmanjih kvadrata moguće je pronaći na stranici \pageref{stranica:nastavakLS}.
 %DODATI KAKO PRAVO DEFINIRATI h DA SE dobije J(4,4) TDOP u appendix.
 \section{Metoda zatvorene forme}
 Metoda zatvorene forme pronalazi direktno rješenje sustava \ref{eq:1}.
@@ -1003,6 +1005,8 @@ $$
 \subsection{Odabran pristup}
 Budući da je sustav koji opisuje problem određivanja položaja nelineraran, 
 možemo ga prvo linearizirati, a tek zatim primjeniti metodu najmanjih kvadrata \cite{googleSchoolar1}.
+Rješenja lineariziranog i nelineariziranog sustava nisu u potpunosti jednaka, ali su u ovo slučaju dovoljno bliska jer su jednadžbe sustava skoro pa linearne \cite{singer07}.%slide 16
+
 Prvo se promatra se modifikacija sustava \ref{eq:1}:
 \begin{align}\label{eq:new1}
 f_1(\mathbf{x}) = (x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2} - (d_1-d)^2 = 0 \notag \\
@@ -1071,19 +1075,77 @@ f_4(\mathbf{x} + \Delta\mathbf{x}) - f_4(\mathbf{x})
 \end{bmatrix}
 \end{align}
 dobivamo sustav:
-\begin{align}
+\begin{align}\label{eq:sustav}
 \mathbf{A}\mathbf{x} = \mathbf{b}
 \end{align}
-koji rješavamo metodom iterativnih najmanjih kvadrata minimizirajući izraz
-$$\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2$$.
+koji rješavamo metodom iterativnih najmanjih kvadrata.\label{stranica:nastavakLS}
+Ideja je da, budući da zbog pogreške u mjerenjima sustav \ref{eq:sustav} nema uvijek rješenje, tj. 
+$\mathbf{A}\mathbf{x} - \mathbf{b} \not = 0, \forall \mathbf{x} \in \R^m$,
+ne tražiti rješenje sustava, već $\mathbf{x}$ koji minimizira izraz $\|\mathbf{A}\mathbf{x} - \mathbf{b}\|_2$.
+Prema sljedećem teoremu, dovoljno je promatrati sustav
+$$ A^TA\mathbf{x} = A^Tb $$.
 
+\begin{thm}
+	Skup svih rješenja problema $\min_\mathbf{x}\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2$ označimo s
+	$$ S= \{\mathbf{x} \in \R^\mathit{m} | \| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2 \textit{ je minimalna} \} $$
+	Tada je $\mathbf{x}  \in S$, tj. $\mathbf{x}$ je rješenje problema najmanjih kvadrata, ako i samo ako vrijedi sljedeća relacija ortogonalnosti 
+	$$A^T(A\mathbf{x}-\mathbf{b}) = 0,$$
+	\\ koju obično nazivamo \textit{sustav normalnih jednadžbi} i pišemo u obliku 
+	$$ A^TA\mathbf{x} = A^Tb $$.
+\end{thm}
+Dokaz teorema se može naći u \cite{singer07}, stranica 46.\\
+Dakle, rješenje minimizacijskog problema najmanjih kvadrata sustava \ref{eq:sustav} je jednako rješenju sustava 
+\begin{align}\label{eq:sustavProj}
+	A^TA\mathbf{x} = A^Tb 
+\end{align}.
 
+Zanimljiva činjenica je da 
+ukoliko znamo jedno rješenje sustava \ref{eq:sustavProj}, lako je pronaći i sva ostala, ukoliko ona postoje.\\
+Neka je $\mathbf{A}\mathbf{x} - \mathbf{b} = r$ i $\hat{x} \in \R^m$ proizvoljan.\\
+Neka je
+\begin{align}
+	\hat{r}  &=  \mathbf{A}\mathbf{\hat{x}} - \mathbf{b} \notag \\
+			&= r + A\mathbf{x} - A\mathbf{\hat{x}} \notag \\
+			 &= r - A(\mathbf{\hat{x}} - \mathbf{x}) \notag
+\end{align}
+Tada je $\mathbf{\hat{x}} \in S$ ako i samo ako $\hat{r} = r$,  $ A(\mathbf{\hat{x}} - \mathbf{x}) $, odnosno $\mathbf{\hat{x}} - \mathbf{x} \in \mathcal{N}(A)$.\\
+Ukoliko vrijedi nešto od sljedećega:
+\begin{itemize}
+	\item $A$ ima puni stupčani rang,
+	\item stupci matrice $A$ su linearno nezavisni,
+	\item $A^TA$ je pozitivno definitna,
+\end{itemize}
+ $\mathcal{N}(A)$ je trivijalan i rješenje sustava je jedinstveno 
+\vspace{0.5cm}
+\\Vrijede i sljedeće tvrdnje.%
+\begin{enumerate}
+	\item Općenito, matrica $A^TA$ je simetrična i pozitivno semidefinitna jer za svaki
+	$\mathbf{x} \in \R^m$ vrijedi
+	$$  \mathbf{x}^TA^TA\mathbf{x} = (A\mathbf{x})^T(A\mathbf{x}) = \|A\mathbf{x}\|_2^2 \geq 0. $$
+	\item Sustav normalnih jednadžbi uvijek ima rješenje i to jedinstveno.
+\end{enumerate}
+\vspace{1cm}
+Nakon formalizacije problema, potrebno je jednostavan način za izračunavanje rješenja sustava \ref{eq:sustavProj}.
+Jasno je da se matrica $A^TA$ ne invertira, nego se rješava sustav \ref{eq:sustavProj}.
+Sustav možemo rješiti tako što koristimo faktorizaciju Choleskoga matrice $A^TA$.
+Tako pronađeno rješenje nije naročito točno\cite{singer07},stranica 60.\\
 
-%DODATI U LITERATURU str 366.
-%https://web.math.pmf.unizg.hr/~singer/num_alg/num_anal.pdf
+\subsubsection{Numerička metoda koja dovodi do poboljšanja točnosti rješenja}
+Budući da će korištena matrica $A$ imati puni stupčani rang, rješenje problema minimizacije možemo zapisati kao:
+\begin{align}
+	\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2	
+	& = \| \mathbf{Q}^T(\mathbf{A}\mathbf{x} - \mathbf{b}) \|_2 \\
+	& = \| \mathbf{Q}^T \mathbf{A}\mathbf{x} - \mathbf{Q}^T \mathbf{b} \|_2	
+\end{align}
+gdje je $\mathbf{Q}$ proizvoljna ortogonalna matrica.\\
+$\mathbf{Q}$ može bit proizvoljna pa možemo odabrati $\mathbf{Q}$ takvu da je lagano računati $\mathbf{x}$.
+Korištenjem \textit{QR} faktorizacije, $\mathbf{A} = \mathbf{QR}$ i $\mathbf{Q}^T\mathbf{A} = \mathbf{R}$ gdje je $\mathbf{R}$ gornjetrokutasta matrica.
+Na ovaj način dobiveno rješenje se pokazuje znatno točnije.
+Dakle, sada rješavamo sustav
+\begin{align}\label{eq:sustavQR}
+	\mathbf{R}^T\mathbf{R}\mathbf{x} = \mathbf{R}^T\mathbf{Q}^T\mathbf{b} = \mathbf{A}^T\mathbf{b}.
+\end{align}
 
-\subsubsection{Numerička metoda koja dovodi do poboljšanja}
-Zašto , kako smo došli do toga!
 \subsubsection{Izvedba}
 R kod
 \subsubsection{Procjena točnosti}
