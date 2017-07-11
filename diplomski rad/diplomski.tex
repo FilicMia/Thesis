@@ -164,15 +164,15 @@
 	na kojemu se radi da postane globalni najkasnije do 2020\cite{bookProcessing}.
 	
 	Primjena GNSS-a dijeli se na pozicioniranje i navigaciju.
-	\begin{definition}[Navigacija]
+	\begin{defn}[Navigacija]
 		Navigacija obuhvaća trenutno određivanje položaja i brzine entiteta u pokretu.
 		Svrha navigacije je praćenje i upravljanje gibanja entiteta.
-	\end{definition}
+	\end{defn}
 	
-	\begin{definition}[Pozicioniranje]
+	\begin{defn}[Pozicioniranje]
 		Pozicioniranje nazivamo postupak određivanja položaja točkovnog entiteta ili niza 
 		točkovnih entiteta u prostoru.
-	\end{definition}
+	\end{defn}
 	Ovaj rad se bavi isključivo bespojenom (engl. off-line) navigacijskom primjenom, u svrhu praćenja entiteta.
 	Bespojena navigacija se koristi u prometnoj znanosti u analizi prometnih puteva. Kako ne zahtjeva izračunavanje u realnom vremenu (engl. real-time),
 	svodi se na određivanje položaja točkovnog entiteta koji je statičan u danom vremenu $t$, tj. pozicioniranje.
@@ -212,7 +212,7 @@
 	temeljem sadržanih C/A PRN kodova. Satelit C/A PRN kodove odašilje neprestano, s početkom na početku svake sekunde. Prijemnik primljeni C/A PRN kod korsti za 
 	razlikovanje satelita odašiljetelja, ali i za računanje pseudo-udaljenosti.
 	
-	\begin{definition}[Pseudo-udaljenost]
+	\begin{defn}[Pseudo-udaljenost]
 		Naka su svi sateliti numeriraniprirodnim  brojevima s početkom 
 		u 1. Naka je $\mathbf{i} \in \mathbb{N}$ neki satelit i $\mathbf{t}$ prijemnik
 		koji je u mogućnosti primiti signal koji odašilje satelit $\mathbf{i}$. Pseudo-udaljenost
@@ -220,7 +220,7 @@
 		$$d_i = c\cdot(t'_i- t_i)$$
 		gdje je c konstanta koja je jednaka (prosječnoj) brzini putovanja signala od satelita do prijemnika. $t'_i$ je vrijeme primanja signala, a $t_i$ vrijeme slanja signala
 		(po UTC vremenu).
-	\end{definition}
+	\end{defn}
 	\textbf{Pseudo-udaljenost} je aproksimacija udaljenosti između satelita odašiljatelja i prijemnika primatelja signala u određenom trenutku.
 	Neka je $\delta t := (t'_i- t_i)$. Vrijeme putovanja signala izračunava se poravnavanjem odgovarajućih dijelova signala, tj. C/A PRN kodova.
 	Naime, prijemnik i satelit istovremeno generiraju isti C/A PRN kod. Budući da 
@@ -363,9 +363,9 @@
 		\item ionosferski model korekcije za koji se smatra da je potrebno koristiti.
 	\end{enumerate}
 	
-	\begin{definition}[Universal Time Coordinate (UTC vrijeme)]
+	\begin{defn}[Universal Time Coordinate (UTC vrijeme)]
 		Universal Time Coordinate je vremenski standard zasnovan na međunarodnom atomskom vremenu koji se najčešće koristi u znanstvene i vojne svrhe. Drugi nazivi za taj vremenski standard su ZULU vrijeme i Greenwich Mean Time (GMT).
-	\end{definition}
+	\end{defn}
 	
 	\begin{figure}[H]
 		\centering
@@ -381,7 +381,7 @@
 	Za razumjevanje ovoga rada, dovoljno je razumjeti sljedeće.
 	Prijemnik svakih 6 sekundi ima dovoljno podataka da odredi novu pseudo-udaljenost do istog satelita sve dok on ne prestane biti dostupan. 
 	
-	\begin{definition}[Dostupnost satelita $\mathnormal{S}$ prijemniku $\mathnormal{T}$]
+	\begin{defn}[Dostupnost satelita $\mathnormal{S}$ prijemniku $\mathnormal{T}$]
 		\label{stranica:dostupnost}
 		Za satelit $\mathnormal{S}$ kažemo da je dostupan prijemniku $\mathnormal{T}$ u trenutku $\mathnormal{t}$ ako je u sljedećih 6 sekundi u mogućnosti izračunati
 		pseudo-udaljenost do satelita $\mathnormal{S}$ i konstruirati sljedeću jednadžbu:
@@ -390,7 +390,7 @@
 		\end{align}
 		gdje su jedine nepoznanice $(x,y,z)$, tj. koordinate položaja prijemnika.
 		$(x_s,y_s,z_s)$ su koordinate položaja satelita. 
-	\end{definition}
+	\end{defn}
 	
 	\section{Proces određivanja položaja}\label{sec:positionProcess}
 	U pravilu, u svakom trenutku, prijemnik ima više dostupnih satelita od kojih dobiva poruke. Za određivanje položaja prijemnika u granicama dopuštene točnosti, %TABLICA
@@ -962,7 +962,7 @@ Imamo $$
 \Delta \mathbf{x_k} = -(2 \Sigma^{-\frac{1}{2}} P\tilde{I} )^{-1}(\Sigma^{-\frac{1}{2}}\mathbf{\tilde{p}}(\mathbf{x_k}))
 \\= -\frac{1}{2}(\Sigma^{-\frac{1}{2}} P\tilde{I} )^{-1}(\Sigma^{-\frac{1}{2}}\mathbf{\tilde{p}}(\mathbf{x_k}))
 $$
-Opisanim perturbacijama, dobivamo sljedeću izvedbu algoritma \ref{code:iterLSMW}.
+Opisanim perturbacijama, dobivamo sljedeću izvedbu algoritma \ref{code:iterLSM}.
 \begin{lstlisting}[language=R]
 library("MASS","matrixcalc")
 #pseudo-udaljenosti
@@ -1000,7 +1000,18 @@ $$
 3.888512e+06 &
 6.352458e-04 
 \end{bmatrix}
-$$
+$$ nakon samo 5 iteracija.
+Za dopuštenu pogrešku uzet je 1m.
+
+Ukoliko bolje promotrimo gornji program, inverz matrice $P\hat{I}$ ne računamo direktno već koristeći SVD rastav matrice.
+\begin{defn}
+	Neka je \textbf{A} $\in \R^{m\times n}$ ili $\C^{m \times n}$, $SVD$ dekompozicija matrice je $\mathbf{A} = \mathbf{UDV}^*$, $\mathbf{U} \in \R^{m\times m}$ ili $\C^{m\times m}$ unitarna matrica, $\mathbf{V} \in \R^{n\times n}$ ili $\C^{n\times n}$ unitarna matrica i $\mathbf{D} \in \R^{m\times n}$ nenegativna dijagonalna matrica. \\
+	Nadalje, stupci matrice \textbf{U} su svojstveni vektori matrice $\mathbf{MM}^*$, dok su stupci matrice \textbf{V} 
+	svojstveni vektori matrice $\mathbf{M}^*\mathbf{M}$. Dijagonalni elementi matrice $\mathbf{D}$ su korijeni svojstvenih vrijednosti matrice $\mathbf{M}^*\mathbf{M}$ ili $\mathbf{MM}^*$.
+\end{defn}
+
+Problem računanja inverza proizvoljne matrice direktnim računom poprilično je kompleksan i numerički nestabilan, gotovo nikada se ne koristi. 
+Primjenjiviji izračun inverza je korištenjem $SVD$ dekompozicije koji je korišten u prikazanom programu.
 
 \subsection{Odabran pristup}
 Budući da je sustav koji opisuje problem određivanja položaja nelineraran, 
@@ -1079,7 +1090,7 @@ dobivamo sustav:
 \mathbf{A}\mathbf{x} = \mathbf{b}
 \end{align}
 koji rješavamo metodom iterativnih najmanjih kvadrata.\label{stranica:nastavakLS}
-Ideja je da, budući da zbog pogreške u mjerenjima sustav \ref{eq:sustav} nema uvijek rješenje, tj. 
+Ideja je da, budući da zbog pogreške u mjerenjima ili linearizacije, što je slučaj u ovome radu, sustav \ref{eq:sustav} nema uvijek rješenje, tj. 
 $\mathbf{A}\mathbf{x} - \mathbf{b} \not = 0, \forall \mathbf{x} \in \R^m$,
 ne tražiti rješenje sustava, već $\mathbf{x}$ koji minimizira izraz $\|\mathbf{A}\mathbf{x} - \mathbf{b}\|_2$.
 Prema sljedećem teoremu, dovoljno je promatrati sustav
@@ -1097,7 +1108,8 @@ Dokaz teorema se može naći u \cite{singer07}, stranica 46.\\
 Dakle, rješenje minimizacijskog problema najmanjih kvadrata sustava \ref{eq:sustav} je jednako rješenju sustava 
 \begin{align}\label{eq:sustavProj}
 	A^TA\mathbf{x} = A^Tb 
-\end{align}.
+\end{align}
+koji se naziva \textbf{sustav normalnih jednadžbi}.
 
 Zanimljiva činjenica je da 
 ukoliko znamo jedno rješenje sustava \ref{eq:sustavProj}, lako je pronaći i sva ostala, ukoliko ona postoje.\\
@@ -1140,14 +1152,30 @@ Budući da će korištena matrica $A$ imati puni stupčani rang, rješenje probl
 gdje je $\mathbf{Q}$ proizvoljna ortogonalna matrica.\\
 $\mathbf{Q}$ može bit proizvoljna pa možemo odabrati $\mathbf{Q}$ takvu da je lagano računati $\mathbf{x}$.
 Korištenjem \textit{QR} faktorizacije, $\mathbf{A} = \mathbf{QR}$ i $\mathbf{Q}^T\mathbf{A} = \mathbf{R}$ gdje je $\mathbf{R}$ gornjetrokutasta matrica.
-Na ovaj način dobiveno rješenje se pokazuje znatno točnije.
-Dakle, sada rješavamo sustav
+Na ovaj način dobiveno rješenje se pokazuje znatno točnije.\\
+Sada rješavamo sustav
 \begin{align}\label{eq:sustavQR}
-	\mathbf{R}^T\mathbf{R}\mathbf{x} = \mathbf{R}^T\mathbf{Q}^T\mathbf{b} = \mathbf{A}^T\mathbf{b}.
+	\mathbf{R}\mathbf{x} = \mathbf{Q}^T\mathbf{b}.
 \end{align}
+tj. tražimo  
+\begin{align*}
+\mathbf{x} & = \mathbf{R}^{-1}\mathbf{Q}^T\mathbf{b} \\
+& = \mathbf{R}^{-1}\mathbf{R}^{-T}\mathbf{R}^{T}\mathbf{Q}^T\mathbf{b} \\
+& = (\mathbf{R}^{T}\mathbf{R})^{-1}(\mathbf{QR})^{T}\mathbf{b} \\
+& = (\mathbf{R}^{T} \mathbf{I} \mathbf{R})^{-1}(\mathbf{QR})^{T}\mathbf{b}  \\
+& = (\mathbf{R}^{T} \mathbf{Q}^T\mathbf{Q} \mathbf{R})^{-1}(\mathbf{A})^{T}\mathbf{b} \\
+& = (\mathbf{A}^{T}\mathbf{A})^{-1}(\mathbf{A})^{T}\mathbf{b}
+\end{align*}
+Gledajući gornju jednakost odozdo prema gore, i sustav nominalnih jednadžbi se svoji na trokutast sustav \ref{eq:sustavQR} koji je dalje pogodan za rješavanje problema predstavljenog ovim radom.
+Kada to ne bi bio slučaj, moglo bi se dogoditi da sustav nema rješenja. Naime, prije primjene metode najmanjih kvadrata za pronalazak rješenja, linearizira se početni sustav jednadžbi, uvode se pogreške.
 
 \subsubsection{Izvedba}
-R kod
+Sustav \ref{eq:sustavQR} dalje rješavamo iterativnim postupkom.\\
+Prilikom izvedbe potrebno je odabrati metodu rješavanja sustava \ref{eq:sustavQR}.
+Budući da je sustav gornjetrokutast, moguće je koristiti metodu \textit{DTRSV} iz biblioteke \textit{BLAS}
+koja rješava gornjetrokutast sustav jednadžbi \cite{singerBook}, stranica 211, i se može koristiti unutar programskog jezika $R$.
+%NAPIŠI dipl2.R
+
 \subsubsection{Procjena točnosti}
 kako već
 
@@ -1213,7 +1241,7 @@ razvoj u Taylorov red oko svake točke $\mathbf{x_k}$. Ipak,
 Taylorov red nije definiran za svaku funkciju na $\R^n, n \in \N$.
 Prilikom primjene Iterativne metode najmanjih kvadrata, treba zahtjevati da 
 funkcija $\mathbf{p}(\mathbf{x})$ i točka $x_k$ zadovoljava uvjete definicije razvoja funkcije u Taylorov red oko točke $x_k$ \cite{math:tay}.
-\begin{definition}
+\begin{defn}
 	Naka je $f: \mathbf{I} \to \R $ funkcija klase $C^\infty(\mathbf{I})$ definirana
 	na otvorenom intervalu $\mathbf{I} \subseteq \R^n$ i neka je $c \in \mathbf{I}$.
 	Red potencija
@@ -1221,7 +1249,7 @@ funkcija $\mathbf{p}(\mathbf{x})$ i točka $x_k$ zadovoljava uvjete definicije r
 	T \left[f,c\right] := \sum_{n=0}^{\infty} \frac{f^{(n)}}{n!} \left(x - c\right)^n
 	\end{align}
 	nazivamo \textbf{Taylorov red} funkcije $f$ oko točke $c$.
-\end{definition}%
+\end{defn}%
 
 Također,
 pretpostavlja se kako je 
@@ -1234,7 +1262,7 @@ $f \in C^\infty(\mathbf{I})$ nužno ne konvergira za svaki $x \not = c, x \in \m
 ili može konvergirati prema nekoj drugoj funkciji.
 Uvjete pod kojima zaista vrijedi \ref{eg:a1} opisani su teoremima u nastavku.
 
-\begin{definition}[Analitička funkcija]
+\begin{defn}[Analitička funkcija]
 	Za $f \in C^\infty(\mathbf{I})$ kažemo da je \textbf{analitička u točki} $c \in \mathbf{I}$ ako njezin Taylorov red:
 	\begin{align*}
 		T \left[f,c\right] := \sum_{n=0}^{\infty} \frac{f^{(n)}}{n!} \left(x - c\right)^n
@@ -1246,7 +1274,7 @@ Uvjete pod kojima zaista vrijedi \ref{eg:a1} opisani su teoremima u nastavku.
 	\forall x \in \left < c-\delta, c+\delta \right > \cap \mathbf{I}
 	\end{align*}
 	U oznaci: $f \in C^\omega(\mathbf{I})$.
-\end{definition}
+\end{defn}
 \begin{thm}\label{thm:konv1}
 	Neka je $\sum_{n=0}^{\infty} a_n \left(x - c\right)^n$ red potencija s radijusom konvergencije $R > 0$. Za $\mathbf{I} := \left < c-R, c+R\right >$,
 	funkcija $f: \mathbf{I} \to \R$ definirana s 
