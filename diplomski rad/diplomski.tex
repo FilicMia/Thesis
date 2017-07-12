@@ -913,9 +913,319 @@ Naime, matrica sustava ima veliku uvjetovanost pa sustav postaje numerički nest
 \subsubsection{Izvedba}
 R kod
 
-\subsection{Poboljšan pristup}
+\subsection{Odabran pristup}
+Budući da je sustav koji opisuje problem određivanja položaja nelineraran, 
+možemo ga prvo \textbf{linearizirati}, a tek zatim primjeniti metodu najmanjih kvadrata \cite{googleSchoolar1}.
+Rješenja lineariziranog i nelineariziranog sustava nisu u potpunosti jednaka, ali su u ovom slučaju dovoljno bliska jer su jednadžbe sustava skoro pa linearne \cite{singer07}.%slide 16
+
+Prvo se promatra se sustav \ref{eq:1}:
+\begin{align}\label{eq:1partial}
+d_1 = \sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}} + c\cdot d_T \notag \\
+d_2 = \sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}} + c\cdot d_T  \\
+d_3 = \sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}} + c\cdot d_T \notag \\
+d_4 = \sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}} + c\cdot d_T \notag
+\end{align}
+u $\mathbf{x} = (x,y,z,d_T)$.\\
+Označimo s $f_i(\mathbf{x}) = \sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}} + c\cdot d_T$.\\
+Linearizacijom jednadžbi sustava na isti način kao $\mathbf{p}(\mathbf{x})$ sa stranice \pageref{stranica:NGLin} (za Gauss-Newtonovu metodu), dobivamo:
+\begin{align*}
+f_i(\mathbf{x} + \Delta\mathbf{x}) = f_i(\mathbf{x}) + \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z + \frac{\partial f}{\partial d_T}\Delta d_T 
+\end{align*}
+Koristeći iterativnu metodu, $\mathbf{x}_{k+1} = \mathbf{x}_k+\Delta\mathbf{x}_k$.
+Budući da se $(d_1,d_2,d_3,d_4)$ ne mijenjaju kroz iteracije, dobivamo izraz:
+$$
+d_i = f_i(\mathbf{x}_{k+1}) = f_i(\mathbf{x}_{k} + \Delta\mathbf{x}_{k}) = f_i(\mathbf{x}_{k}) + \frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k 
+$$, tj.
+\begin{align*}
+d_i - \sqrt{(x_k-x_i)^{2}+(y_k-y_i)^{2}+(z_k-z_i)^{2}} - c\cdot (d_T)_k & = \\
+\frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k &= 
+\begin{bmatrix}
+\frac{\partial f_i}{\partial x} &
+\frac{\partial f_i}{\partial y} &
+\frac{\partial f_i}{\partial z} &
+\frac{\partial f_i}{\partial d_T}
+\end{bmatrix}
+\begin{bmatrix}
+\Delta x \\
+\Delta y \\
+\Delta z \\
+\Delta d_T
+\end{bmatrix} \\ 
+\end{align*}
+Uz 
+\begin{align}
+\mathbf{A} & := \begin{bmatrix}
+\frac{\partial f_1}{\partial x} &
+\frac{\partial f_1}{\partial y} &
+\frac{\partial f_1}{\partial z} &
+\frac{\partial f_1}{\partial d_T} \\
+\frac{\partial f_2}{\partial x} &
+\frac{\partial f_2}{\partial y} &
+\frac{\partial f_2}{\partial z} &
+\frac{\partial f_2}{\partial d_T} \\
+\frac{\partial f_3}{\partial x} &
+\frac{\partial f_3}{\partial y} &
+\frac{\partial f_3}{\partial z} &
+\frac{\partial f_3}{\partial d_T} \\
+\frac{\partial f_4}{\partial x} &
+\frac{\partial f_4}{\partial y} &
+\frac{\partial f_4}{\partial z} &
+\frac{\partial f_4}{\partial d_T}
+\end{bmatrix} \\
+& = \begin{bmatrix}
+\frac{(x-x_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(y-y_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(z-z_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & c \\
+\frac{(x-x_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(y-y_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(z-z_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & c \\
+\frac{(x-x_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(y-y_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(z-z_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & c \\
+\frac{(x-x_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(y-y_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(z-z_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & c \\
+\end{bmatrix}\\
+\mathbf{x} & :=  \begin{bmatrix}
+\Delta x \\
+\Delta y \\
+\Delta z \\
+\Delta d_T
+\end{bmatrix}\\
+\mathbf{b} & := \begin{bmatrix}
+d_1 - \sqrt{(x_k-x_1)^{2}+(y_k-y_1)^{2}+(z_k-z_1)^{2}} - c\cdot (d_T)_k \\
+d_2 - \sqrt{(x_k-x_2)^{2}+(y_k-y_2)^{2}+(z_k-z_2)^{2}} - c\cdot (d_T)_k \\
+d_3 - \sqrt{(x_k-x_3)^{2}+(y_k-y_3)^{2}+(z_k-z_3)^{2}} - c\cdot (d_T)_k \\
+d_4 - \sqrt{(x_k-x_4)^{2}+(y_k-y_4)^{2}+(z_k-z_4)^{2}} - c\cdot (d_T)_k
+\end{bmatrix}
+\end{align}
+dobivamo sustav:
+\begin{align}\label{eq:sustav}
+\mathbf{A}\mathbf{x} = \mathbf{b}
+\end{align}
+koji rješavamo metodom iterativnih najmanjih kvadrata.\label{stranica:nastavakLS}
+Ideja je da, budući da zbog pogreške u mjerenjima ili linearizacije, što je slučaj u ovome radu, sustav \ref{eq:sustav} nema uvijek rješenje, tj. 
+$\mathbf{A}\mathbf{x} - \mathbf{b} \not = 0, \forall \mathbf{x} \in \R^m$,
+ne tražiti rješenje sustava, već $\mathbf{x}$ koji minimizira izraz $\|\mathbf{A}\mathbf{x} - \mathbf{b}\|_2$.
+Prema sljedećem teoremu, dovoljno je promatrati sustav
+$$ A^TA\mathbf{x} = A^Tb $$.
+
+\begin{thm}
+	Skup svih rješenja problema $\min_\mathbf{x}\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2$ označimo s
+	$$ S= \{\mathbf{x} \in \R^\mathit{m} | \| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2 \textit{ je minimalna} \} $$
+	Tada je $\mathbf{x}  \in S$, tj. $\mathbf{x}$ je rješenje problema najmanjih kvadrata, ako i samo ako vrijedi sljedeća relacija ortogonalnosti 
+	$$A^T(A\mathbf{x}-\mathbf{b}) = 0,$$
+	\\ koju obično nazivamo \textit{sustav normalnih jednadžbi} i pišemo u obliku 
+	$$ A^TA\mathbf{x} = A^Tb $$.
+\end{thm}
+Dokaz teorema se može naći u \cite{singer07}, stranica 46.\\
+Dakle, rješenje minimizacijskog problema najmanjih kvadrata sustava \ref{eq:sustav} je jednako rješenju sustava 
+\begin{align}\label{eq:sustavProj}
+A^TA\mathbf{x} = A^Tb 
+\end{align}
+koji se naziva \textbf{sustav normalnih jednadžbi}.
+
+Zanimljiva činjenica je da 
+ukoliko znamo jedno rješenje sustava \ref{eq:sustavProj}, lako je pronaći i sva ostala, ukoliko ona postoje.\\
+Neka je $\mathbf{A}\mathbf{x} - \mathbf{b} = r$ i $\hat{x} \in \R^m$ proizvoljan.\\
+Neka je
+\begin{align}
+\hat{r}  &=  \mathbf{A}\mathbf{\hat{x}} - \mathbf{b} \notag \\
+&= r + A\mathbf{x} - A\mathbf{\hat{x}} \notag \\
+&= r - A(\mathbf{\hat{x}} - \mathbf{x}) \notag
+\end{align}
+Tada je $\mathbf{\hat{x}} \in S$ ako i samo ako $\hat{r} = r$,  $ A(\mathbf{\hat{x}} - \mathbf{x}) $, odnosno $\mathbf{\hat{x}} - \mathbf{x} \in \mathcal{N}(A)$.\\
+Ukoliko vrijedi nešto od sljedećega:
+\begin{itemize}
+	\item $A$ ima puni stupčani rang,
+	\item stupci matrice $A$ su linearno nezavisni,
+	\item $A^TA$ je pozitivno definitna,
+\end{itemize}
+$\mathcal{N}(A)$ je trivijalan i rješenje sustava je jedinstveno 
+\vspace{0.5cm}
+\\Vrijede i sljedeće tvrdnje.%
+\begin{enumerate}
+	\item Općenito, matrica $A^TA$ je simetrična i pozitivno semidefinitna jer za svaki
+	$\mathbf{x} \in \R^m$ vrijedi
+	$$  \mathbf{x}^TA^TA\mathbf{x} = (A\mathbf{x})^T(A\mathbf{x}) = \|A\mathbf{x}\|_2^2 \geq 0. $$
+	\item Sustav normalnih jednadžbi uvijek ima rješenje i to jedinstveno.
+\end{enumerate}
+\vspace{1cm}
+Nakon formalizacije problema, potrebno je jednostavan način za izračunavanje rješenja sustava \ref{eq:sustavProj}.
+Jasno je da se matrica $A^TA$ ne invertira, nego se rješava sustav \ref{eq:sustavProj}.
+Sustav možemo rješiti tako što koristimo faktorizaciju Choleskoga matrice $A^TA$.
+Tako pronađeno rješenje nije naročito točno\cite{singer07},stranica 60.\\
+
+\subsubsection{Numerička metoda koja dovodi do poboljšanja točnosti rješenja}
+Budući da će korištena matrica $A$ imati puni stupčani rang, rješenje problema minimizacije možemo zapisati kao:
+\begin{align}
+\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2	
+& = \| \mathbf{Q}^T(\mathbf{A}\mathbf{x} - \mathbf{b}) \|_2 \\
+& = \| \mathbf{Q}^T \mathbf{A}\mathbf{x} - \mathbf{Q}^T \mathbf{b} \|_2	
+\end{align}
+gdje je $\mathbf{Q}$ proizvoljna ortogonalna matrica.\\
+$\mathbf{Q}$ može bit proizvoljna pa možemo odabrati $\mathbf{Q}$ takvu da je lagano računati $\mathbf{x}$.
+Korištenjem \textit{QR} faktorizacije, $\mathbf{A} = \mathbf{QR}$ i $\mathbf{Q}^T\mathbf{A} = \mathbf{R}$ gdje je $\mathbf{R}$ gornjetrokutasta matrica.
+Na ovaj način dobiveno rješenje se pokazuje znatno točnije.\\
+Sada rješavamo sustav
+\begin{align}\label{eq:sustavQR}
+\mathbf{R}\mathbf{x} = \mathbf{Q}^T\mathbf{b}.
+\end{align}
+tj. tražimo  
+\begin{align*}
+\mathbf{x} & = \mathbf{R}^{-1}\mathbf{Q}^T\mathbf{b} \\
+& = \mathbf{R}^{-1}\mathbf{R}^{-T}\mathbf{R}^{T}\mathbf{Q}^T\mathbf{b} \\
+& = (\mathbf{R}^{T}\mathbf{R})^{-1}(\mathbf{QR})^{T}\mathbf{b} \\
+& = (\mathbf{R}^{T} \mathbf{I} \mathbf{R})^{-1}(\mathbf{QR})^{T}\mathbf{b}  \\
+& = (\mathbf{R}^{T} \mathbf{Q}^T\mathbf{Q} \mathbf{R})^{-1}(\mathbf{A})^{T}\mathbf{b} \\
+& = (\mathbf{A}^{T}\mathbf{A})^{-1}(\mathbf{A})^{T}\mathbf{b}
+\end{align*}
+Gledajući gornju jednakost odozdo prema gore, i sustav nominalnih jednadžbi se svoji na trokutast sustav \ref{eq:sustavQR} koji je dalje pogodan za rješavanje problema predstavljenog ovim radom.
+Kada to ne bi bio slučaj, moglo bi se dogoditi da sustav nema rješenja. Naime, prije primjene metode najmanjih kvadrata za pronalazak rješenja, linearizira se početni sustav jednadžbi, uvode se pogreške.
+
+\subsubsection{Izvedba}
+Sustav \ref{eq:sustavQR} dalje rješavamo iterativnim postupkom.\\
+Programski kod je dan u nastavku:%
+\begin{lstlisting}
+library("MASS","matrixcalc")
+#pseudo-udaljenosti
+c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
+R = read.csv('pseudoranges5a.txt', header = FALSE);
+R <- as.matrix(R[,1])
+#ucitaj koordinate satelita
+S = read.csv('satellites5.txt', header = FALSE)
+S <- as.matrix(S)
+x_0 = c(1,1,1,1) #[x,y,z,d_T] d_t se kasnije mnozi sa c da bi se oduzeo od [x_i,y_i,z_i,d] 
+delt = c(3,3,3,3)
+nRows = dim(S)[1]
+nCols = dim(S)[2]+1
+
+realPosition = c(918074.1038,5703773.539,2693918.9285,0)
+
+unutar = append(S,rep(c,nRows))
+RS = matrix(unutar,nRows,nCols) # [x_i,y_i,z_i,d_i] 
+
+iter = 0
+niter = 1000
+
+err <- c(11,11,11,11)
+#while(norm(t(delt)) > 1){
+start.time <- Sys.time()
+
+b = R
+while(iter < niter){
+	x_iter = c(x_0[1:3],0) s
+	AA = t(apply(RS, 1, function(x) (x_iter - x)))
+	D = sqrt(AA**2%*%c(1,1,1,0))
+	DD = matrix(append(rep(D,3),rep(1,nRows)),nRows,nCols)
+	
+	
+	A_iter = AA/DD
+	delt <- qr.coef(qr(A_iter), b) 
+	#rjesava sustav Ax=b koristeci QR faktorizaciju
+	x_0 = x_0 + delt #(x,y,z,dT)
+	
+	b = R - D - c*x_0[nCols]
+	if(iter%%10 == 0){
+		cat(c(iter, delt[1:3]),
+		' \r',file="razmakIteracija.txt", append=TRUE)
+		
+		err <- x_0 - realPosition
+		cat(c(iter, err[1:3]),
+		' \r',file="stvarnoOdstupanje.txt", append=TRUE) 
+		
+		print(A_iter) 
+	}
+iter = iter +1
+}
+\end{lstlisting}%dipl2.R
+Meroda ipak nažalost ne konvergira. Pokušajmo na sljedeći način.
+
+
+\subsection{Poboljšan pristup: linearizacija dijela}
+Ideja je linearizirati samo nelinearni dio jednadžbi sustava
+\ref{eq:1}, odnosno  \\ $\sqrt{(x-x_i)^{2}+(y-y_i)^{2}+(z-z_i)^{2}} =: f(x,y,z)$.
+\begin{align*}
+f(x + \Delta x,y+ \Delta y,z + \Delta z) = f_i(x,y,z) + \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z
+\end{align*}
+Analogno kao zu prošlom podpoglavlju, dobivamo:
+\begin{align*}
+	d_i  = f_i(\mathbf{x}_{k+1}) + c(d_T)_{k+1} & = f_i(\mathbf{x}_{k} + \Delta\mathbf{x}_{k}) +  c(d_T)_k 
+	\\ & = f_i(\mathbf{x}_{k}) + \frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k +  c(d_T)_k 
+\end{align*}
+, tj.
+\begin{align*}
+d_i - \sqrt{(x_k-x_i)^{2}+(y_k-y_i)^{2}+(z_k-z_i)^{2}} + c((d_T)_{k+1}-(d_T)_k) & = \\
+\frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k &= 
+\begin{bmatrix}
+\frac{\partial f_i}{\partial x} &
+\frac{\partial f_i}{\partial y} &
+\frac{\partial f_i}{\partial z} &
+\frac{\partial f_i}{\partial d_T}
+\end{bmatrix}
+\begin{bmatrix}
+\Delta x \\
+\Delta y \\
+\Delta z \\
+\Delta d_T
+\end{bmatrix} \\ 
+\end{align*}
+Uz
+\begin{align}
+\mathbf{A} & := \begin{bmatrix}
+\frac{\partial f_1}{\partial x} &
+\frac{\partial f_1}{\partial y} &
+\frac{\partial f_1}{\partial z} &
+c \\
+\frac{\partial f_2}{\partial x} &
+\frac{\partial f_2}{\partial y} &
+\frac{\partial f_2}{\partial z} &
+c \\
+\frac{\partial f_3}{\partial x} &
+\frac{\partial f_3}{\partial y} &
+\frac{\partial f_3}{\partial z} &
+c \\
+\frac{\partial f_4}{\partial x} &
+\frac{\partial f_4}{\partial y} &
+\frac{\partial f_4}{\partial z} &
+c
+\end{bmatrix} \\
+& =  \begin{bmatrix}
+\frac{(x-x_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(y-y_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(z-z_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & c \\
+\frac{(x-x_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(y-y_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(z-z_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & c \\
+\frac{(x-x_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(y-y_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(z-z_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & c \\
+\frac{(x-x_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(y-y_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(z-z_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & c \\
+\end{bmatrix}\\
+\mathbf{x} & :=  \begin{bmatrix}
+\Delta x \\
+\Delta y \\
+\Delta z \\
+ d_T
+\end{bmatrix}\\
+\mathbf{b} & := \begin{bmatrix}
+d_1 - \sqrt{(x_k-x_1)^{2}+(y_k-y_1)^{2}+(z_k-z_1)^{2}} \\
+d_2 - \sqrt{(x_k-x_2)^{2}+(y_k-y_2)^{2}+(z_k-z_2)^{2}} \\
+d_3 - \sqrt{(x_k-x_3)^{2}+(y_k-y_3)^{2}+(z_k-z_3)^{2}} \\
+d_4 - \sqrt{(x_k-x_4)^{2}+(y_k-y_4)^{2}+(z_k-z_4)^{2}}
+\end{bmatrix}
+\end{align}
+Budući da $(d_T)_{k+1}$ pripada budućem koraku, njega ne možemo modelirati pa se pretpostavlja da
+će $c((d_T)_{k+1}-(d_T)_{k})$ biti modelirano korištenjem normalnih jednadžbi. Dakle, dobivamo sustav:
+\begin{align}\label{eq:sustav2}
+\mathbf{A}\mathbf{x} = \mathbf{b}
+\end{align}
+%dipl3.R
+Modifikacija ne dovodi do poboljšanja. Naime, dobiva se gotovo identičan sustav jednadžbi s istim problemima.
+Najveći je što matrica $\mathbf{A}$ (ili vektor $\mathbf{x}$, ovisno o definiciji) imaju elemente veličine 10E-1 i 
+10E6 što predstavlja veliki numerički problem. Znatno utječe na točnost izračuna pojedine iteracije i konvergencije sustava.
+Predstavljen problem je rješen uvođenjem $SVD$ dekompozicije i reformulacije problema.
+Donosi se nakon sljedećeg poglavlja. Promotrimo prvo rješavanje probjema određivanja položaja uvođenjem težina, tj. 
+koristeći algoritam \ref{code:iterLSMW}.
+
+\subsection{Poboljšan pristup: uvođenje težina (WLSM)}%dipl4.R
+%TU stala
+
+
+\subsection{Poboljšan pristup: reformulacija jednadžbi i uvođenje SVD metode}
+Budući da upravo predložen pristup rješavanja problema jako sporo konvergira, traži se
+novi, efikasniji pristup rješavanju problema. Ponovno se promatra isti sustav jednadžbi \ref{eq:1}, ali se 
+metoda iterativnih najmanjih kvadrata ne primjenjuje direktno na početni sustav, već na njegovu modifikaciju, modifikaciju sustava \ref{eq:new}.
+Modificirani sustav je u mogućnosti dati isto dobro rješenje uz uvijet $cd_T < d_i \forall i \in \{1,2,3,4\}$. \\
+
 Prebacujući član $d=d_T \cdot c$ na lijevu stranu i kvadrirajući obje strane
-jednadžbi sustava \ref{eq:new} dobivamo:
+jednadžbi sustava \ref{eq:new} dobivamo modificirani sustav jednadžbi:
 \begin{align}\label{eq:newIzvedba}
 (d_1-d)^2 = (x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2} + p_1(\textbf{x})\notag \\
 (d_2-d)^2 = (x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2} + p_2(\textbf{x})\\
@@ -1022,171 +1332,6 @@ Ukoliko bolje promotrimo gornji program, inverz matrice $P\hat{I}$ ne računamo 
 Problem računanja inverza proizvoljne matrice direktnim računom poprilično je kompleksan i numerički nestabilan, gotovo nikada se ne koristi. 
 Primjenjiviji izračun inverza je korištenjem $SVD$ dekompozicije koji je korišten u prikazanom programu.
 
-\subsection{Odabran pristup}
-Budući da je sustav koji opisuje problem određivanja položaja nelineraran, 
-možemo ga prvo linearizirati, a tek zatim primjeniti metodu najmanjih kvadrata \cite{googleSchoolar1}.
-Rješenja lineariziranog i nelineariziranog sustava nisu u potpunosti jednaka, ali su u ovo slučaju dovoljno bliska jer su jednadžbe sustava skoro pa linearne \cite{singer07}.%slide 16
-
-Prvo se promatra se modifikacija sustava \ref{eq:1}:
-\begin{align}\label{eq:new1}
-f_1(\mathbf{x}) = (x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2} - (d_1-d)^2 = 0 \notag \\
-f_2(\mathbf{x}) = (x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2} - (d_2-d)^2 = 0 \\
-f_3(\mathbf{x}) = (x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2} - (d_3-d)^2 = 0 \notag \\
-f_4(\mathbf{x}) = (x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2} - (d_4-d)^2 = 0 \notag
-\end{align}
-Linearizacijom jednadžbi sustava na isti način kao $\mathbf{p}(\mathbf{x})$ sa stranice \pageref{stranica:NGLin} (za Gauss-Newtonovu metodu), dobivamo:
-\begin{align*}
-f_i(\mathbf{x} + \Delta\mathbf{x}) = f_i(\mathbf{x}) + \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z + \frac{\partial f}{\partial d_T}\Delta d_T 
-\end{align*}
-Odnosno,
-\begin{align*}
-f_i(\mathbf{x} + \Delta\mathbf{x}) - f_i(\mathbf{x}) &= \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z + \frac{\partial f}{\partial d_T}\Delta d_T  \\ &= 
-\begin{bmatrix}
-\frac{\partial f_i}{\partial x} &
-\frac{\partial f_i}{\partial y} &
-\frac{\partial f_i}{\partial z} &
-\frac{\partial f_i}{\partial d_T}
-\end{bmatrix}
-\begin{bmatrix}
-\Delta x \\
-\Delta y \\
-\Delta z \\
-\Delta d_T
-\end{bmatrix}
-\end{align*}
-Uz
-\begin{align}
-A := & \begin{bmatrix}
-\frac{\partial f_1}{\partial x} &
-\frac{\partial f_1}{\partial y} &
-\frac{\partial f_1}{\partial z} &
-\frac{\partial f_1}{\partial d_T} \\
-\frac{\partial f_2}{\partial x} &
-\frac{\partial f_2}{\partial y} &
-\frac{\partial f_2}{\partial z} &
-\frac{\partial f_2}{\partial d_T} \\
-\frac{\partial f_3}{\partial x} &
-\frac{\partial f_3}{\partial y} &
-\frac{\partial f_3}{\partial z} &
-\frac{\partial f_3}{\partial d_T} \\
-\frac{\partial f_4}{\partial x} &
-\frac{\partial f_4}{\partial y} &
-\frac{\partial f_4}{\partial z} &
-\frac{\partial f_4}{\partial d_T}
-\end{bmatrix} \\
-= & 2\begin{bmatrix}
--(x_1-x) & -(y_1-y) & -(z_1-z) & c(d_1-cd_T) \\
--(x_2-x) & -(y_2-y) & -(z_2-z) & c(d_2-cd_T) \\ 
--(x_3-x) & -(y_3-y) & -(z_3-z) & c(d_3-cd_T) \\ 
--(x_4-x) & -(y_4-y) & -(z_4-z) & c(d_4-cd_T) \\
-\end{bmatrix} = 2P \tilde{I}\\
-\mathbf{x} := & \begin{bmatrix}
-\Delta x \\
-\Delta y \\
-\Delta z \\
-\Delta d_T
-\end{bmatrix}\\
-\mathbf{b} := &
-\begin{bmatrix}
-f_1(\mathbf{x} + \Delta\mathbf{x}) - f_1(\mathbf{x}) \\
-f_2(\mathbf{x} + \Delta\mathbf{x}) - f_2(\mathbf{x}) \\
-f_3(\mathbf{x} + \Delta\mathbf{x}) - f_3(\mathbf{x}) \\
-f_4(\mathbf{x} + \Delta\mathbf{x}) - f_4(\mathbf{x})
-\end{bmatrix}
-\end{align}
-dobivamo sustav:
-\begin{align}\label{eq:sustav}
-\mathbf{A}\mathbf{x} = \mathbf{b}
-\end{align}
-koji rješavamo metodom iterativnih najmanjih kvadrata.\label{stranica:nastavakLS}
-Ideja je da, budući da zbog pogreške u mjerenjima ili linearizacije, što je slučaj u ovome radu, sustav \ref{eq:sustav} nema uvijek rješenje, tj. 
-$\mathbf{A}\mathbf{x} - \mathbf{b} \not = 0, \forall \mathbf{x} \in \R^m$,
-ne tražiti rješenje sustava, već $\mathbf{x}$ koji minimizira izraz $\|\mathbf{A}\mathbf{x} - \mathbf{b}\|_2$.
-Prema sljedećem teoremu, dovoljno je promatrati sustav
-$$ A^TA\mathbf{x} = A^Tb $$.
-
-\begin{thm}
-	Skup svih rješenja problema $\min_\mathbf{x}\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2$ označimo s
-	$$ S= \{\mathbf{x} \in \R^\mathit{m} | \| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2 \textit{ je minimalna} \} $$
-	Tada je $\mathbf{x}  \in S$, tj. $\mathbf{x}$ je rješenje problema najmanjih kvadrata, ako i samo ako vrijedi sljedeća relacija ortogonalnosti 
-	$$A^T(A\mathbf{x}-\mathbf{b}) = 0,$$
-	\\ koju obično nazivamo \textit{sustav normalnih jednadžbi} i pišemo u obliku 
-	$$ A^TA\mathbf{x} = A^Tb $$.
-\end{thm}
-Dokaz teorema se može naći u \cite{singer07}, stranica 46.\\
-Dakle, rješenje minimizacijskog problema najmanjih kvadrata sustava \ref{eq:sustav} je jednako rješenju sustava 
-\begin{align}\label{eq:sustavProj}
-	A^TA\mathbf{x} = A^Tb 
-\end{align}
-koji se naziva \textbf{sustav normalnih jednadžbi}.
-
-Zanimljiva činjenica je da 
-ukoliko znamo jedno rješenje sustava \ref{eq:sustavProj}, lako je pronaći i sva ostala, ukoliko ona postoje.\\
-Neka je $\mathbf{A}\mathbf{x} - \mathbf{b} = r$ i $\hat{x} \in \R^m$ proizvoljan.\\
-Neka je
-\begin{align}
-	\hat{r}  &=  \mathbf{A}\mathbf{\hat{x}} - \mathbf{b} \notag \\
-			&= r + A\mathbf{x} - A\mathbf{\hat{x}} \notag \\
-			 &= r - A(\mathbf{\hat{x}} - \mathbf{x}) \notag
-\end{align}
-Tada je $\mathbf{\hat{x}} \in S$ ako i samo ako $\hat{r} = r$,  $ A(\mathbf{\hat{x}} - \mathbf{x}) $, odnosno $\mathbf{\hat{x}} - \mathbf{x} \in \mathcal{N}(A)$.\\
-Ukoliko vrijedi nešto od sljedećega:
-\begin{itemize}
-	\item $A$ ima puni stupčani rang,
-	\item stupci matrice $A$ su linearno nezavisni,
-	\item $A^TA$ je pozitivno definitna,
-\end{itemize}
- $\mathcal{N}(A)$ je trivijalan i rješenje sustava je jedinstveno 
-\vspace{0.5cm}
-\\Vrijede i sljedeće tvrdnje.%
-\begin{enumerate}
-	\item Općenito, matrica $A^TA$ je simetrična i pozitivno semidefinitna jer za svaki
-	$\mathbf{x} \in \R^m$ vrijedi
-	$$  \mathbf{x}^TA^TA\mathbf{x} = (A\mathbf{x})^T(A\mathbf{x}) = \|A\mathbf{x}\|_2^2 \geq 0. $$
-	\item Sustav normalnih jednadžbi uvijek ima rješenje i to jedinstveno.
-\end{enumerate}
-\vspace{1cm}
-Nakon formalizacije problema, potrebno je jednostavan način za izračunavanje rješenja sustava \ref{eq:sustavProj}.
-Jasno je da se matrica $A^TA$ ne invertira, nego se rješava sustav \ref{eq:sustavProj}.
-Sustav možemo rješiti tako što koristimo faktorizaciju Choleskoga matrice $A^TA$.
-Tako pronađeno rješenje nije naročito točno\cite{singer07},stranica 60.\\
-
-\subsubsection{Numerička metoda koja dovodi do poboljšanja točnosti rješenja}
-Budući da će korištena matrica $A$ imati puni stupčani rang, rješenje problema minimizacije možemo zapisati kao:
-\begin{align}
-	\| \mathbf{A}\mathbf{x} - \mathbf{b} \|_2	
-	& = \| \mathbf{Q}^T(\mathbf{A}\mathbf{x} - \mathbf{b}) \|_2 \\
-	& = \| \mathbf{Q}^T \mathbf{A}\mathbf{x} - \mathbf{Q}^T \mathbf{b} \|_2	
-\end{align}
-gdje je $\mathbf{Q}$ proizvoljna ortogonalna matrica.\\
-$\mathbf{Q}$ može bit proizvoljna pa možemo odabrati $\mathbf{Q}$ takvu da je lagano računati $\mathbf{x}$.
-Korištenjem \textit{QR} faktorizacije, $\mathbf{A} = \mathbf{QR}$ i $\mathbf{Q}^T\mathbf{A} = \mathbf{R}$ gdje je $\mathbf{R}$ gornjetrokutasta matrica.
-Na ovaj način dobiveno rješenje se pokazuje znatno točnije.\\
-Sada rješavamo sustav
-\begin{align}\label{eq:sustavQR}
-	\mathbf{R}\mathbf{x} = \mathbf{Q}^T\mathbf{b}.
-\end{align}
-tj. tražimo  
-\begin{align*}
-\mathbf{x} & = \mathbf{R}^{-1}\mathbf{Q}^T\mathbf{b} \\
-& = \mathbf{R}^{-1}\mathbf{R}^{-T}\mathbf{R}^{T}\mathbf{Q}^T\mathbf{b} \\
-& = (\mathbf{R}^{T}\mathbf{R})^{-1}(\mathbf{QR})^{T}\mathbf{b} \\
-& = (\mathbf{R}^{T} \mathbf{I} \mathbf{R})^{-1}(\mathbf{QR})^{T}\mathbf{b}  \\
-& = (\mathbf{R}^{T} \mathbf{Q}^T\mathbf{Q} \mathbf{R})^{-1}(\mathbf{A})^{T}\mathbf{b} \\
-& = (\mathbf{A}^{T}\mathbf{A})^{-1}(\mathbf{A})^{T}\mathbf{b}
-\end{align*}
-Gledajući gornju jednakost odozdo prema gore, i sustav nominalnih jednadžbi se svoji na trokutast sustav \ref{eq:sustavQR} koji je dalje pogodan za rješavanje problema predstavljenog ovim radom.
-Kada to ne bi bio slučaj, moglo bi se dogoditi da sustav nema rješenja. Naime, prije primjene metode najmanjih kvadrata za pronalazak rješenja, linearizira se početni sustav jednadžbi, uvode se pogreške.
-
-\subsubsection{Izvedba}
-Sustav \ref{eq:sustavQR} dalje rješavamo iterativnim postupkom.\\
-Prilikom izvedbe potrebno je odabrati metodu rješavanja sustava \ref{eq:sustavQR}.
-Budući da je sustav gornjetrokutast, moguće je koristiti metodu \textit{DTRSV} iz biblioteke \textit{BLAS}
-koja rješava gornjetrokutast sustav jednadžbi (cite{singerBook}, stranica 211) , i može se koristiti unutar programskog jezika $R$.
-%NAPIŠI dipl2.R
-
-\subsubsection{Procjena točnosti}
-kako već
 
 \subsection{Usporedba osnovnog i poboljšanog algoritma} + zaključak zašto je bolji.
 

@@ -24,13 +24,13 @@ start.time <- Sys.time()
 while(iter < niter){
   x_ = c(x_0[1:3],x_0[4]*c)
   P = t(apply(RS, 1, function(x) (x-x_))) #x-x_0
-  PP = P
-  PP[,dim(S)[2]+1] = - c*P[,dim(S)[2]+1] #4. red s -c
+  PI = P
+  PI[,dim(S)[2]+1] = - c*P[,dim(S)[2]+1] #4. red s -c
   
   PX = P*P
   PX = PX%*%c(-1,-1,-1,1)
   
-  delt <- -(1/2)*svd.inverse(PP)%*%PX
+  delt <- -(1/2)*svd.inverse(PI)%*%PX
   x_0 = x_0 + delt #(x,y,z,c*dT)
   
   cat(c(iter, delt[1:3]),' \r',file="razmakIteracija.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i to?nosti postupka
@@ -53,9 +53,9 @@ d.x <- d_iter$V2
 d.y <- d_iter$V3
 d.z <- d_iter$V4
 
-plot(iter, log(abs(d.x)), type = 'l', col = 'red', main = c('LSA Time of execution in [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'log of d_X components')
-lines(iter, log(abs(d.y)), type = 'l', col = 'green')
-lines(iter, log(abs(d.z)), type = 'l', col = 'blue')
+plot(iter, log10(abs(d.x)), type = 'l', col = 'red', main = c('LSA Time of execution in [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'log10 of d_X components')
+lines(iter, log10(abs(d.y)), type = 'l', col = 'green')
+lines(iter, log10(abs(d.z)), type = 'l', col = 'blue')
 
 plot(iter, (abs(d.x)), type = 'l', col = 'red', main = c('LSA Time of execution in [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'd_X components')
 lines(iter, (abs(d.y)), type = 'l', col = 'green')
@@ -66,9 +66,9 @@ xx <- err$V2
 yy <- err$V3
 zz <- err$V4
 
-plot(iter, log(abs(xx)), type = 'l', col = 'red', main = 'LSA Position estimation error from real values', xlab = 'No. of iterations', ylab = 'log positioning error [m]')
-lines(iter, log(abs(yy)), type = 'l', col = 'green')
-lines(iter, log(abs(zz)), type = 'l', col = 'blue')
+plot(iter, log10(abs(xx)), type = 'l', col = 'red', main = 'LSA Position estimation error from real values', xlab = 'No. of iterations', ylab = 'log10 positioning error [m]')
+lines(iter, log10(abs(yy)), type = 'l', col = 'green')
+lines(iter, log10(abs(zz)), type = 'l', col = 'blue')
 
 plot(iter, (abs(xx)), type = 'l', col = 'red', main = 'LSA Position estimation error from real values', xlab = 'No. of iterations', ylab = 'positioning error [m]')
 lines(iter, (abs(yy)), type = 'l', col = 'green')

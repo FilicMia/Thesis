@@ -26,7 +26,7 @@ start.time <- Sys.time()
 
 b = R
 while(iter < niter){
-
+  
   x_iter = c(x_0[1:3],0) # samo c , a ne c-d_T
   AA = t(apply(RS, 1, function(x) (x_iter - x))) #zbog lakše derivacije je x_-x
   D = sqrt(AA**2%*%c(1,1,1,0))
@@ -34,25 +34,20 @@ while(iter < niter){
   
   
   A_iter = AA/DD
-  #https://www.math.ucla.edu/~anderson/rw1001/library/base/html/qr.html
-  #exaple -> zadnji red
-  #QR = qr(A, tol = 1e-07 , LAPACK = TRUE)
-  #R = qr.R(QR,complete=TRUE)
-  #Q = qr.Q(QR,complete=TRUE) #vraca 7*7 matricu <- cijelu QR matricu
   delt <- qr.coef(qr(A_iter), b) # rješava sustav Ax=b koristeći QR faktorizaciju
   
-  x_0 = x_0 + delt #(x,y,z,dT)
-  b = R - D - c*x_0[nCols]
+  x_0 = x_0 + delt #(x,y,z,c*dT)
   
+  b = R - D
   if(iter%%10 == 0){
     cat(c(iter, delt[1:3]),' \r',file="razmakIteracija.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i to?nosti postupka
     err <- x_0 - realPosition
     cat(c(iter, err[1:3]),' \r',file="stvarnoOdstupanje.txt", append=TRUE) 
     print(A_iter) 
-    }
+  }
   
   iter = iter +1
- 
+  
 }
 
 end.time <- Sys.time()
