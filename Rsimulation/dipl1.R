@@ -30,7 +30,9 @@ while(iter < niter){
   PX = P*P
   PX = PX%*%c(-1,-1,-1,1)
   
-  delt <- -(1/2)*svd.inverse(PI)%*%PX
+  #delt <- -(1/2)*svd.inverse(PI)%*%PX
+  delt <- qr.coef(qr(-2*PI), PX)
+  
   x_0 = x_0 + delt #(x,y,z,c*dT)
   
   cat(c(iter, delt[1:3]),' \r',file="razmakIteracija.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i to?nosti postupka
@@ -76,3 +78,5 @@ lines(iter, (abs(zz)), type = 'l', col = 'blue')
 
 
 file.remove('razmakIteracija.txt','stvarnoOdstupanje.txt')
+
+#dipl1 je najbolja. !!! :D

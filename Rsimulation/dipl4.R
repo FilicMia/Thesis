@@ -1,4 +1,5 @@
 rm(list=ls())
+#ubrzanje, 0.2 naprema 0.43
 
 library(MASS)
 library(matlib)
@@ -10,79 +11,73 @@ niter = 100
 
 c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
 R = read.csv('pseudoranges5a.txt', header = FALSE);
-R <- as.matrix(p[,1])
+R <- as.matrix(R[,1])
 
 #učitaj koordinate satelita
 S = read.csv('satellites5.txt', header = FALSE)
 S <- as.matrix(S)
 nRows = dim(S)[1]
 nCols = dim(S)[2]+1
+RR <- rep(0,nRows)
+dpr <- c(1,1)
+W <- diag(nRows)
 
-
-if(length(p) < nCols){
+if(dim(R)[1] < nCols){
   stop('Not enough satellites - unable to estimate position. The script will quit.')
 }
 
 delt <- c(11,11,11,11) # postav po?etnih uvjeta za iteraciju - razlika susjednih iteracija (zaustavlja iteraciju)
+err <- c(11,11,11,11)
 x_0 <- c(0, 0, 0, 0) # postav po?etnih uvjeta za iteraciju (procjena polo?aja)
+unutar = append(S,rep(-c,nRows))
+RS = matrix(unutar,nRows,nCols) # [x_i,y_i,z_i,d_i] 
 
-# Definicija matrica i fizkalnih konstanti
-J <- matrix(nrow = nRows, ncol = nCols)
-b <- c(1,1)
-W <- diag(nRows) # matrica kovarijancija za Weighted LS solution - u po?etku postavljena kao jedini?na matrica
-# za regular position estimation (pretpostavljena potpuna kompenzacija pogre?aka)
-c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
+start.time <- Sys.time()# za regular position estimation (pretpostavljena potpuna kompenzacija pogre?aka)
 eps <- 1.0 # najve?a prihvatljiva pogre?ka komponente odre?ivanja polo?aja [m], eps = max(eps(x), eps(y), eps(z))
+A_iter <- matrix(nrow = nRows, ncol=nCols)
 
 rlevel <- 11
-start.time <- Sys.time()
-while(eps < rlevel){ # iteracija - sve dok sve pogre?ke po komponentama ne budu manje od eps
-  for(i in 1:length(t(p))){
-    # R[i] <- sqrt((S[i,1] - x_0[1])^2 + (S[i,2] - x_0[2])^2 + (S[i,3] - x_0[3])^2) #udaljenost satelita i x_0
-    # 
-    # dpr[i] <- p[i] - R[i] #b = pseudoudeljenost - izračunata udaljenost
-    # 
-    # ssv <- 0
-    # 
-    # for(j in 1:3){
-    #   J[i,j] <- (x_0[j] - S[i,j])/R[i] #matrica parcijalnih derivacija
-    #   ssv <- ssv + (S[i,j])^2
-    # }
+b <- R
+start.time <- Sys.time() #while(norm(t(delt)) > 1){
+while(eps < rlevel ){ 
+  # iteracija - sve dok sve pogre?ke po komponentama ne budu manje od eps
+  x_iter = c(x_0[1:3],0) # samo c , a ne c-d_T
+  AA = t(apply(RS, 1, function(x) (x_iter - x))) #zbog lakše derivacije je x_-x
+  D = sqrt(AA**2%*%c(1,1,1,0))
+  DD = matrix(append(rep(D,3),rep(1,nRows)),nRows,nCols)
     
-    #Matrica parcijalnihderivacija J of f, dijela
+  A_iter = AA/DD #J_k
+
+  #Procjena kuta elevacije satelita
+  D_xyz = AA[1:nRows,1:(nCols-1)]
+  ssv <- S**2%*%c(1,1,1)#zbroj svih kooordinata satelita na kvadrat
+  ssv = matrix(rep(ssv,3),nRows,nCols-1)
     
-    J[i, 4] <- c
-    
-    # Procjena kuta elevacije satelita
-    d_x <- S[i,1] - x_0[1]
-    d_y <- S[i,2] - x_0[2]
-    d_z <- S[i,3] - x_0[3]
-    
-    sr <- sqrt(ssv + (d_x^2 + d_y^2 + d_z^2))
-    A <- acos((S[i,1] * d_x + S[i,2] * d_y + S[i,3] * d_z)/ssv)
-    ele <- pi/2 - A
-    
-    # [i, i]-ti element matrice kovarijancija 
-    
-    W[i, i] <- 1/(sin(ele))^2
-    
-  }
+  E <- acos(((S*D_xyz)/ssv)%*%c(1,1,1))
+  ele <- pi/2 - E
   
-  dx <- chol2inv(t(J) %*% W %*% J) %*% t(J) %*% W %*% dpr # Metoda B: WLSA
-  #D_T se uopće ne modelira...
+  Wii = 1/(sin(ele))^2
+  W = diag(Wii[,1])
+  b <- R[,1] - D
+    
+  dx <- chol2inv(t(A_iter) %*% W %*% A_iter) %*% t(A_iter) %*% W %*% b # 
+  #dx <- svd.inverse(t(A_iter) %*% W %*% A_iter) %*% t(A_iter) %*% W %*% b # najpreciznija
+  
+  #drugikorijen iz W
+  #dx <- qr.coef(qr(sqrt(W)%*%A_iter), sqrt(W)%*%b)
   
   x_0 <- x_0 + dx
   
   iter <- iter + 1
   
-  cat(c(npass, dx[1], dx[2], dx[3]),' \r',file="razmakIteracija.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i to?nosti postupka
+  cat(c(iter, dx[1], dx[2], dx[3]),' \r',file="razmakIteracija.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i to?nosti postupka
   err[1] <- x_0[1] - 918074.1038
   err[2] <- x_0[2] - 5703773.539
   err[3] <- x_0[3] -2693918.9285 
-  cat(c(npass, err[1], err[2], err[3]),' \r',file="stvarnoOdstupanje.txt", append=TRUE)
+  cat(c(iter, err[1], err[2], err[3]),' \r',file="stvarnoOdstupanje.txt", append=TRUE)
   # Kontrola
   
-  print(npass)
+  print(iter)
   print (S)
   print (dx)
   
@@ -126,3 +121,5 @@ lines(iter, (abs(zz)), type = 'l', col = 'blue')
 
 
 file.remove('razmakIteracija.txt','stvarnoOdstupanje.txt')
+
+#dipl1 je najbolja. !!!

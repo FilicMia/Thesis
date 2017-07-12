@@ -1,7 +1,5 @@
 rm(list=ls())
 
-start.time <- Sys.time()
-
 library(MASS)
 library(matlib)
 library(limSolve)
@@ -37,7 +35,7 @@ eps <- 1.0 # najve?a prihvatljiva pogre?ka komponente odre?ivanja polo?aja [m], 
 
 err <- c(0,0,0)
 rlevel <- 11
-
+start.time <- Sys.time()
 while(eps < rlevel){ # iteracija - sve dok sve pogre?ke po komponentama ne budu manje od eps
 for(i in 1:length(t(p))){
   R[i] <- sqrt((S[i,1] - x_0[1])^2 + (S[i,2] - x_0[2])^2 + (S[i,3] - x_0[3])^2) #udaljenost satelita i x_0
@@ -58,13 +56,14 @@ for(i in 1:length(t(p))){
   d_y <- S[i,2] - x_0[2]
   d_z <- S[i,3] - x_0[3]
   
-  sr <- sqrt(ssv + (d_x^2 + d_y^2 + d_z^2))
+  
   A <- acos((S[i,1] * d_x + S[i,2] * d_y + S[i,3] * d_z)/ssv)
   ele <- pi/2 - A
   
   # [i, i]-ti element matrice kovarijancija 
   
   W[i, i] <- 1/(sin(ele))^2
+  print(W)
   
   }
 
@@ -107,18 +106,18 @@ d.x <- gr1$V2
 d.y <- gr1$V3
 d.z <- gr1$V4
 
-plot(np1, log(abs(d.x)), type = 'l', col = 'red', main = c('WLSA Time of execution in [s]=', round(duration, digits = 2)), xlab = 'No. of iterations', ylab = 'dx components')
-lines(np1, log(abs(d.y)), type = 'l', col = 'green')
-lines(np1, log(abs(d.z)), type = 'l', col = 'blue')
+plot(np1, log10(abs(d.x)), type = 'l', col = 'red', main = c('WLSA Time of execution in [s]=', round(duration, digits = 2)), xlab = 'No. of iterations', ylab = 'dx components')
+lines(np1, log10(abs(d.y)), type = 'l', col = 'green')
+lines(np1, log10(abs(d.z)), type = 'l', col = 'blue')
 
 np1 <- gr2$V1
 xx <- gr2$V2
 yy <- gr2$V3
 zz <- gr2$V4
 
-plot(np1, log(abs(xx)), type = 'l', col = 'red', main = 'WLSA Position estimation error components', xlab = 'No. of iterations', ylab = 'positioning error [m]')
-lines(np1, log(abs(yy)), type = 'l', col = 'green')
-lines(np1, log(abs(zz)), type = 'l', col = 'blue')
+plot(np1, log10(abs(xx)), type = 'l', col = 'red', main = 'WLSA Position estimation log10 error components', xlab = 'No. of iterations', ylab = 'positioning error [m]')
+lines(np1, log10(abs(yy)), type = 'l', col = 'green')
+lines(np1, log10(abs(zz)), type = 'l', col = 'blue')
 
 file.remove('dx.txt','S.txt') # Brisanje privremenih daztoteka kori?tenih za crtanje dijagrama
 

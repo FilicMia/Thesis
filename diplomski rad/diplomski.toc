@@ -26,11 +26,12 @@
 \contentsline {subsubsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja to\IeC {\v c}nosti rje\IeC {\v s}enja}{33}{section*.24}
 \contentsline {subsubsection}{Izvedba}{34}{section*.25}
 \contentsline {subsection}{Pobolj\IeC {\v s}an pristup: linearizacija dijela}{36}{section*.26}
-\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{38}{section*.27}
-\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: reformulacija jednad\IeC {\v z}bi i uvo\IeC {\dj }enje SVD metode}{38}{section*.28}
-\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{40}{section*.29}
-\contentsline {section}{\numberline {4.4}Zaklju\IeC {\v c}ak}{41}{section.4.4}
-\contentsline {chapter}{Bibliografija}{43}{chapter*.30}
+\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: reformulacija jednad\IeC {\v z}bi}{37}{section*.27}
+\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{40}{section*.28}
+\contentsline {subsubsection}{Izvedba}{42}{section*.29}
+\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{42}{section*.30}
+\contentsline {section}{\numberline {4.4}Zaklju\IeC {\v c}ak}{42}{section.4.4}
+\contentsline {chapter}{Bibliografija}{43}{chapter*.31}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
