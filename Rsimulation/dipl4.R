@@ -9,8 +9,9 @@ iter = 0
 niter = 100
 
 c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
-p = read.csv('pseudoranges5a.txt', header = FALSE);
-p <- as.matrix(p[,1])
+R = read.csv('pseudoranges5a.txt', header = FALSE);
+R <- as.matrix(p[,1])
+
 #učitaj koordinate satelita
 S = read.csv('satellites5.txt', header = FALSE)
 S <- as.matrix(S)
@@ -23,12 +24,11 @@ if(length(p) < nCols){
 }
 
 delt <- c(11,11,11,11) # postav po?etnih uvjeta za iteraciju - razlika susjednih iteracija (zaustavlja iteraciju)
-x_0 <- t(t(c(0, 0, 0, 0))) # postav po?etnih uvjeta za iteraciju (procjena polo?aja)
+x_0 <- c(0, 0, 0, 0) # postav po?etnih uvjeta za iteraciju (procjena polo?aja)
 
 # Definicija matrica i fizkalnih konstanti
 J <- matrix(nrow = nRows, ncol = nCols)
-R <- c(1,1)
-dpr <- c(1,1)
+b <- c(1,1)
 W <- diag(nRows) # matrica kovarijancija za Weighted LS solution - u po?etku postavljena kao jedini?na matrica
 # za regular position estimation (pretpostavljena potpuna kompenzacija pogre?aka)
 c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu

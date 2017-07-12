@@ -572,24 +572,28 @@ Newton-Gaussova metoda linearizira $\mathbf{p}(\mathbf{x})$ u okolini od $\mathb
 \end{align}
 
 $\Delta \mathbf{x_k}$ se odabire na način tako da
-$$lim_{k \to \infty} \left( \mathbf{p}(\mathbf{x_k}) \right) = 0$$ za $\mathbf{p}(\mathbf{x_{k+1}}) := \mathbf{p}(\mathbf{x_k}+ \Delta \mathbf{x_k}) \approx \mathbf{p}(\mathbf{x_k}) + \mathbf{p}'(\mathbf{x_k})\cdot \Delta \mathbf{x_k}$.
-Dakle, $ \Delta \mathbf{x_k} $ odabiremo rješavajući jednadžbu
+$$lim_{k \to \infty} \left( \mathbf{p}(\mathbf{x_k}) \right) = 0$$ 
+jer za pravu vrijednost $\mathbf{x}$ izraz $\mathbf{p}(\mathbf{x}) = 0$ ili poprima svoj minimum ukoliko postoje pogreške
+točnosti vrijednosti koje se koriste prilikom konstrukcije sustava.
+ 
+Sada, za $\mathbf{p}(\mathbf{x_{k+1}}) := \mathbf{p}(\mathbf{x_k}+ \Delta \mathbf{x_k}) \approx \mathbf{p}(\mathbf{x_k}) + \mathbf{p}'(\mathbf{x_k})\cdot \Delta \mathbf{x_k}$ želimo
+ da je što bliže 0.
+ Dakle, $ \Delta \mathbf{x_k} $ odabiremo trežeći minimum funkcije
 \begin{align}\label{eq:minDelta}
-	\mathbf{p}(\mathbf{x_k}) + \mathbf{p}'(\mathbf{x_k})\cdot \Delta \mathbf{x_k} = 0
+	\mathbf{p}(\mathbf{x_k}) + \mathbf{p}'(\mathbf{x_k})\cdot \Delta \mathbf{x_k}
 \end{align}
 u $\Delta \mathbf{x_k}$.
 
 Označimo sada s $J_k := \mathbf{p}'(\mathbf{x_k}) = \mathbf{h}'(\mathbf{x_k})$.
-Jednadžba \ref{eq:minDelta} prelazi u 
+\ref{eq:minDelta} prelazi u 
 \begin{align}\label{eq:minDelta2}
-	J_k \Delta \mathbf{x_k} = -\mathbf{p}(\mathbf{x_k})
+	J_k \Delta \mathbf{x_k} +\mathbf{p}(\mathbf{x_k})
 \end{align}
-koji predstavlja prezasićen sustav linearnih jednadžbi čije je
-rješenje definirano s  
+čij je minimun dan s (vidi stranicu \pageref{stranica:nastavakLS})  
 \begin{align}\label{eq:minDeltaRj}
 \Delta \mathbf{x_k} = - (J_k^TJ_k)^{-1}J_k^T \mathbf{p}(\mathbf{x_k})
 \end{align}
-Dobiva se izraz za $\mathbf{x_{k+1}}$:
+Izraz za $\mathbf{x_{k+1}}$ je sljedeći:
 \begin{align}\label{eq:iter}
 	\mathbf{x_{k+1}} = \mathbf{x_{k}} - (J_k^TJ_k)^{-1}J_k^T \mathbf{p}(\mathbf{x_k})
 \end{align}
