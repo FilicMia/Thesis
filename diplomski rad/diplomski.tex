@@ -324,12 +324,13 @@
 		\label{fig:multipath}
 	\end{figure}
 	
-	U ovom radu, sistemske i slučajne pogreške otklonjene su koristeći RTK-LIB.
+	Sistemske i slučajne pogreške mogu biti otklonjene koristeći RTK-LIB.
 	%RTK LIB u POGLAVLJE 4).
 	 Prije konstrukcije ulaza algoritma za određivanja položaja, smatramo da je
 	pogreška s izvorom u pseudo-udaljenostima maksimalno reducirana.
 	Dakle, pretpostavljamo kako ona više nije značajna
-	neuzimajući ju u obzir u daljnjem postupku izračuna položaja\label{stranica:greskaOvisisamoOxOpravdano}.
+	neuzimajući ju u obzir u daljnjem postupku izračuna položaja. \label{stranica:greskaOvisisamoOxOpravdano}
+	Smatramo da koristimo potpuno ispravljene pseudo-udaljenosti.
 	
 	\vspace{0.5cm}
 	Pogreške tipa 2 mogu imati izvor u dizajnu izvedbe algoritma ili samoj izvedbi, npr.
@@ -486,7 +487,11 @@
 	određivanja pseudo-udaljenosti 
 	s izvorom u pogrešci sata prijemnika.
 	U praksi se može koristiti još veći broj dostupnih satelita što poboljšava 
-	preciznost pozicioniranja prijemnika.
+	preciznost pozicioniranja prijemnika. Očekivana pogreška rješenja dobivenog rješavanjem sustava\ref{eq:1} je između $10^2$ i $10^3$. Tako dobiveno rješenje se profinjuje čime se postiže pogreška veličine $10^1$.
+	Ovim radom se proučava, opisuje, dizajnira i izvodi algoritam za rješavanje sustava \ref{eq:1}.
+	Naime, rješavanje sustava \ref{eq:1} čini temelj procesa određivanja položaja, nužno ga je provesti.
+	Za primjene koje zahtjevaju malu točnost, ono je i dovoljno.\\
+	Metode za profinjavanje dobivenog rješenja mogu biti izrazito kompleksne i ovise o primjeni. Svojom kompleksnošću i raznovrsnošću prelaze obim ovoga rada.\\
 
 \chapter[Algoritam procjene položaja (APP)]{Algoritam procjene položaja u domeni navigacijske primjene}\label{sec:algoritam}
 
@@ -909,18 +914,14 @@ Za pokretanje procesa određivanja položaja, potrebno je prvo prikupiti podatke
 +zašto i kako smo ga koristili. i dobili podatke. (User manual?)
 
 \section{Izvedba}
-Direktna izvedba algoritma sa stranice \pageref{code:iterLSMW}, dobivamo 
-izvedbu koja nije općepromjenjiva.
-Naime, matrica sustava ima veliku uvjetovanost pa sustav postaje numerički nestabilan.
-\subsection{Naivan pristup}
--neki od onih
-\subsubsection{Izvedba}
-R kod
+%Direktna izvedba algoritma sa stranice \pageref{code:iterLSMW}, dobivamo 
+%izvedbu koja nije općepromjenjiva.
+%Naime, matrica sustava ima veliku uvjetovanost pa sustav postaje numerički nestabilan.
 
-\subsection{Odabran pristup}
-Budući da je sustav koji opisuje problem određivanja položaja nelineraran, 
-možemo ga prvo \textbf{linearizirati}, a tek zatim primjeniti metodu najmanjih kvadrata \cite{googleSchoolar1}.
-Rješenja lineariziranog i nelineariziranog sustava nisu u potpunosti jednaka, ali su u ovom slučaju dovoljno bliska jer su jednadžbe sustava skoro pa linearne \cite{singer07}.%slide 16
+\subsection{Osnovni pristup}
+Ssustav koji opisuje problem određivanja položaja je nelineraran pa
+ga možemo prvo \textbf{linearizirati}, a tek zatim primjeniti metodu najmanjih kvadrata \cite{googleSchoolar1}.
+Općenito, rješenja lineariziranog i nelineariziranog sustava nisu u potpunosti jednaka \cite{singer07}, ali su u ovom slučaju dovoljno bliska. Naime, jednadžbe sustava su skoro linearne.%slide 16
 
 Prvo se promatra se sustav \ref{eq:1}:
 \begin{align}\label{eq:1partial}
@@ -939,7 +940,7 @@ Koristeći iterativnu metodu, $\mathbf{x}_{k+1} = \mathbf{x}_k+\Delta\mathbf{x}_
 Budući da se $(d_1,d_2,d_3,d_4)$ ne mijenjaju kroz iteracije, dobivamo izraz:
 $$
 d_i = f_i(\mathbf{x}_{k+1}) = f_i(\mathbf{x}_{k} + \Delta\mathbf{x}_{k}) = f_i(\mathbf{x}_{k}) + \frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k 
-$$, tj.
+$$odnosno
 \begin{align*}
 d_i - \sqrt{(x_k-x_i)^{2}+(y_k-y_i)^{2}+(z_k-z_i)^{2}} - c\cdot (d_T)_k & = \\
 \frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k &= 
@@ -1338,9 +1339,32 @@ Treba nam bolje rješenje.
 
 
 \subsection{Poboljšan pristup: uvođenje težina (WLSM)}%dipl4.R
-Prijašnje metode ne određuju poziciju prijemnika u okvirima dopuštene točnosti.
-Moguće je da su pojedine jednadžbe točnije, a druge manje točne. Neka to ima utjecaj na određivanje položaja.\\
-Upravo uvođenjem težina modelira se točnost pojedine jednadžbe sustava.\\
+Rezultati pokazuju kako prezentirane metode ne određuju poziciju prijemnika u okvirima dopuštene točnosti.
+Uzrok pronalazimo u pogreški mjerenja s utjecajem u ionosferi.\\
+Iako pretpostavljamo da su pseudo-udaljenosti u potpunosti ispravljene, utjecaj ionosfere nije moguće u potpunosti reducirati jer koristimo samo jedan signal.
+Naime, utjecaj ionosfere najbolje se otklanja korištenjem dva signala različitih frekvencija (s izvorom u istom satelitu). 
+Literatura \cite{ref:4}, \cite{ref:9}, \cite{ref:10}, \cite{ref:38} i
+\cite{ref:34} navodi kako je ionosfera jedna od najznačajnijih uzroka pogreške
+procjene položaja.
+Što je dulji put signala kroz ionosferu, to je utjecaj iononosfere veći i jednadžba pridružena tom signalu
+je manje točna. Ukoliko je poznato da su neke jednadžbe sustav manje, a druge više točne, problem najmanih kvadrata
+(stranica \pageref{code:iterLSM}) prelazi u problem težinskih najmanih kvadrata (stranica \pageref{code:iterLSMW}).
+Svakoj jednadžbi pridjeljuje se koeficijent proporcionalan njezinoj točnosti.
+Koeficijenti se modeliraju preko elevacijskog kuta satelita koji signal odašilje.
+Veći elevacijski kut znači da će satelitski signal dulje putovati kroz ionosferu pa će pogreška
+zbog ionosferskog kašnjenja biti veća (slika \ref{fig:elev}).
+Uvažavajući navedeno i uz konzultaciju s literaturom \cite{ref:13}, \cite{ref:34},
+\cite{ref:45} i \cite{ref:25}, odlučeno je koristiti težinski koeficijent vezan za kut elevacije $i$-te jednadžbe, $E_i$:
+\begin{align}
+\sigma^2_i = \frac{1}{ \sin ( \frac{\pi}{2}  - E_i ) }
+\end{align}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{elev}
+	\caption{Kut elevacije (izvor)}
+	\label{fig:elev}
+\end{figure}
 
 Ponovno lineariziramo desne strane jednadžbi \ref{eq:1partial} i dobivamo da $\forall i \in \{1,2,3,4, ...\}$
 \begin{align*}
@@ -1362,7 +1386,7 @@ d_i - \sqrt{(x_k-x_i)^{2}+(y_k-y_i)^{2}+(z_k-z_i)^{2}} - c\cdot (d_T)_k & = \\
 gdje je $i$ indeks pridružen vrijednostima i-te jednadžbe sustava.
 
 Općenito, $i$ može biti proizvoljan. 
-Glavno sadrži najmanje onoliko nezavisnih jednadžbi koliko sustav ima nepoznanica.
+Glavno da sadrži najmanje onoliko nezavisnih jednadžbi koliko sustav ima nepoznanica.
 Do sada se većinom promatrao sustav $i = 4 = \textit{broj nepoznanica sustava}$ s međusobno nezavisnim jednadžbama. Nastavimo u istom tonu.
 \\
 Uz 
@@ -1411,6 +1435,10 @@ imamo sustav:
 \begin{align*}
 \mathbf{p}(\mathbf{x}) := \mathbf{A}\mathbf{x} - \mathbf{b}
 \end{align*}
+
+
+Praksa nerjetko koristi samo jedan signal prilikom postupka procjene položaja i utjecaj ionosfere modelira 
+na opisan način.
 
 \subsubsection{Izvedba}
 Prilikom izvedbe algoritma koristimo sustav s $i = 7$ jednadžbi.

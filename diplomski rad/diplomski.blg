@@ -5,16 +5,30 @@ Repeated entry---line 319 of file diplomski.bib
  : @misc{gps:2
  :            ,
 I'm skipping whatever remains of this entry
+Warning--string name "sanz" is undefined
+--line 417 of file diplomski.bib
+I was expecting a `,' or a `}'---line 417 of file diplomski.bib
+ :  author = sanz 
+ :                Subirana, J et al.},
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in ref:34
+Warning--empty language in ref:34
 Warning--empty language in math:positioning
 Warning--missing publisher in math:positioning
 Warning--empty language in gps:2
 Warning--missing pages in gps:2
+Warning--empty language in ref:45
 Warning--empty language in GPS:overview
-Warning--empty language in singerBook
+Warning--empty language in ref:4
+Warning--empty language in ref:9
+Warning--empty language in ref:10
+Warning--empty language in ref:13
 Warning--empty language in googleSchoolar1
 Warning--empty language in bookProcessing
 Warning--missing publisher in bookProcessing
 Warning--empty language in GPS:1
+Warning--empty language in ref:25
 Warning--empty language in math:tay
 Warning--empty language in singer07
-(There was 1 error message)
+Warning--empty language in ref:38
+(There were 2 error messages)

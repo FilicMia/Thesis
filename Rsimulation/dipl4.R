@@ -13,11 +13,13 @@ c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
 R = read.csv('pseudoranges5a.txt', header = FALSE);
 R <- as.matrix(R[,1])
 
-#učitaj koordinate satelita
+#ucitaj koordinate satelita
 S = read.csv('satellites5.txt', header = FALSE)
 S <- as.matrix(S)
 nRows = dim(S)[1]
 nCols = dim(S)[2]+1
+
+#konstante iteracije
 RR <- rep(0,nRows)
 dpr <- c(1,1)
 W <- diag(nRows)
@@ -26,30 +28,35 @@ if(dim(R)[1] < nCols){
   stop('Not enough satellites - unable to estimate position. The script will quit.')
 }
 
-delt <- c(11,11,11,11) # postav po?etnih uvjeta za iteraciju - razlika susjednih iteracija (zaustavlja iteraciju)
+#pocetni uvjeti
+delt <- c(11,11,11,11)
 err <- c(11,11,11,11)
-x_0 <- c(0, 0, 0, 0) # postav po?etnih uvjeta za iteraciju (procjena polo?aja)
+x_0 <- c(0, 0, 0, 0) 
+
 unutar = append(S,rep(-c,nRows))
-RS = matrix(unutar,nRows,nCols) # [x_i,y_i,z_i,d_i] 
+SC = matrix(unutar,nRows,nCols) # [x_i,y_i,z_i,c] 
 
 start.time <- Sys.time()# za regular position estimation (pretpostavljena potpuna kompenzacija pogre?aka)
-eps <- 1.0 # najve?a prihvatljiva pogre?ka komponente odre?ivanja polo?aja [m], eps = max(eps(x), eps(y), eps(z))
+eps <- 1.0 #eps > max(delt(x), delt(y), delt(z)), kriterij zaustavljanja
 A_iter <- matrix(nrow = nRows, ncol=nCols)
 
-rlevel <- 11
+rlevel <- 11 #max(delt(x), delt(y), delt(z))
 b <- R
 start.time <- Sys.time() #while(norm(t(delt)) > 1){
 while(eps < rlevel ){ 
-  # iteracija - sve dok sve pogre?ke po komponentama ne budu manje od eps
+  # iteracija - sve dok sve pogreske po komponentama ne budu manje od eps
   x_iter = c(x_0[1:3],0) # samo c , a ne c-d_T
-  AA = t(apply(RS, 1, function(x) (x_iter - x))) #zbog lakše derivacije je x_-x
+  AA = t(apply(SC, 1, function(x) (x_iter - x))) #zbog lakse derivacije je x_-x
   D = sqrt(AA**2%*%c(1,1,1,0))
   DD = matrix(append(rep(D,3),rep(1,nRows)),nRows,nCols)
     
   A_iter = AA/DD #J_k
 
   #Procjena kuta elevacije satelita
-  D_xyz = AA[1:nRows,1:(nCols-1)]
+  D_xyz = AA[1:nRows,1:(nCols-1)] # zraka je odred s koordinatama satelita
+  #n = (S[i,1],S[i,2],S[i,3])
+  #s = (S[i,1],S[i,2], 0 )
+  
   ssv <- S**2%*%c(1,1,1)#zbroj svih kooordinata satelita na kvadrat
   ssv = matrix(rep(ssv,3),nRows,nCols-1)
     
@@ -58,7 +65,7 @@ while(eps < rlevel ){
   
   Wii = 1/(sin(ele))^2
   W = diag(Wii[,1])
-  b <- R[,1] - D
+  b <- R[,1] - D - c*x_0[nCols]
     
   dx <- chol2inv(t(A_iter) %*% W %*% A_iter) %*% t(A_iter) %*% W %*% b # 
   #dx <- svd.inverse(t(A_iter) %*% W %*% A_iter) %*% t(A_iter) %*% W %*% b # najpreciznija
@@ -81,7 +88,7 @@ while(eps < rlevel ){
   print (S)
   print (dx)
   
-  rlevel <- abs(dx[1]) + abs(dx[2]) + abs(dx[3])
+  rlevel <- max(abs(dx[1]), abs(dx[2]), abs(dx[3]))
   
 }
 
@@ -121,5 +128,14 @@ lines(iter, (abs(zz)), type = 'l', col = 'blue')
 
 
 file.remove('razmakIteracija.txt','stvarnoOdstupanje.txt')
+#
+#Sustav izgleda nadasve nestabilan, i ukoliko se koristibolja metoda računanja inverza 
+# i pronalaska rješenja,
+# algoritam konvergira, ali k krivom rješenju.
+# Sporija konvergencija uzrokovana metodom Choleskoga, pomaže da algoritam konvergita ka 
+# rješenju veće točnosti.
+# Zaključujemo kako je model potrebno doratiti kako bi se postigla 
+# 
+# rješenju.
 
 #dipl1 je najbolja. !!!

@@ -20,18 +20,16 @@
 \contentsline {subsection}{RINEX}{29}{section*.19}
 \contentsline {subsection}{Programski odre\IeC {\dj }en GPS prijemnik}{29}{section*.20}
 \contentsline {section}{\numberline {4.3}Izvedba}{30}{section.4.3}
-\contentsline {subsection}{Naivan pristup}{30}{section*.21}
-\contentsline {subsubsection}{Izvedba}{30}{section*.22}
-\contentsline {subsection}{Odabran pristup}{30}{section*.23}
-\contentsline {subsubsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja to\IeC {\v c}nosti rje\IeC {\v s}enja}{33}{section*.24}
-\contentsline {subsubsection}{Izvedba}{34}{section*.25}
-\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: linearizacija dijela}{36}{section*.26}
-\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: reformulacija jednad\IeC {\v z}bi}{37}{section*.27}
-\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{40}{section*.28}
-\contentsline {subsubsection}{Izvedba}{42}{section*.29}
-\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{42}{section*.30}
+\contentsline {subsection}{Osnovni pristup}{30}{section*.21}
+\contentsline {subsubsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja to\IeC {\v c}nosti rje\IeC {\v s}enja}{33}{section*.22}
+\contentsline {subsubsection}{Izvedba}{33}{section*.23}
+\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: linearizacija dijela}{35}{section*.24}
+\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: reformulacija jednad\IeC {\v z}bi}{36}{section*.25}
+\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{39}{section*.26}
+\contentsline {subsubsection}{Izvedba}{41}{section*.28}
+\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{42}{section*.29}
 \contentsline {section}{\numberline {4.4}Zaklju\IeC {\v c}ak}{42}{section.4.4}
-\contentsline {chapter}{Bibliografija}{43}{chapter*.31}
+\contentsline {chapter}{Bibliografija}{43}{chapter*.30}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
   \providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
   \providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
   % \MRhref is called by the amsart/book/proc definition of \MR.
@@ -21,6 +21,9 @@
   \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
 
 \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem {ref:34}
+
+
 \bibitem {math:positioning}
 \btxnamefont {Simo \btxlastnamefont {Ali-Löytty}}, \btxnamefont {Jussi
   \btxlastnamefont {Collin}}, \btxnamefont {Helena \btxlastnamefont
@@ -29,7 +32,7 @@
   \btxpublisherfont {\btxtitlefont {\btxifchangecase {Mathematics and methods
   for positioning}{Mathematics and methods for Positioning}}}, 2008,
   \url{http://math.tut.fi/courses/MAT-45806/mathematics_and_methods_for_positioning_2008.pdf}
-  [Online: accessed \today].
+  [Online: pregledano \today].
 
 \bibitem {gps:2}
 \btxnamefont {\btxlastnamefont {Anon.}}, \btxjtitlefont {\btxifchangecase
@@ -38,21 +41,46 @@
   infrastructure relying on the Global Positioning System}}, \btxjournalfont
   {John A. Volpe National Transportation Systems Center, Tech. Rep.} (2001).
 
+\bibitem {ref:45}
+\btxnamefont {R.\btxfnamespacelong G. \btxlastnamefont {Brown}} \btxandlong {}
+  \btxnamefont {P.\btxfnamespacelong W.\btxfnamespacelong C. \btxlastnamefont
+  {Hwang}}, \btxtitlefont {\btxifchangecase {Introduction to random signals and
+  applied kalman filtering}{Introduction to Random Signals and Applied Kalman
+  Filtering}}, 2009, (3rd ed). John Wiley and Sons. New York, NY.
+
 \bibitem {GPS:overview}
 \btxnamefont {\btxlastnamefont {{DANA, P. H.}}}, \btxtitlefont
   {\btxifchangecase {Global positioning system overview}{Global positioning
   system overview}}, \url{http://www.colorado.edu/geography/gcraft/notes/},
-  1994, [Online; accessed 9-Feb-2017].
+  1994, [Online; pregledano 9-Feb-2017].
 
-\bibitem {singerBook}
-\btxnamefont {Zlatko \btxlastnamefont {Drmač}}, \btxnamefont {Miljenko
-  \btxlastnamefont {Marušić}}, \btxnamefont {Sanja \btxlastnamefont
-  {Singer}}, \btxnamefont {Vedran \btxlastnamefont {Hari}}, \btxnamefont
-  {Mladen \btxlastnamefont {Rogina}}\btxandcomma {} \btxandlong {} \btxnamefont
-  {Saša \btxlastnamefont {Singer}}, \btxtitlefont {\btxifchangecase
-  {Numerička matematika}{Numerička matematika}}, 2003,
-  \url{https://web.math.pmf.unizg.hr/~singer/num_mat/num_anal.pdf}[Online;
-  accessed \today].
+\bibitem {ref:4}
+\btxnamefont {J\btxfnamespacelong A \btxlastnamefont {Farrell}}, \btxtitlefont
+  {\btxifchangecase {Aided navigation: Gps with high rate sensors}{Aided
+  Navigation: GPS with High Rate Sensors}}, 2008, McGraw-Hill. New York, NY.
+
+\bibitem {ref:9}
+\btxnamefont {R~\btxlastnamefont {Filjar}}, \btxtitlefont {\btxifchangecase {A
+  study of direct severe space weather effects on gps ionospheric delay}{A
+  Study of Direct Severe Space Weather Effects on GPS Ionospheric Delay}},
+  2008, Journal of Navigation, 61, 115-128,
+  \url{http://dx.doi.org/10.1017/S0373463307004420}[Online; pregledano \today].
+
+\bibitem {ref:10}
+\btxnamefont {R.~\btxlastnamefont {Filjar}}, \btxnamefont {D.~\btxlastnamefont
+  {Brčić}}\btxandcomma {} \btxandlong {} \btxnamefont {S.~\btxlastnamefont
+  {Kos}}, \btxtitlefont {\btxifchangecase {Single-frequency horizontal gps
+  positioning error response to a moderate ionospheric storm over northern
+  adriatic}{Single-frequency Horizontal GPS positioning Error Response to a
+  Moderate Ionospheric Storm over Northern Adriatic}}, 2013, Chapter in:
+  Weintrit, A. (editor) (2013). Advances in Marine Navigation. Taylor and
+  Francis Group. London, UK.
+
+\bibitem {ref:13}
+\btxnamefont {F.~\btxlastnamefont {Gustafsson}}, \btxtitlefont
+  {\btxifchangecase {Statistical sensor fusion. studentlitteratur}{Statistical
+  sensor fusion. Studentlitteratur}}, 2010, Linkoeping University. Linkoeping,
+  Švedska.
 
 \bibitem {googleSchoolar1}
 \btxnamefont {Y.~\btxlastnamefont {He}} \btxandlong {} \btxnamefont
@@ -60,7 +88,7 @@
   least squares method for global positioning system}{Iterative least squares
   method for global positioning system}}, 2011,
   \url{https://pdfs.semanticscholar.org/fcb1/86f5b7feb713e970fd076498e93a77f7f2fc.pdf}[Online;
-  accessed \today].
+  pregledano \today].
 
 \bibitem {bookProcessing}
 \btxnamefont {\btxlastnamefont {{J. Sanz Subirana, J.M. Juan Zornoza and M.
@@ -68,7 +96,7 @@
   Algorithms}}{{Fundamentals and Algorithms}}}, \btxpublisherfont
   {\btxvolumeshort {.}~1}, \btxprintmonthyear{.}{May}{2013}{long},
   \url{http://gage.upc.edu/sites/default/files/TEACHING_MATERIAL/GNSS_Book/ESA_GNSS-Book_TM-23_Vol_I.pdf}[Online;
-  accessed \today].
+  pregledano \today].
 
 \bibitem {GPS:1}
 \btxnamefont {United\btxfnamespacelong States \btxlastnamefont {military}},
@@ -76,19 +104,33 @@
   positioning service signal specification}{GLOBAL POSITIONING SYSTEM STANDARD
   POSITIONING SERVICE SIGNAL SPECIFICATION}},
   \url{http://www.gps.gov/technical/ps/1995-SPS-signal-specification.pdf},
-  1995, [Online; accessed 30-Jan-2017].
+  1995, [Online; pregledano \today].
+
+\bibitem {ref:25}
+\btxnamefont {A.\btxfnamespacelong A. \btxlastnamefont {Nielsen}},
+  \btxtitlefont {\btxifchangecase {Least squares adjustment: Linear and
+  nonlinear weighted regression analysis}{Least Squares Adjustment: Linear and
+  Nonlinear Weighted Regression Analysis}}, 2013, Tehničko izvješće.
+  Technical University of Denmark. Lyngby, Danska.
 
 \bibitem {math:tay}
 \btxnamefont {\btxlastnamefont {{PMF}}}, \btxtitlefont {\btxifchangecase
   {Redovi potencija i taylorovi redovi}{Redovi potencija i Taylorovi redovi}},
   \url{https://web.math.pmf.unizg.hr/nastava/analiza/files/ch3_3.pdf}, 2009,
-  [Online; accessed 9-Feb-2017].
+  [Online; pregledano 9-Feb-2017].
 
 \bibitem {singer07}
 \btxnamefont {Saša \btxlastnamefont {Singer}}, \btxtitlefont {\btxifchangecase
   {Numerička matematika, 7. predavanje}{Numerička matematika, 7.
   predavanje}}, 2017,
-  \url{http://degiorgi.math.hr/~singer/num_mat/NM_1617/07.pdf}[Online; accessed
-  \today].
+  \url{http://degiorgi.math.hr/~singer/num_mat/NM_1617/07.pdf}[Online;
+  pregledano \today].
+
+\bibitem {ref:38}
+\btxnamefont {M\btxfnamespacelong et\btxfnamespacelong al. \btxlastnamefont
+  {Thomas}}, \btxtitlefont {\btxifchangecase {Global navigation space systems:
+  reliance and vulnerabilities}{Global Navigation Space Systems: reliance and
+  vulnerabilities}}, 2011, The Royal Academy of Engineering. London, UK.
+  \url{http://bit.ly/1vrIenu}[Online; pregledano \today].
 
 \end{thebibliography}

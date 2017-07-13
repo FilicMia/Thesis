@@ -36,7 +36,8 @@ while(iter < niter){
   A_iter = AA/DD
   delt <- qr.coef(qr(A_iter), b) # rješava sustav Ax=b koristeći QR faktorizaciju
   
-  x_0 = x_0 + delt #(x,y,z,c*dT)
+  x_0[1:3] = x_0[1:3] + delt[1:3] #(x,y,z,dT)
+  x_0[nCols] = delt[nCols]
   
   b = R - D
   if(iter%%10 == 0){
