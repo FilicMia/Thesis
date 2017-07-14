@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: diplomski.aux
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: diplomski.aux
 The style file: babamspl.bst
 Database file #1: diplomski.bib
 Repeated entry---line 319 of file diplomski.bib
@@ -12,11 +14,13 @@ I was expecting a `,' or a `}'---line 417 of file diplomski.bib
  :                Subirana, J et al.},
 I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in ref:34
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty language in ref:34
 Warning--empty language in math:positioning
 Warning--missing publisher in math:positioning
 Warning--empty language in gps:2
 Warning--missing pages in gps:2
+Warning--empty language in elevation_angle
 Warning--empty language in ref:45
 Warning--empty language in GPS:overview
 Warning--empty language in ref:4
@@ -31,4 +35,45 @@ Warning--empty language in ref:25
 Warning--empty language in math:tay
 Warning--empty language in singer07
 Warning--empty language in ref:38
+You've used 17 entries,
+            2664 wiz_defined-function locations,
+            679 strings with 8899 characters,
+and the built_in function-call counts, 5615 in all, are:
+= -- 326
+> -- 178
+< -- 1
++ -- 75
+- -- 56
+* -- 844
+:= -- 810
+add.period$ -- 17
+call.type$ -- 17
+change.case$ -- 78
+chr.to.int$ -- 0
+cite$ -- 38
+duplicate$ -- 312
+empty$ -- 611
+format.name$ -- 165
+if$ -- 1064
+int.to.chr$ -- 0
+int.to.str$ -- 17
+missing$ -- 22
+newline$ -- 75
+num.names$ -- 32
+pop$ -- 232
+preamble$ -- 1
+purify$ -- 62
+quote$ -- 0
+skip$ -- 139
+stack$ -- 0
+substring$ -- 87
+swap$ -- 95
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 64
+warning$ -- 21
+while$ -- 32
+width$ -- 19
+write$ -- 124
 (There were 2 error messages)

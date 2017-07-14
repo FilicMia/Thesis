@@ -995,7 +995,7 @@ d_2 - \sqrt{(x_k-x_2)^{2}+(y_k-y_2)^{2}+(z_k-z_2)^{2}} - c\cdot (d_T)_k \\
 d_3 - \sqrt{(x_k-x_3)^{2}+(y_k-y_3)^{2}+(z_k-z_3)^{2}} - c\cdot (d_T)_k \\
 d_4 - \sqrt{(x_k-x_4)^{2}+(y_k-y_4)^{2}+(z_k-z_4)^{2}} - c\cdot (d_T)_k
 \end{bmatrix}
-\end{align}
+\end{align}%ISTO DEFF NA STR 41 http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/2804/pdf/imm2804.pdf
 dobivamo sustav:
 \begin{align}\label{eq:sustav}
 \mathbf{A}\mathbf{x} = \mathbf{b}
@@ -1354,17 +1354,31 @@ Koeficijenti se modeliraju preko elevacijskog kuta satelita koji signal odašilj
 Veći elevacijski kut znači da će satelitski signal dulje putovati kroz ionosferu pa će pogreška
 zbog ionosferskog kašnjenja biti veća (slika \ref{fig:elev}).
 Uvažavajući navedeno i uz konzultaciju s literaturom \cite{ref:13}, \cite{ref:34},
-\cite{ref:45} i \cite{ref:25}, odlučeno je koristiti težinski koeficijent vezan za kut elevacije $i$-te jednadžbe, $E_i$:
-\begin{align}
-\sigma^2_i = \frac{1}{ \sin ( \frac{\pi}{2}  - E_i ) }
+\cite{ref:45} i \cite{ref:25} koristi se težinski koeficijent vezan za kut elevacije $i$-te jednadžbe, $Ele_i$:
+\begin{align}\label{eq:elevationTezine1}
+\sigma^2_i = \frac{1}{ \sin ( Ele_i ) }
 \end{align}
+Kut elevacije je manji kut koji zatvara vektor od prijemnika do satelita $(x_i,y_i,z_i)$ s tangencijalnom ravninom na sferu radijusa udaljenosti objekta $(x_k,y_k,z_k)$ od središta Zemlje sa središtem u središtu Zemlje u ECEF koordinatnom sustavu.
+
+\begin{align}\label{eq:elevation}
+	\cos (l_i) = \frac{((x_i,y_i,z_i)-(x_k,y_k,z_k))^T}{\| (x_i,y_i,z_i)-(x_k,y_k,z_k) \|} \frac{S_i}{\| S_i \|} \\
+	E_i = \min(l_i, \frac{\pi}{2}-l_i)
+\end{align}\cite{elevation_angle}
 
 \begin{figure}[h]
-	\centering
-	\includegraphics[width=0.9\textwidth]{elev}
-	\caption{Kut elevacije (izvor)}
-	\label{fig:elev}
-\end{figure}
+	\begin{minipage}{0.9\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{elev}
+		\caption{Kut elevacije (izvor)}
+		\label{fig:elev}
+	\end{minipage}
+	\begin{minipage}{0.9\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{elevBetter}
+		\caption{Kut elevacije u odnosu na prijemnik u automobilu (\url{https://racelogic.support/01VBOX_Automotive/01VBOX_data_loggers/VBOX_3i_Range/VBOX_3i_User_Manual_(All_Variants)/02_-_VB3i_GPS_Antenna_Placement})}
+		\label{fig:elevBetter}
+	\end{minipage}
+\end{figure}%
 
 Ponovno lineariziramo desne strane jednadžbi \ref{eq:1partial} i dobivamo da $\forall i \in \{1,2,3,4, ...\}$
 \begin{align*}
@@ -1390,7 +1404,7 @@ Glavno da sadrži najmanje onoliko nezavisnih jednadžbi koliko sustav ima nepoz
 Do sada se većinom promatrao sustav $i = 4 = \textit{broj nepoznanica sustava}$ s međusobno nezavisnim jednadžbama. Nastavimo u istom tonu.
 \\
 Uz 
-\begin{align}
+\begin{align*}
 \mathbf{A} & := \begin{bmatrix}
 \frac{\partial f_1}{\partial x} &
 \frac{\partial f_1}{\partial y} &
@@ -1408,13 +1422,15 @@ Uz
 \frac{\partial f_4}{\partial y} &
 \frac{\partial f_4}{\partial z} &
 \frac{\partial f_4}{\partial d_T}
-\end{bmatrix} \\
+\end{bmatrix}  \\
 & = \begin{bmatrix}
 \frac{(x-x_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(y-y_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(z-z_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & c \\
 \frac{(x-x_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(y-y_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(z-z_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & c \\
 \frac{(x-x_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(y-y_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(z-z_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & c \\
 \frac{(x-x_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(y-y_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(z-z_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & c \\
 \end{bmatrix}\\
+\end{align*}
+\begin{align}
 \mathbf{x} & :=  \begin{bmatrix}
 \Delta x \\
 \Delta y \\
@@ -1445,7 +1461,16 @@ Prilikom izvedbe algoritma koristimo sustav s $i = 7$ jednadžbi.
 Slijedi programski isječak koji izvodi opisanu metodu.
 \begin{lstlisting}[language=R]
 f
-\end{lstlisting}
+\end{lstlisting}%dipl4.R
+Budući da za težine opisane jednadžbom \ref{eq:elevationTezine1} dobivamo,
+konvergenciju navedenog algoritma u samo jednom koraku s pogreškom točnosti veličine $10E9$,
+uvodimo kut $\psi_0$ koji rješava problem singulariteta funkcije koja opisuje težine.
+Dobivamo opis težina sljedećom jednadžbom:
+\begin{align}\label{eq:elevationTezine2}
+\sigma^2_i = \frac{1}{ \sin ( Ele_i + \psi_0) }
+\end{align}
+Za $\psi = 0.5$, algoritam konvergira sporije (u 55 koraka) s točnošću $10E3$, očekivane točnosti.
+%Portrebno je promotriti do koje točnosti ići i što dalje s tom točnosti, kako ju objasniti.
 %TU stala 
 
 

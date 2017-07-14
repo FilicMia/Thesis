@@ -12,6 +12,7 @@ niter = 100
 c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
 R = read.csv('pseudoranges5a.txt', header = FALSE);
 R <- as.matrix(R[,1])
+realPosition <- c(918074.1038,5703773.539,2693918.9285)
 
 #ucitaj koordinate satelita
 S = read.csv('satellites5.txt', header = FALSE)
@@ -23,6 +24,16 @@ nCols = dim(S)[2]+1
 RR <- rep(0,nRows)
 dpr <- c(1,1)
 W <- diag(nRows)
+#option = 1 # W se bira kao dijaginalna matrica s vrijednostima 1/sin(Ei) na dijaginali
+#option = 2 # W se bira kao dijaginalna matrica s vrijednostima a_ele**2+b_ele**2/sin(Ei) na dijaginali
+#option = 3 # W se bira kao dijaginalna matrica s vrijednostima a**2/sin(Ei+psi) na dijaginali
+option = 3 #<- ok, izbjegava se singularitet u 0
+a_ele = 1
+b_ele= 2
+
+a = 1
+psi = 0.5
+
 
 if(dim(R)[1] < nCols){
   stop('Not enough satellites - unable to estimate position. The script will quit.')
@@ -47,23 +58,44 @@ while(eps < rlevel ){
   # iteracija - sve dok sve pogreske po komponentama ne budu manje od eps
   x_iter = c(x_0[1:3],0) # samo c , a ne c-d_T
   AA = t(apply(SC, 1, function(x) (x_iter - x))) #zbog lakse derivacije je x_-x
-  D = sqrt(AA**2%*%c(1,1,1,0))
+  D = sqrt((AA*AA)%*%c(1,1,1,0))
   DD = matrix(append(rep(D,3),rep(1,nRows)),nRows,nCols)
     
   A_iter = AA/DD #J_k
 
   #Procjena kuta elevacije satelita
-  D_xyz = AA[1:nRows,1:(nCols-1)] # zraka je odred s koordinatama satelita
+  D_xyz = AA[1:nRows,1:(nCols-1)] # zraka x_iter do Si
   #n = (S[i,1],S[i,2],S[i,3])
   #s = (S[i,1],S[i,2], 0 )
   
   ssv <- S**2%*%c(1,1,1)#zbroj svih kooordinata satelita na kvadrat
   ssv = matrix(rep(ssv,3),nRows,nCols-1)
     
-  E <- acos(((S*D_xyz)/ssv)%*%c(1,1,1))
+  E <- acos(((S*D_xyz)/ssv)%*%c(1,1,1)) #?? kaj nije da se dijeli i s nornom od D_xyz??
   ele <- pi/2 - E
   
-  Wii = 1/(sin(ele))^2
+  if(option==2){
+    D_xyz = A_iter[1:nRows,1:(nCols-1)]
+    E <- acos(((S*D_xyz)/ssv)%*%c(1,1,1)) #?? kaj nije da se dijeli i s nornom od D_xyz??
+    ele <- pi/2 - E
+    
+    Wii = a_ele**2+b_ele**2/(sin(ele))^2
+    print("ele")
+    print(ele)
+  }else if(option == 3){ 
+    D_xyz = A_iter[1:nRows,1:(nCols-1)]
+    E <- acos(((S*D_xyz)/ssv)%*%c(1,1,1)) #?? kaj nije da se dijeli i s nornom od D_xyz??
+    ele <- pi/2 - E
+    
+    Wii = a**2/(sin(ele+psi))^2
+    print("ele")
+    print(ele)
+    
+  }else{
+    Wii = 1/(sin(ele))^2 
+    print("ele")
+    print(ele)
+  }
   W = diag(Wii[,1])
   b <- R[,1] - D - c*x_0[nCols]
     
