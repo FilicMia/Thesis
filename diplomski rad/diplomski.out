@@ -11,12 +11,16 @@
 \BOOKMARK [1][-]{section.3.1}{Iterativna metoda najmanjih kvadrata}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.2}{Metoda zatvorene forme}{chapter.3}% 12
 \BOOKMARK [1][-]{section.3.3}{Metoda najbli\236eg susjeda \(maksimalne vjerodostojnosti\)}{chapter.3}% 13
-\BOOKMARK [0][-]{chapter.4}{Dizajn i izvedba algoritma, procjena tocnosti}{}% 14
-\BOOKMARK [1][-]{section.4.1}{Programski jezik R}{chapter.4}% 15
-\BOOKMARK [1][-]{section.4.2}{Zahtjevi algoritma}{chapter.4}% 16
-\BOOKMARK [1][-]{section.4.3}{Izvedba}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.4}{Zakljucak}{chapter.4}% 18
-\BOOKMARK [0][-]{chapter*.30}{Bibliografija}{}% 19
-\BOOKMARK [0][-]{appendix.A}{Taylorov red potencija}{}% 20
-\BOOKMARK [0][-]{appendix.B}{Jakobijeva matrica funkcije h, J}{}% 21
-\BOOKMARK [0][-]{appendix.C}{Mjere kvalitete "zvije\236da"}{}% 22
+\BOOKMARK [0][-]{chapter.4}{Programski odreen GPS prijemnik}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Model programski odreenog radioprijamnika}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Pojam programski odreenog radioprijemnika}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.3}{Programski odreen GPS prijemnik}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.4}{Prakticna izvedba korisnickog GPS prijamnika}{chapter.4}% 18
+\BOOKMARK [0][-]{chapter.5}{Prakticna izvedba procjene polo\236aja u domeni navigacijske primjene}{}% 19
+\BOOKMARK [1][-]{section.5.1}{Programski jezik R}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.2}{Izvedba}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.3}{Zakljucak}{chapter.5}% 22
+\BOOKMARK [0][-]{chapter*.36}{Bibliografija}{}% 23
+\BOOKMARK [0][-]{appendix.A}{Taylorov red potencija}{}% 24
+\BOOKMARK [0][-]{appendix.B}{Jakobijeva matrica funkcije h, J}{}% 25
+\BOOKMARK [0][-]{appendix.C}{Mjere kvalitete "zvije\236a"}{}% 26

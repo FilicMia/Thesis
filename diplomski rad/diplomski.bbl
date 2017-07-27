@@ -21,9 +21,6 @@
   \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
 
 \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
-\bibitem {ref:34}
-
-
 \bibitem {math:positioning}
 \btxnamefont {Simo \btxlastnamefont {Ali-Löytty}}, \btxnamefont {Jussi
   \btxlastnamefont {Collin}}, \btxnamefont {Helena \btxlastnamefont
@@ -50,7 +47,8 @@
   software-defined gps and galileo receiver: A single-frequency approach}{A
   Software-Defined GPS and Galileo Receiver: A Single-Frequency Approach}},
   2007,
-  \url{https://books.google.hr/books?id=x2g6XTEkb8oC&pg=PA132&lpg=PA132&dq=R+elevation+between+satellite+and+the+receiver&source=bl&ots=cUuR3wNbPX&sig=3JqlYjPp7WQ0h_y-WwBxJook5Bs&hl=sl&sa=X&ved=0ahUKEwjw7MrI6YbVAhUKB8AKHSx1CqIQ6AEIbDAJ#v=onepage&q=R%20elevation%20between%20satellite%20and%20the%20receiver&f=false}.
+  \url{https://books.google.hr/books?id=x2g6XTEkb8oC&pg=PA132&lpg=PA132&dq=R+elevation+between+satellite+and+the+receiver&source=bl&ots=cUuR3wNbPX&sig=3JqlYjPp7WQ0h_y-WwBxJook5Bs&hl=sl&sa=X&ved=0ahUKEwjw7MrI6YbVAhUKB8AKHSx1CqIQ6AEIbDAJ#v=onepage&q=R%20elevation%20between%20satellite%20and%20the%20receiver&f=false}
+  [Online; pregledano \today].
 
 \bibitem {ref:45}
 \btxnamefont {R.\btxfnamespacelong G. \btxlastnamefont {Brown}} \btxandlong {}
@@ -60,7 +58,7 @@
   Filtering}}, 2009, (3rd ed). John Wiley and Sons. New York, NY.
 
 \bibitem {GPS:overview}
-\btxnamefont {\btxlastnamefont {{DANA, P. H.}}}, \btxtitlefont
+\btxnamefont {\btxlastnamefont {{Dana, P. H.}}}, \btxtitlefont
   {\btxifchangecase {Global positioning system overview}{Global positioning
   system overview}}, \url{http://www.colorado.edu/geography/gcraft/notes/},
   1994, [Online; pregledano 9-Feb-2017].
@@ -69,6 +67,16 @@
 \btxnamefont {J\btxfnamespacelong A \btxlastnamefont {Farrell}}, \btxtitlefont
   {\btxifchangecase {Aided navigation: Gps with high rate sensors}{Aided
   Navigation: GPS with High Rate Sensors}}, 2008, McGraw-Hill. New York, NY.
+
+\bibitem {ref:5}
+\btxnamefont {M.~\btxlastnamefont {Filić}}, \btxtitlefont {\btxifchangecase
+  {Laboratory session 4: Gnss positioning performance assessment using
+  rtklib/rtkpost and r}{Laboratory Session 4: GNSS positioning performance
+  assessment using RTKLIB/RTKPOST and R}}, 2017, (nastavni materijal).
+  Diplomski studij satelitske navigacije, Regionalni UN centar za akademsko
+  obrazovanje u svemirskim znanostima i tehnologijama za područje Azije i
+  Pacifika, Međunarodna škola, Sveučilište Beihang za aeronautiku i
+  astronautiku. Peking, Kina.
 
 \bibitem {ref:9}
 \btxnamefont {R~\btxlastnamefont {Filjar}}, \btxtitlefont {\btxifchangecase {A
@@ -86,6 +94,40 @@
   Moderate Ionospheric Storm over Northern Adriatic}}, 2013, Chapter in:
   Weintrit, A. (editor) (2013). Advances in Marine Navigation. Taylor and
   Francis Group. London, UK.
+
+\bibitem {ref:46}
+\btxnamefont {R~\btxlastnamefont {Filjar}}, \btxnamefont {D~\btxlastnamefont
+  {Huljenić}}\btxandcomma {} \btxandlong {} \btxnamefont {S.~\btxlastnamefont
+  {Dešić}}, \btxtitlefont {\btxifchangecase {Distributed positioning: A
+  network-supported method for satellite positioning performance
+  improvement}{Distributed Positioning: A Network-Supported Method for
+  Satellite Positioning Performance Improvement}}, 2002, J of Navigation, 55,
+  477-484.
+
+\bibitem {ref:47}
+\btxnamefont {R.~\btxlastnamefont {Filjar}}, \btxnamefont {D.~\btxlastnamefont
+  {Huljenić}}\btxandcomma {} \btxandlong {} \btxnamefont {K.~\btxlastnamefont
+  {Lenac}}, \btxtitlefont {\btxifchangecase {Enhancing performance of gnss
+  position estimation by cloud-based gnss sdr receiver architecture
+  utilisation}{Enhancing Performance of GNSS Position Estimation by Cloud-based
+  GNSS SDR Receiver Architecture Utilisation}}, 2013, Proc of IEEE
+  InternationalSymposium ELMAR 2013, 315-318. Zadar, Croatia.
+
+\bibitem {rinex:303}
+\btxnamefont {RINEX\btxfnamespacelong Working\btxfnamespacelong
+  Group\btxfnamespacelong \&\btxfnamespacelong Radio\btxfnamespacelong
+  Technical\btxfnamespacelong Commission for \btxlastnamefont {Maritime
+  Services Special Committee 104 (RTCM-SC104)}}, \btxtitlefont
+  {\btxifchangecase {Rinex 3.03}{RINEX 3.03}}, 2015,
+  \url{https://igscb.jpl.nasa.gov/igscb/data/format/rinex303.pdf} [Online;
+  pregledano \today].
+
+\bibitem {ref:24}
+\btxnamefont {R\btxfnamespacelong Foundation for \btxlastnamefont
+  {Statistical~Computing}}, \btxtitlefont {\btxifchangecase {R: A language and
+  environment for statistical computing}{R: A language and environment for
+  statistical computing}}, 2016, Dostupno na: \url{http://www.r-project.org}
+  [Online; pregledano \today].
 
 \bibitem {ref:13}
 \btxnamefont {F.~\btxlastnamefont {Gustafsson}}, \btxtitlefont
@@ -124,11 +166,31 @@
   Nonlinear Weighted Regression Analysis}}, 2013, Tehničko izvješće.
   Technical University of Denmark. Lyngby, Danska.
 
+\bibitem {svd_str15}
+\btxnamefont {Allan\btxfnamespacelong Aasbjerg \btxlastnamefont {Nielsen}},
+  \btxtitlefont {\btxifchangecase {Least squares adjustment: Linear and
+  nonlinear weighted regression analysis}{Least Squares Adjustment: Linear and
+  Nonlinear Weighted Regression Analysis}}, 2013,
+  \url{http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/2804/pdf/imm2804.pdf}
+  [Online; pregledano \today].
+
 \bibitem {math:tay}
 \btxnamefont {\btxlastnamefont {{PMF}}}, \btxtitlefont {\btxifchangecase
   {Redovi potencija i taylorovi redovi}{Redovi potencija i Taylorovi redovi}},
   \url{https://web.math.pmf.unizg.hr/nastava/analiza/files/ch3_3.pdf}, 2009,
   [Online; pregledano 9-Feb-2017].
+
+\bibitem {RStudio}
+\btxnamefont {\btxlastnamefont {RStudio}}, \btxtitlefont {\btxifchangecase
+  {Rstudio}{RStudio}}, 2016, \url{https://www.rstudio.com/} [Online; pregledano
+  \today].
+
+\bibitem {ref:34}
+\btxnamefont {J\btxfnamespacelong et\btxfnamespacelong al. \btxlastnamefont
+  {Sanz~Subirana}}, \btxtitlefont {\btxifchangecase {Gnss data processing –
+  volume i: Fundamentals and algorithms}{GNSS Data Processing – Volume I:
+  Fundamentals and Algorithms}}, 2013, European Space Agency (ESA). Nordwijk,
+  Nizozemska. \url{http://bit.ly/1QV4KAL}[Online; pregledano \today].
 
 \bibitem {singer07}
 \btxnamefont {Saša \btxlastnamefont {Singer}}, \btxtitlefont {\btxifchangecase
@@ -136,6 +198,17 @@
   predavanje}}, 2017,
   \url{http://degiorgi.math.hr/~singer/num_mat/NM_1617/07.pdf}[Online;
   pregledano \today].
+
+\bibitem {ref:48}
+\btxnamefont {T.~\btxlastnamefont {Suzuki}}, \btxtitlefont {\btxifchangecase
+  {Programska knjižnica gnss-sdrlib v2.0 beta}{Programska knjižnica
+  GNSS-SDRLIB v2.0 Beta}}, 2017, \url{https://github.com/taroz/GNSS-SDRLIB}
+  [Online; pregledano \today].
+
+\bibitem {ref:36}
+\btxnamefont {T.~\btxlastnamefont {Takasu}}, \btxtitlefont {\btxifchangecase
+  {Rtklib open-source software package.}{RTKLIB open-source software
+  package.}}, 2017, \url{http://bit.ly/2gXSd42} [Online; pregledano \today].
 
 \bibitem {ref:38}
 \btxnamefont {M\btxfnamespacelong et\btxfnamespacelong al. \btxlastnamefont

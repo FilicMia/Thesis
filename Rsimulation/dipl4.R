@@ -97,7 +97,7 @@ while(eps < rlevel ){
     print(ele)
   }
   W = diag(Wii[,1])
-  b <- R[,1] - D - c*x_0[nCols]
+  b <- R[,1] - D - c*x_0[nCols] #x_0[4] modelira d_T i delta = delta_{d_T}
     
   dx <- chol2inv(t(A_iter) %*% W %*% A_iter) %*% t(A_iter) %*% W %*% b # 
   #dx <- svd.inverse(t(A_iter) %*% W %*% A_iter) %*% t(A_iter) %*% W %*% b # najpreciznija

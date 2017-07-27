@@ -43,6 +43,8 @@
 \usepackage[table]{xcolor}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage[linesnumbered,ruled,noline]{algorithm2e}
+%multi-row
+\usepackage{multirow}
 
 \renewcommand*{\listalgorithmcfname}{Lista algoritama}
 \renewcommand*{\algorithmcfname}{Algoritam}
@@ -126,7 +128,7 @@
 
 \chapter[Globalni navigacijski satelitski sustav (GNSS)][GNSS]{Globalni navigacijski satelitski sustav (engl. Global Navigation Satellite System (GNSS))}
 	
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.6\textwidth]{pictureNav}
 		\caption{Satelitska navigacija\cite{bookProcessing} }
@@ -136,12 +138,12 @@
 	%http://www.academia.edu/12873735/PRIMJENA_GPS_GLOBALNI_NAVIGACIJSKI_SISTEM_i_GNSS_GLOBALNI_NAVIGACIJSKI_SATELITSKI_SISTEM_U_GEOLO%C5%A0KOM_KARTIRANJU_I_IZRADI_IN%C5%BDENJERSKO-GEOLO%C5%A0KIH_KARATA_NA_PRIMJERU_KLIZI%C5%A0TA_JUNUZOVI%C4%86I_SREBRENIK
 	%primjena u kartografiji
 	Spominjući GNSS, najčešće se misli na \textit{"sazviježđe"}
-	satelita koji odašilju signale, potrebne za određivanje trenutne pozicije, i \textit{Navigacijske poruke} (engl. Navigation Messages (NM)).
+	satelita koji odašilju signale potrebne za određivanje trenutne pozicije (i/ili brzine i vremena) i \textit{Navigacijske poruke} (engl. Navigation Messages (NM)).
 	\textit{"Sazviježđe"} satelita predstavlja (1) svemirski segment GNSS sustava.
-	Postoji još (2) kontrolni segment koji čine kontrolne stanice smještene na Zemlji i (3) korisnički segment, tj. GNSS prijemnici (Slika \ref{Fig:GNSSsegmenti}).
+	Postoje još (2) kontrolni segment koji čine kontrolne stanice smještene na Zemlji i (3) korisnički segment, odnosno GNSS prijemnici (Slika \ref{Fig:GNSSsegmenti}).
 	Kontrolni segment nadzire i upravljaja radom sustava.
 	
-	\begin{figure}[h]
+	\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.6\textwidth]{GNSSsegmenti}
 			\caption{Segmenti GNS sustava (GNSS)} %https://dr.nsk.hr/islandora/object/fpz%3A511/datastream/PDF/view
@@ -149,19 +151,55 @@
 			
 	\end{figure}
 	
-	Trenutno postoji više GNS sustava (GNSS). Neki su u potpunosti 
-	operativni, a neki samo djelomično.
+	Trenutno postoji nekolicina GNS sustava (GNSS). Neki su u potpunosti 
+	operativni, dok neki samo djelomično.
 	Najraširaniji u civilnoj upotrebi je GPS (Global Positioning System).
 	GPS je u potpunosti operativan i u vlasništnu Vlade SAD-a. Njime upravlja Ministarstvo obrane SAD-a (engl. US Air Force).
 	GPS omogućava dvije znatno različite razine korištenja, civilnu i vojnu.
-	Vojna razina korištenja pruža mogućnosti, a dopuštena je samo određenim 
-	korisnicima. Civilna razina korištenja je dostupna svima, bez dodatne naknade, uz uvjet posjedovanja GPS-prijemnika. 
+	Vojna razina korištenja pruža više mogućnosti, a dopuštena je samo određenim 
+	korisnicima. Civilna razina korištenja je dostupna svima, bez dodatne naknade, uz uvjet posjedovanja GPS prijemnika. 
 	
-	Drugi, također u potpunost operativan GNSS, je GLONASS (Global'naya Navigatsionnaya Sputnikovaya Sistema) koji je u vlasništvu Rusije.
-	Postoje i GNSS sustavi u razvoju. Jedan od njih je Galileo.
+	Drugi, također u potpunost operativan GNSS, je GLONASS (Global'naya Navigatsionnaya Sputnikovaya Sistema) u vlasništvu Rusije.
+	Neki od GNSS sustava u razvoju su: (1) Galileo i (2) BeiDou.
 	Galileo-om upravlja Europska unija (EU). Najavljeno je da će postati u potpunosti operativan do 2020 \cite{bookProcessing}.
-	Kina posjeduje lokalni navigacijski satelitski sustav BeiDou 
-	na kojemu se radi da postane globalni najkasnije do 2020\cite{bookProcessing}.
+	BeiDou je kineski lokalni navigacijski satelitski sustav. U procesu je projekt proširenja BeuDou-a do globalnog do 2020\cite{bookProcessing}.
+	
+	\begin{table}[H]
+		\caption{Obilježja različitih satelitskih navigacijskih sustava}
+		%\rowcolors{1}{}{lightgray}
+		\begin{center}
+			\begin{tabular}{|lllll|}
+				\hline
+				\rowcolor{lightgray}&  &  & &  \\
+				\rowcolor{lightgray}&  &  & &  \\
+				 \multirow{-3}{1cm}{ \cellcolor{lightgray}	} & \multirow{-3}{2cm}{\cellcolor{lightgray} Zemlja} & 
+				 \multirow{-3}{2cm}{ \cellcolor{lightgray}Broj operativnih satelita} & \multirow{-3}{3cm}{\cellcolor{lightgray} Frekvencije vala nosilaca} & \multirow{-3}{3cm}{\cellcolor{lightgray} Brzina slanja navigacijske poruke} \\
+				\hline\hline
+				GPS & SAD & 31 & {L1 = 1575.42}
+				& 50, 25 \\
+				 &  &  & L2 = 1227.60 &  \\
+				 &  &  & L5 = 1176.45 &  \\
+				\hline
+				GLONASS & Rusija & 28 & {L1 = oko 1602}
+				& 50 \\
+				 &  &  & L2 = 1246 &  \\
+				 &  &  &&  \\
+				\hline
+				Beidou & NR Kina & 22 & {B1 = 1575.42}
+				& - \\
+				&  &  & B2 = 1191.795 &  \\
+				&  &  & B3 = 1268.52 &  \\
+				\hline
+				Galileo & EU & 18 & {E1 = 1575.42}
+				& - \\
+				&  &  & E5a-Q = 1176.45 &  \\
+				&  &  & E5b-Q = 1207.14 &  \\
+				&  & \multirow{-3}{2.5cm}{(15 potpuno operativnih)} & E6 = 1278.75 &  \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\label{tab:multicol}
+	\end{table}
 	
 	Primjena GNSS-a dijeli se na pozicioniranje i navigaciju.
 	\begin{defn}[Navigacija]
@@ -182,9 +220,9 @@
 	Praksa ne zathjeva da je $n$ u odnosu na vremenski okvir duljine 1 sata prevelik.
 	Točno kretanje entiteta moguće je
 	odrediti preslikavanjem dobivene aproksimacije na kartu prometnih puteva.
-	U tu svrhu se koriste otprije poznati algoritmi.
-	Dakle, u ovom radu se bavi algoritmom za pozicioniranje (statičkog entiteta)
-	u konceptu jednog određenog GNSS-a, GPS-a u aspektu civilne razine korištenja.
+	U tu se svrhu koriste otprije poznati algoritmi.
+	Dakle, rad se zasniva na algoritmu za pozicioniranje (statičkog entiteta)
+	u konceptu jednog, određenog, GNSS-a: GPS u aspektu civilne razine korištenja.
 	
 	%TODO sto koje poglvlje donosi
 	
@@ -194,7 +232,7 @@
 	Sateliti kruže na visini od oko 20200 kilometara od Zemljine površine s periodom rotacije 12 zvjezdanih sati. 
 	Sateliti su raspoređeni na način da u svakom trenutku za svako mjesto na Zemljinoj površini postoje barem 4 dostupna satelita. Definicija dostupnosti satelita je dana u kasnijem teksu (Stranica \pageref{stranica:dostupnost}).
 	
-	Svi GPS sateliti odašilju signale na istoj osnovnoj frekvenciji/frekvencijama (Slika \ref{Fig:GPSSignal}). 
+	Svi GPS sateliti odašilju (radio)signale na istoj osnovnoj frekvenciji/frekvencijama (Slika \ref{Fig:GPSSignal}). 
 	U satelitima, vrijeme je praćeno pomoću cezijevih satova koji se sinkroniziraju s univerzalnom GPS atomskom vremenskom skalom. Sinkronizacija se odvija u periodima.
 	\begin{figure}[H]
 		\centering
@@ -222,15 +260,15 @@
 		(po UTC vremenu).
 	\end{defn}
 	\textbf{Pseudo-udaljenost} je aproksimacija udaljenosti između satelita odašiljatelja i prijemnika primatelja signala u određenom trenutku.
-	Neka je $\delta t := (t'_i- t_i)$. Vrijeme putovanja signala izračunava se poravnavanjem odgovarajućih dijelova signala, tj. C/A PRN kodova.
+	Neka je $\Delta t := (t'_i- t_i)$. Vrijeme putovanja signala izračunava se poravnavanjem odgovarajućih dijelova signala, tj. C/A PRN kodova.
 	Naime, prijemnik i satelit istovremeno generiraju isti C/A PRN kod. Budući da 
 	dok signala putuje, prijemnik još uvijek generira C/A PRN kod, po primitku signala,
 	ta 2 koda se uspoređuju, poravnavaju. Temeljem razlike u poravnanju, dobivenog i generiranog C/A PRN koda,
-	računa se procjena vremena putovanja, tj. $\delta t$ (Slika \ref{fig:deltat}).
+	računa se procjena vremena putovanja, tj. $\Delta t$ (Slika \ref{fig:deltat}).
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.4\textwidth]{deltat}
-		\caption{Procjena vremena putovanja signala ($\delta t$)}
+		\caption{Procjena vremena putovanja signala ($\Delta t$)}
 		\label{fig:deltat}
 	\end{figure}
 	Za vrijednost konstante $c$ se uzima brzina svjetlosti koja predstavlja brzinu putovanja poruke satelita u vakuumu. Ona dovoljno dobro modelira stvarnu prosječnu brzinu putovanja.
@@ -262,8 +300,13 @@
 	pogreške nastale usljed konstrukcije ulaza algoritma i
 	(2) usljed primjenje algoritma za određivanje položaja na mjerenim psudo-udaljeniostima.
 	Dakle, postoje dva izvora: ulazni podatci algoritma (tip 1) i algoritam (tip 2).
-	Izvori pogreške tipa 1 su najčešće pogreške pri određivanju pseudo-udaljenosti
+	Najčešći izvori pogreške tipa 1 su pogreške pri određivanju pseudo-udaljenosti
 	ili raspoređenost satelita oko Zemlje (Slike \ref{fig:DOP}, \ref{fig:DOPLow} i \ref{fig:DOPHigh}).
+	Dvije skupine utjecajnih veličina (izvori pogrešaka tipa 1) nazivamo:%
+	\begin{itemize}
+		\item korisnička razdioba pogrešaka (UERE) i 
+		\item geometrijska degradacija točnosti (GDOP).
+	\end{itemize}
 	Nepovoljan položaj promatranih satelita može rezultirati skoro pa zavisnim jednadžbama
 	u \ref{eq:1}.
 	\begin{figure}[H]
@@ -275,46 +318,58 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.6\textwidth]{DOPLow}
-		\caption{Loš razmještaj satelita}
+		\caption{Nepovoljan razmještaj satelita}
 		\label{fig:DOPLow}
 	\end{figure}%
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.4\textwidth]{DOPHigh}
-		\caption{Dobar razmještaj satelita}
+		\caption{Povoljan razmještaj satelita}
 		\label{fig:DOPHigh}
 	\end{figure}
 	
 	
 	
 	Detaljnija podjela pogrešaka tipa 1 nastalih 
-	pri određivanju psudo-udaljenosti i na što koja utječe dana je sljedećom tablicom.
+	pri određivanju psudo-udaljenosti (UERE pogreške) i područje utjecaja dano je sljedećom tablicom.
 	
-	\begin{table}[h]\centering
-		\caption{Pogreške određivanja pseudo-udaljenosti}
+	\begin{table}[H]\centering
+		\caption{Izvori i utjecaj pogreške tipa 1 na određivanje pseudo-udaljenosti}
 		\begin{tabular}{ |p{3cm}|p{4cm}| }
 			\hline
-			\rowcolor{lightgray} izvor & utjecaj\\[0.5ex]
+			\rowcolor{lightgray} Izvor & Utjecaj \\[0.5ex]
 			\hline\hline
 			\multirow{2}{4em}{satelit} & pogreške orbite  \\ 
-			& pogreška sata satelita  \\ 
+			& pogreška sata satelita   \\ 
 			\hline
 			\multirow{2}{4em}{rasprostiranje signala} & troposferska refrakcija  \\ 
 			& ionosferska refrakcija  \\
 			\hline
-			\multirow{2}{4em}{prijemnik} & pogreške antene \\ 
-			& pogreška sata  \\ 
+			\multirow{4}{4em}{prijemnik} & pogreške antene  \\ 
+			& pogreška sata\\ 
+			%OVO je tip 2
+			%& pogreška pojednostavljena računalnih
+			%postupaka (tip 2)\\
+			\cline{2-2}
+			& pogreška višestaznih puteva \\
 			\hline
 		\end{tabular}
-	\end{table}
+	\end{table}	
+	
+	One mogu biti sistemske ili slučajne. %KOJA JE RAZLIKA?
 	Utjecaj sistemskih pogrešaka otklanja se modeliranjem ili
 	kombinacijom opažanja.
 	Korištenjem više prijemnika, otkanjaju se pogreške spacifične za satelite.
 	Pogreške specifične za prijemnike otkanja korištenje viška satelita.
-	Utjecajem troposfere se najčešće otklanja modeliranjem,
+	Utjecajem troposfere je najsigurnije otkloniti modeliranjem,
 	a ionosfere korištenjem dva signala različitih frekvencija.
+	Nažalost, ponekad nije moguće korištenje dva signala različitih frekvencije
+	pa se i utjecaj ionosfere otkanja modeliranjem. Ukoliko se utjecaj ionofere otklanja
+	modeliranjem, uvijek ostaje dio slučajne pogreške utjecaja ionosfere
+	koja se može uzeti u obzir prilikom izgradnje algoritma za određivanje položaja
+	u navigacijskoj domeni (Poglavlje \ref{sec:algTezine}).
 	
-	Uz sistemske pogreške, postoje još i slučajne pogreške nastale zbog trenutnog mjerenja i slučajnog dijela
+	Slučajne pogreške nastaju zbog trenutnog mjerenja i slučajnog dijela
 	višestruke refleksije signala (multipath) nastalog interferencijom 
 	direktnog i reflektiranog signala (Slika \ref{fig:multipath}).
 	\begin{figure}[H]
@@ -324,13 +379,17 @@
 		\label{fig:multipath}
 	\end{figure}
 	
-	Sistemske i slučajne pogreške mogu biti otklonjene koristeći RTK-LIB.
-	%RTK LIB u POGLAVLJE 4).
-	 Prije konstrukcije ulaza algoritma za određivanja položaja, smatramo da je
-	pogreška s izvorom u pseudo-udaljenostima maksimalno reducirana.
-	Dakle, pretpostavljamo kako ona više nije značajna
-	neuzimajući ju u obzir u daljnjem postupku izračuna položaja. \label{stranica:greskaOvisisamoOxOpravdano}
-	Smatramo da koristimo potpuno ispravljene pseudo-udaljenosti.
+	U poglavlju \ref{sec:izvedba} prvo se izvodi osnovni algoritam za određivanje položaja 
+	prijemnika koji polazi od pretpostavke o potpunoj ispravljenosti pseudo-udaljenosti\label{stranica:greskaOvisisamoOxOpravdano}.
+	Kasnije, uvođenjem težina (Poglavlje \ref{sec:algTezine}), reducira se utjecaj pogrešaka
+	psudo-udaljenosti.
+%	Sistemske pogreške lako se otklanjaju otklonjene koristeći RTK-LIB <- ali ja to modeliram.
+%	%RTK LIB u POGLAVLJE 4).
+%	 Prije konstrukcije ulaza algoritma za određivanja položaja, smatramo da je
+%	pogreška s izvorom u pseudo-udaljenostima maksimalno reducirana.
+%	Dakle, pretpostavljamo kako ona više nije značajna
+%	neuzimajući ju u obzir u daljnjem postupku izračuna položaja. \label{stranica:greskaOvisisamoOxOpravdano}
+%	Smatramo da koristimo potpuno ispravljene pseudo-udaljenosti.
 	
 	\vspace{0.5cm}
 	Pogreške tipa 2 mogu imati izvor u dizajnu izvedbe algoritma ili samoj izvedbi, npr.
@@ -338,8 +397,8 @@
 	aproksimacije pojedinih vrijednosti.
 	
 	One se ne modeliraju algoritmima procjene položaja (Poglavlje \ref{sec:algoritam}), već prilikom dizajna izvedbe odabranog algoritma (Poglavlje \ref{sec:izvedba})
-	
-	U poglavlju \ref{sec:izvedba}, biti će obrađena analiza pogreške tipa 2 za odabrani algoritam.
+ 	
+	%U poglavlju \ref{sec:izvedba}, biti će obrađena analiza pogreške tipa 2 za odabrani algoritam.
 	
 	\section{Navigation Message}\label{sec:NM} %http://what-when-how.com/gps/gps-details/
 	Svaki satelit, uz C/A PRN i P kod, odašilje i dodatne podatke potrebne za ispravo pozicioniranje prijemnika. Odašilje ih u obliku \textit{Navigacijske poruke} koja se šalje zajedno s generiranim C/A PRN kodovima (Slika \ref{Fig:GPSSignal}).
@@ -394,10 +453,13 @@
 	\end{defn}
 	
 	\section{Proces određivanja položaja}\label{sec:positionProcess}
-	U pravilu, u svakom trenutku, prijemnik ima više dostupnih satelita od kojih dobiva poruke. Za određivanje položaja prijemnika u granicama dopuštene točnosti, %TABLICA
+	U pravilu, u svakom trenutku, prijemnik ima više dostupnih satelita od kojih dobiva poruke. Za određivanje položaja prijemnika u granicama dopuštene točnosti,
 	zahtjevaju se barem 4 dostupna satelita\label{stranica:4satelita}.
 	
 	Kako bi prijemnik odredio svoju poziciju računa tri nepoznanice: geografsku širinu, duljinu i nadmorsku visinu.
+	% odnosno koordinate u trodimenzionalnom pravokutnom koordinatnom sustavu (geoprostornom koordinatnom sustavu) \textit{WGS84}.
+	% Geoprostornom koordinatni sustav \textit{WGS84} pred
+	
 	Neka je $k$ broj vidljivih satelita od prijemnika $\mathnormal{T}$.
 	Prijemnik $\mathnormal{T}$ promatrajući poruke dobivene od samo jednog satelita,
 	u vremenu $\mathnormal{t}$, izračunava samo jednu pseudo-udaljenost i može konstruirati samo jednu jednadžbu \ref{eq:position1}
@@ -409,11 +471,11 @@
 		\caption{Sfera oko promatranog satelita na kojoj bi se prijemnik mogao nalaziti \cite{gps:2}}
 		\label{Fig:1SatelitePosition}
 	\end{figure}
-	Uključujući u izračun pridobivene pseudo-udaljenosti od još jednog satelita dobivamo situaciju prikazanu na Slici \ref{Fig:2SatelitePosition}.
+	Uključujući u izračun pridobivene pseudo-udaljenosti još jednog satelita dobivamo situaciju prikazanu na Slici \ref{Fig:2SatelitePosition}.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.6\textwidth]{satellites_distance_23D}
-		\caption{Sfere oko 2 promatrana satelita, presjek je kružnica na kojoj bi se prijemnik mogao nalaziti. \cite{gps:2}}
+		\caption{Sfere oko dva promatrana satelita. Presjek je kružnica na kojoj bi se prijemnik mogao nalaziti. \cite{gps:2}}
 		\label{Fig:2SatelitePosition}
 	\end{figure}
 	Uključujuči u izračun još jedan satelit, dobivamo situaciju prikazanu na Slici \ref{Fig:3SatelitePosition}.
@@ -421,11 +483,11 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.6\textwidth]{satellites_distance_33D}
-		\caption{Sfere oko 3 promatrana satelita, presjek su 2 točke na kojoj bi se prijemnik mogao nalaziti. \cite{gps:2}}
+		\caption{Sfere oko tri promatrana satelita. Presjek su dvije točke na kojoj bi se prijemnik mogao nalaziti. \cite{gps:2}}
 		\label{Fig:3SatelitePosition}
 	\end{figure}
 	
-	Presjek 3 promatrane sfere su 2 točke na kojoj bi se prijemnik mogao nalaziti.
+	Presjek tri promatrane sfere su dvije točke na kojoj bi se prijemnik mogao nalaziti.
 	Jedna točka se nalazi daleko u svemiru, dok je druga točka točka kandidat pozicije prijemnika. 
 	
 	Algebarski, rješavamo sljedeći sustav linearnih jednadžbi u $(x,y,z)$ :
@@ -489,11 +551,26 @@
 	U praksi se može koristiti još veći broj dostupnih satelita što poboljšava 
 	preciznost pozicioniranja prijemnika. Očekivana pogreška rješenja dobivenog rješavanjem sustava\ref{eq:1} je između $10^2$ i $10^3$. Tako dobiveno rješenje se profinjuje čime se postiže pogreška veličine $10^1$.
 	Ovim radom se proučava, opisuje, dizajnira i izvodi algoritam za rješavanje sustava \ref{eq:1}.
-	Naime, rješavanje sustava \ref{eq:1} čini temelj procesa određivanja položaja, nužno ga je provesti.
-	Za primjene koje zahtjevaju malu točnost, ono je i dovoljno.\\
-	Metode za profinjavanje dobivenog rješenja mogu biti izrazito kompleksne i ovise o primjeni. Svojom kompleksnošću i raznovrsnošću prelaze obim ovoga rada.\\
+	Naime, rješavanje sustava \ref{eq:1} čini temelj procesa određivanja položaja i nužno ga je provesti.
+	U primjenama koje zahtjevaju relativno malu točnost, ono je i dovoljno.\\
+	Metode za profinjavanje dobivenog rješenja (modeli ispravka) mogu biti izrazito kompleksne i ovise o primjeni. Svojom kompleksnošću i raznovrsnošću prelaze obim ovoga rada.\\
 
 \chapter[Algoritam procjene položaja (APP)]{Algoritam procjene položaja u domeni navigacijske primjene}\label{sec:algoritam}
+%Algoritam procjene položaja za ulazne podatke, ne mora nužno određivati nadmorsku visinu, geografsku širinu i duljinu. Postoji više geoprostornih koordinatnih sustava za određivanje
+%pozicije objekta. Korištenje nadmorske visine, geografske širine i duljine predstavlja jedan geoprostorni koordinatni sustav. Ovisno o geoprostornom sustavu koordinata korištenih satelita, algoritam određuje geoprostorni koordinatni sustav u kojem će biti prikazana izračunata pozicija prijemnika. 
+Ukratko, postupak procjene položaja satelitskim navigacijskim sustavom traži ispunjavanje sljedećih preduvjeta:
+\begin{itemize}
+	\item Korištenje zajedničkog (geoprostornog) referentnog sustava,
+	\item Korištenje zajedničkog vremena (vremenskog okvira) sustava,
+	\item Ispunjavanje pretpostavke o pravocrtnom širenju satelitskih signala jedinstvenom
+	brzinom (brzina svjetlosti u vakuumu).
+\end{itemize}
+Uvjeti trebaju biti ispunjeni od strane svih satelita odabranog sustava i korištenog prijemnika.
+Prvi uvijet je uvijek lako ispuniti. Druga dva se ispunjavaju na razne načine:
+(1) modeliranjem prije primjene algoritma za određivanje položaja u navigacijskoj domeni, (2)
+korištenjem viška satelita ili prijemnika, (3) modeliranjem prilikom primjene algoritma za određivanje položaja u navigacijskoj domeni (samim algoritmom), (4) modeliranjem nakon primjene algoritma za određivanje položaja u navigacijskoj domeni.
+Na primjer, odstupanje sata prijemnika od vremenskog okvira sustava modelira se kao četvrta nepoznanica sustava 
+(Poglavlje \ref{sec:positionProcess}).
 
 \textit{Algoritam procjene položaja u domeni navigacijske primjene} (APP)
 smatramo svakim algoritmom koji za sustav jednadžbi \ref{eq:1}
@@ -533,13 +610,15 @@ prelazi u
 \section{Iterativna metoda najmanjih kvadrata}
 
 Primjetimo kako je $\mathbf{h}(\mathbf{x})$ jednako pravom vektoru pseudo-udaljenosti (udaljenosti, ako pogreška sata, $d_T$ = 0) između
-satelita i prijemnika za prave vrijednosti $\mathbf{x}$,$\bar{\mathbf{x}}$.\\
-%Na ovoj razini, 
-Algoritam oderđivanja položaja se ne bavi pogreškama tipa 2,
-već samo pogreškama tipa 1 (Stranica \ref{stranica:greskaOvisisamoOxOpravdano}).
-Također, može se pretpostavti kako su otklonjene sve pogreške tipa 1 koje imaju izvor 
-u pogreškama izračuna pseudo-udaljenosti (osim pogreški sata prijemnika) (Stranica \ref{stranica:greskaOvisisamoOxOpravdano}).
-Ostaje samo modelirati pogreške koje imaju za izvor trenutni položaj satelita dostupnih za
+satelita i prijemnika za prave vrijednosti $\mathbf{x}$, $\bar{\mathbf{x}}$.\\
+
+%POPRAVITI, POGLEDAJ IZVOS S PREBACIVANJEM Cd_T i kvadriranjem
+Opće dizajniranje algoritma za određivanje položaja u domeni navigacijske primjene nema utjecaj na
+pogreške tipa 2,
+već samo pogreške tipa 1 (Stranica \pageref{stranica:greskaOvisisamoOxOpravdano}).
+Također, pretpostavlja se kako su otklonjene sve pogreške tipa 1 koje imaju izvor 
+u pogreškama izračuna pseudo-udaljenosti (osim pogreški sata prijemnika) (Stranica \pageref{stranica:greskaOvisisamoOxOpravdano}).
+Ostaje još samo modelirati pogreške koje imaju za izvor trenutni položaj satelita dostupnih za
 izračunavanje željenog položaja $\bar{\mathbf{x}}_{(1:3)}$.
 U tu svrhu modeliramo vektor pogrešaka $\mathbf{v}$, funkcijom $\mathbf{p}(\mathbf{x})$ koja ovisi o nepoznatom parametru $\mathbf{x}$.
 Uz oznaku $\mathbf{y} := \rho$, 
@@ -594,7 +673,7 @@ Označimo sada s $J_k := \mathbf{p}'(\mathbf{x_k}) = \mathbf{h}'(\mathbf{x_k})$.
 \begin{align}\label{eq:minDelta2}
 	J_k \Delta \mathbf{x_k} +\mathbf{p}(\mathbf{x_k})
 \end{align}
-čij je minimun dan s (vidi stranicu \pageref{stranica:nastavakLS})  
+čij je minimun dan s (Stranica \pageref{stranica:nastavakLS})  
 \begin{align}\label{eq:minDeltaRj}
 \Delta \mathbf{x_k} = - (J_k^TJ_k)^{-1}J_k^T \mathbf{p}(\mathbf{x_k})
 \end{align}
@@ -720,7 +799,7 @@ o jednakosti varijance za $\Delta \mathbf{y}$ i $\Delta \mathbf{x}$
 istinite.
 
 Primjenu metode najmanjih kvadrata moguće je pronaći na stranici \pageref{stranica:nastavakLS}.
-%DODATI KAKO PRAVO DEFINIRATI h DA SE dobije J(4,4) TDOP u appendix.
+
 \section{Metoda zatvorene forme}
 Metoda zatvorene forme pronalazi direktno rješenje sustava \ref{eq:1}.
 Za razliku od iterativnih metoda,
@@ -899,27 +978,205 @@ izraza $(\mathbf{\rho}-\mathbf{h}(\mathbf{x}) )^T \Sigma^{-1} (\mathbf{\rho}-\ma
 Dakle, $\hat{\mathbf{x}} = \text{arg min}_x \left( \mathbf{p}^T (\mathbf{x}) \Sigma^{-1}\mathbf{p} (\mathbf{x}) \right)$ 
 što odgovara izrazu \ref{eq:minimisation2} uz matricu težina jednaku $cov(\mathbf{v})^{-1}$.
 
-\chapter{Dizajn i izvedba algoritma, procjena točnosti}\label{sec:izvedba}
-Nakon proučavanja literature, odlučili smo se za izvedbu temeljnog algoritma 
-za određivanje položaja: algoritma težinskih najmanjih kvadrata (vidi stranicu \pageref{code:iterLSMW}, algoritam \ref{code:iterLSMW}).
-\\Za dobivene psudo udaljenosti (vidi \ref{sssec:rinex}), i 
+\chapter{Programski određen GPS prijemnik}
+Za pokretanje procesa određivanja položaja, potrebno je prvo prikupiti ulazne podatke za algoritam određivanja položaja u navigacijskoj domeni. Te podatke je moguće prikupiti u \textit{RINEX} obliku koji se kasnije prebacuju u željeni oblik, tekstualnu datoteku s 1 (pseudo-udaljenosti) ili 3 stupca podataka (x,y i z koordinate položaja satelita u ECEF XYZ koordinatama). Podatci su prikupljeni koristeći civilni programski određen GPS prijemnik praktično izveden na vlastitom računalu.
+
+\section{Model programski određenog radioprijamnika}
+Svaki radioprijamnik obavlja procesiranje signala i informacija u četiri osnovne domene:
+\begin{itemize}
+	\item domena pretvorbe elektromagnetskog vala u električni signal (u anteni),
+	\item domena visokih (radijskih) frekvencija, u kojoj se obrađuje primljeni modulirani signal te obavlja demodulacija i prijenos u osnovno frekvencijsko područje,
+	\item domena osnovnog frekvencijskog područja, u kojoj se procesiraju signali nosioci informacija i iz njih izdvajaju same informacije,
+	\item domena aplikacijskog procesiranja, u kojoj se izdvojene informacije procesiraju s ciljem predstavljanja korisniku u za njega prihvatljivom obliku.
+\end{itemize} 
+Ponekad se obrada u prve tri domene naziva jednim imenom obrada signala i informacija u frekvencijskoj domeni.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{modelPOR}
+	\caption{Funkcionalni model programski određenog radio prijamnika za satelitsku navigaciju}
+	\label{Fig:modelPOR}	
+\end{figure}
+
+Za područje satelitske navigacije, domena visokih frekvencija izdvojit će i digitalizirati signale koji prenose PRN kodne sekvence i navigacijsku poruku. Nizovi brojeva prosljeđuju se u domenu osnovnog frekvencijskog područja koja identificira i izdvaja prenošene informacije. U satelitskom navigacijskom prijamniku, u ovoj se domeni postupakom unakrsne korelacije primljenih i lokalno generiranih PRN kodnih sekvenci određuju pseudoudaljnosti i izdvajaju elementi navigacijske poruke. U domeni aplikacijskog procesiranja, izlaz osnovnog frekvencijskog područja bit će obrađeni s ciljem spremanja informacija u korisniku razumljivom obliku (Slika \ref{Fig:modelPOR}).
+
+\section{Pojam programski određenog radioprijemnika}
+Tradicionalni prijamnik za satelitsku navigaciju je izveden sklopovski. Elektronički sklopovi posebne namjene obavljaju ciljane funkcije unutar segmenata prijamnika. Pri tome, konstrukcija i izvedba sklopova definira uspješnost primjene matematičkih modela u ispunjavanje traženih funkcionalnosti, odnosno postavljenih zahtjeva na kvalitetu procesiranja signala i informacija.
+
+Elektronički sklopovi su po svojoj su prirodi nesavršeni i ograničeni. Jednom konstruirani i izvedeni elektronički sklopovi posebne namjene ne mogu se lako značajnije promijeniti. Pokaže li se potreba za proširivanjem ili prilagođavanjem novom statusu sustava kao cjeline,
+potrebno je napuštanje izvedbe starog sustava i konstrukcija ili kupnja potpuno nove.
+U slučaju satelitske navigacije, tradicionalni GPS prijamnik, u kojem je generiranje PRN satelitskih sekvenci izvedeno sklopovskim načinom, uvođenje novih satelita i modernizacija sustava izazivaju napuštanje starog i konstrukciju ili kupnju potpuno novog i kompatibilnog GPS prijamnika.
+
+Dvadesete godine dvadesetog stoljeća uvode novi koncept radiokomunikacijske tehnologije.
+Reducira se broj elektroničkih sklopova posebne namjene i uvode programske komponente za obradu signala i informacija. Time se omogućava lakše praćenje promjena sustava i izravnija primjena matematičkih modela u algoritamskom obliku na podglgama opće namjene, npr. osobna računala ili pametni telefoni.
+Novi koncept se naziva programski određen radio (engl. Software-Defined Radio, SDR).
+Lakoća prilagodbe promjenama, omogućila je SDR-u da ubrzo postane standard u radiokomunikacijskoj industriji.
+Brojni uređaju od pametnih telefona do radijskih i televizijskih prijamnika su izvedeni u obliku SDR-a. Takva izvedba im omogućava postizanje bolje prilagodljivosti, proširivosti, iskorištenja energije i lakše komunikacije s drugim računalnim uređajuma. 
+
+Programska izvedba prijamnika za satelitsku navigaciju zanimljiva je sa stajališta računarne
+znanosti. Primjena algoritama za procesiranje signala i informacija podržava raspodjeljivanje
+arhitekture sustava. Potpuno procesiranje više ne treba biti u potpunosti izvedeno na jednom uređaju
+(npr. pametnom telefonu ili samostalnom GNSS prijamniku) pa se dijelovi postupka obrade prebacuju na druge uređaje. Svaki korišteni uređaj svoj dio obrade obavljaja kvalitetnije i točnije uz jednostavnije
+korištenje izvora dodatnih informacija koje mogu pridonijeti poboljšanju točnosti procjene
+položaja \cite{ref:46,ref:47}. Navedeni pristup omogućava korištenje računalnog okruženja u
+oblaku što dopušta da se prijemniku ostavi samo obrada signala i informacija u frekvencijskoj
+domeni. Izlaz obrade signala i informacija u frekvencijskoj domeni pohranjuje se u binarnom obliku
+u \textit{RINEX} formatu.
+
+\textit{RINEX}\label{sssec:rinex}
+(engl. Receiver Independent Exchange Format) je općeprihvaćena definicija
+sahranjivanja izlaza obrade (navigacijskih) satelitskih signala u frekvencijskoj domeni (neobrađeni podatci satelitske navigaciju).
+Definiranje općeprihvaćenog načina sahranjivanja omogućava lako prebacivanje dijelova obrade 
+na druge uređaje u svrhu poboljšanju točnosti procjene
+položaja \cite{ref:46,ref:47}.
+\textit{RINEX} se mijenja kroz vrijeme obuhvaćajući promjene GNS sustava. Trenutna verzija je
+3.03 iz 2015 \cite{rinex:303}.
+
+\section{Programski određen GPS prijemnik}
+Programsko određen GPS prijemnik predstavlja vrstu programski određenog radioprijemnika posebne namjene,  procjene položaja satelitskim navigacijskim sustavima.
+
+Posebnosti programski određenog radioprijemnika za potrebe
+satelitske navigacije izražene su karakterističnim postupcima procesiranja signala i informacija u
+domeni osnovnog frekvencijskog područja i domeni navigacijskog (aplikacijskog) procesiranja.
+Karakteristični postupci su vezani za:
+\begin{itemize}
+	\item prihvat signala (engl. Acquisition), prepoznavanje PRN kodne sekvence pojedinačnog
+	satelitskog signala,
+	\item sljeđenje signala (engl. Tracking), vremensko usklađivanje s primljenim signalom, za
+	potrebe kasnijeg određivanja pseudoudaljenosti,
+	\item procjena vidljivosti satelita,
+	\item procjena položaja, brzine i vremena.
+\end{itemize}
+
+%PREVESTI SLIKU
+%NAĆI RAZUMLJIVIJU SLIKU
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{prihvatSignala}
+	\caption{Procesiranje signala u domeni osnovnog frekvencijskog područja}
+	\label{Fig:prihvat}	
+\end{figure}
+
+Procesiranje signala u domeni osnovnog frekvencijskog područja (Slika \ref{Fig:prihvat}) obuhvaća prihvat
+signala, sljeđenje signala, izdvajanje navigacijske poruke i određivanje pseudoudaljenosti. Obavlja se
+na razini komunikacijskog kanala,tj. za svaki pojedinačni satelitski signal. U slučaju gubitka
+vremenske usklađenosti s primljenim signalom, prijamnik će prijeći na prihvat signala, dok se ne
+stvore uvjet za ponovni prijelaz u fazu slijeđenja. U slučaju potpunog gubitka signala, prijemnik ponovo započinje postupak prihvata.
+
+Algoritmi obrade signala u domeni osnovnog frekvencijskog područja ovise o spremnosti procjene vidljivosti satelita koja se u navigacijskoj domeni zasniva na pojednostavljenom
+opisu satelitskih putanja, efemeridama. Almanah o statusu satelita u "sazviježđu", kao i satelitske efemeride, se prenose navigacijskom porukom. Promjene almanaha obavljaju se na
+dnevnoj bazi. Ukoliko prijamnik već poznaje dnevni almanah, je u stanju brže napraviti
+prvu procjenu položaja, što se naziva topli start GPS (ili općenito GNSS) prijamnika.
+Ukoliko su prijamniku poznati i dnevni almanah i efemeride, vrijeme do prve procjene položaja je još kraće (nekoliko desetaka sekundi) što nazivamo vrući start GNSS prijamnika. Ako
+prijamnik nema ni dnevni alamanh ni sateliske efemeride, vrijeme do procjene položaja
+može biti prilično dugo. Ono ovisi o načinu dobavljanja navigacijske poruke. Ako se poruka
+prima sa satelita, vrijeme do prve procjene položaja je barem 12.5 min.Takvo stanje GNSS prijamnika se naziva hladan start GNSS prijamnika. Hladan start je moguće ubrzati alternativnom dostavom navigacijske poruke, npr. preko
+telekomunikacijskih mreža. Naime, elementi telekomunikacijskih mreža su vremenski usklađeni pomoću satelitskih
+navigacijskih prijamnika pa čvorovi mreže već poznaju navigacijsku poruku i mogu je prenijeti
+korisničkoj opremi (GNSS prijemniku). Način rada u kojem
+korisnički prijamnik ne prima sve potrebne podatke za određivanje položaja putem satelita nazivamo potpomognutom satelitskom navigacijom (engl. Augmented GNSS, A-GNSS).
+
+Algoritam procesiranja informacija u domeni navigacijske primjene (Poglavlje \ref{sec:algoritam}) koristi informacije iz
+navigacijske poruke (satelitske efemeride, alamanah i parametre modela ispravaka pogrešaka) te
+izmjerene pseudoudaljenosti kako bi se procijenio položaj (i/ili brzinu) prijemnika i ispravio
+pogrešku korisničkog sata. Modelima ispravaka ispravljaju se poznate sustavne pogreške
+položaja satelita, ionosferskog i troposferskog kašnjenja te pogreške korisničkog sata uključene u
+izmjerene vrijednosti pseudoudaljenosti, čime se omogućuje točnija procjena
+položaja (i/ili brzine i vremena). Slučajne pogreške ostaju nepokrivene pa procjena položaja nije
+apsolutno točna. Naime, postupak procjene položaja omogućuje zadovoljavajuću procjenu pogreške
+određivanja položaja. Ona se može predstaviti korisniku, zajedno s rezultatima procjene položaja (i/ili brzine i vremena).
+
+\section{Praktična izvedba korisničkog GPS prijamnika}
+U okvirima diplomskog rada izvaden je korisnički $GPS$ prijemnik.
+Izvedeni radioprijemnik je moguće koristiti za obradu satelitskih signala i informacija u domeni osnovnog frekvencijskog područja i domeni navigacijske primjene. Obrada signala u domeni osnovnog frekvencijskog područja se izvodi korištenjem programske knjižnice otvorenog koda \textit{GNSS SDRLIB}
+\cite{ref:48}. Obrada informacija u domeni navigacijske primjene je moguće izvesti korištenjem programskog paketa otvorenog koda \textit{RTKNAV} iz programske knjižnice \textit{RTKLIB}\cite{ref:36}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{rtkGNSS}
+	\caption{Shema GNSS radioprijemnika}
+	\label{Fig:radioprijemnik}	
+\end{figure}
+Spomenute knižnice povezane su klijentsko-poslužiteljskom arhitekturom.
+\vspace{0.5cm}
+Programska knjižnica \textit{GNSS SDRLIB} (Slika \ref{Fig:sdrlib}) omogućava korištenje kompozitnih
+GPS signala (Slika \ref{Fig:GPSSignal}) u domeni osnovnog  frekvencijskog područja dostavljenih strujenjem
+ili arhivkom datotekom.
+Omogućuje izbor pojedinačnog GNSS sustava i pojedinačnih satelita pa tako i odabranog $GPS$ sustava.
+Također, omogućava pristup strujanim podatcima potpomognutog GNSS-a,  dostavljanim putem internetske veze od trećih strana (dobavljača ispravaka).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{sdrlib}
+	\caption{Grafičko korisničko sučelje programskog paketa GNSS-SDRLIB}
+	\label{Fig:sdrlib}	
+\end{figure}
+%
+Programski paket \textit{RTKNAVI} je dio programske knjižnice otvorenog koda \textit{RTKLIB} \cite{ref:36, ref:5}.
+Koristi se za procjenu položaja (i/ili brzine i vremena) zasnovanom na podatcima
+(pseudoudaljenosti i sadržaja navigacijske poruke) koji čine izlaz domene za obradu signala u osnovnom
+frekvencijskom području. Preko grafičkog korisničkog sučelja (Slike \ref{Fig:rtkNav} i \ref{Fig:guirtkNav}) omogućuje
+praćenje statusa procesa: toka podataka iz GNSS SDRLIB aplikacije prema RTKNAV aplikaciji,
+grafičkog predstavljanja jakosti prihvaćenih i sljeđenih satelitskih signala te procjenu navigacijskih
+parametara (tri komponente položaja: geografska širina, geografska dužina i nadmorska visina,
+brzina i točno vrijeme) temeljem mjerenih vrijednosti pseudoudaljenosti korištenih
+satelita te uz korištenje temeljnog postupka procjene položaja i točnog
+vremena (Slika \ref{Fig:rtkNavKo}). 
+Korišteni algoritmi procesiranja informacija i procjene
+položaja opisani su u dokumentraciji programske knjižnice RTKLIB \cite{ref:36}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{rtkNav}
+	\caption{Grafičkko korisničko sučelje programskog paketa RTKNAV}
+	\label{Fig:rtkNav}	
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{guirtkNav}
+	\caption{GUI RTKNAV aplikacije u radu (zastavica FIX označava ispravnu procjenu položaja)}
+	\label{Fig:guirtkNav}	
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{rtkNavKo}
+	\caption{Korištenje aplikacije RTKNAV, s ulaznim i izlaznim informacijama}
+	\label{Fig:rtkNavKo}	
+\end{figure}
+
+Korišteni uzorci GPS signala u domeni osnovnog frekvencijskog područja su pribavljeni eksperimantalno izvedenim GPS prijemnik u stvarnim uvjetima.
+Nad njima je obavljena obrada signala u frekvencijskoj domeni i potrebni podatci za ulaz u 
+algoritme procjene položaja u domeni navigacijske primjene su spremljeni u tekstualnom obliku (koordinate satelita i pripadne pseudoudaljenosti).
+
+\chapter{Praktična izvedba procjene položaja u domeni navigacijske primjene}\label{sec:izvedba}
+Algoritmi procjene položaja u domeni navigacijske primjene su opisani u dokumentaciji programske knjižnice RTKLIB \cite{ref:36}.
+Osnovni algoritam čini algoritam najmanjih kvadrata (Stranica \pageref{code:iterLSMW}, algoritam \ref{code:iterLSM} i \ref{code:iterLSMW}).
+\\Za dobivene psudoudaljenosti (vidi \ref{sssec:rinex}), i 
 položaj satelita u \textit{ECEF XYZ} koordinatnom sustavu u $RINEX$ formatu, izračunavamo položaj
 prijemnika i pogrešku sata prijemnika.
+Prilikom izvedbe korišten je programski jezik $R$ \cite{ref:24} i R-sučelje \textit{RStudio}
 \section{Programski jezik R}
-\section{Zahtjevi algoritma}
-Za pokretanje procesa određivanja položaja, potrebno je prvo prikupiti podatke u \textit{RINEX} obliku. Podatci su prikupljeni koristeći programski određen GPS prijemnik izveden na vlastitom računalu.
-\subsection{RINEX}\label{sssec:rinex}
--objašnjenje pojma + primjeri. + otkuda nam.
-\subsection{Programski određen GPS prijemnik}
-+zašto i kako smo ga koristili. i dobili podatke. (User manual?)
+$R$ je programski jezik za statističku i drugu matematičku obradbu putem računala koji ima snažnu grafičku potporu.
+$R$ omogućava izvedbu statističke analize, modeliranje i simulacija.
+ Između ostalog, podržani su postupci zasnovani na linearnoj algebri, analizi i prognozi ponašanja vremenskih nizova i grafičkom predočavanju \cite{ref:34,ref:22}. 
+ \\
+ 
+ \textit{R} je dostupan za većinu platformi (Windows, Linux, Mac) i instalacija je poprilično jednostavna.
+ Potrebno je preuzeti potrebne datoteke s web-stranice R-site i instalirati program u skladu s njima.
+ Instalirani program nudi R-sučelje (R-GUI) u kojemu se preko naredbene linije zadaju naredbe i pokreću skripte i dobivaju numerički i grafički rezultati.
+ Postoji i više neslužbenih R-sučelja. Jedan od poznatijih je \textit{R-Studio} \cite{RStudio}.
+ Ovdje se također komunikacija ostvaruje preko naredbi u konzoli, ali je RStudio opremljen znantno bogatijom grafičkom okolinom (radni prostor, povijest, instalacija paketa, pomoć i sl.).
+Postoji i mogućnost integracije $R$ interpretera u odabrani tekst-editor ili poziva R-funkcija iz drugih programskih jezika (Python, Ruby, SAGE).
+\\
 
+ U izradi ovoga teksta korišten je programski jezik R sa standardnim i dodatnim (\textit{MASS}, \textit{matlib}, \textit{limSolve} i \textit{matrixcalc}) programskim knjižnicama \cite{ref:4,ref:6,ref:8}.
+
+%TUUU STALAA
 \section{Izvedba}
 %Direktna izvedba algoritma sa stranice \pageref{code:iterLSMW}, dobivamo 
 %izvedbu koja nije općepromjenjiva.
 %Naime, matrica sustava ima veliku uvjetovanost pa sustav postaje numerički nestabilan.
 
 \subsection{Osnovni pristup}
-Ssustav koji opisuje problem određivanja položaja je nelineraran pa
+Sustav koji opisuje problem određivanja položaja je nelineraran pa
 ga možemo prvo \textbf{linearizirati}, a tek zatim primjeniti metodu najmanjih kvadrata \cite{googleSchoolar1}.
 Općenito, rješenja lineariziranog i nelineariziranog sustava nisu u potpunosti jednaka \cite{singer07}, ali su u ovom slučaju dovoljno bliska. Naime, jednadžbe sustava su skoro linearne.%slide 16
 
@@ -1001,7 +1258,7 @@ dobivamo sustav:
 \mathbf{A}\mathbf{x} = \mathbf{b}
 \end{align}
 koji rješavamo metodom iterativnih najmanjih kvadrata.\label{stranica:nastavakLS}
-Ideja je da, budući da zbog pogreške u mjerenjima ili linearizacije, što je slučaj u ovome radu, sustav \ref{eq:sustav} nema uvijek rješenje, tj. 
+Ideja je da, budući da zbog pogreške u mjerenjima ili linearizacije sustav \ref{eq:sustav} nema uvijek rješenje, tj. 
 $\mathbf{A}\mathbf{x} - \mathbf{b} \not = 0, \forall \mathbf{x} \in \R^m$,
 ne tražiti rješenje sustava, već $\mathbf{x}$ koji minimizira izraz $\|\mathbf{A}\mathbf{x} - \mathbf{b}\|_2$.
 Prema sljedećem teoremu, dovoljno je promatrati sustav
@@ -1015,32 +1272,51 @@ $$ A^TA\mathbf{x} = A^Tb $$.
 	\\ koju obično nazivamo \textit{sustav normalnih jednadžbi} i pišemo u obliku 
 	$$ A^TA\mathbf{x} = A^Tb $$.
 \end{thm}
-Dokaz teorema se može naći u \cite{singer07}, stranica 46.\\
-Dakle, rješenje minimizacijskog problema najmanjih kvadrata sustava \ref{eq:sustav} je jednako rješenju sustava 
-\begin{align}\label{eq:sustavProj}
-A^TA\mathbf{x} = A^Tb 
-\end{align}
-koji se naziva \textbf{sustav normalnih jednadžbi}.
+\begin{proof}
+Rješavanje problema $\mathbf{A}\mathbf{x} = \mathbf{b}$, gdje $\mathbf{x}$ parametar koji je potrebno odrediti, se svodi na prikaz vektora $\mathbf{b}$ u bazi koju čine stupci matrice $\mathbf{A}$. Ukoliko $\mathbf{b}$ nije iz prostora razapetog stupcima matrice $\mathbf{A}$, $L_A$,
+tada je potrebno pronaći vektor $\mathbf{\hat{b}} \in L_A$ i
+najbliži vektoru $\mathbf{b}$ među svim vektorima iz $L_A$.
+Po definiciji, $\mathbf{\hat{b}}$ je projekcija $\mathbf{b}$ na $L_A$ dan formulom:
+\begin{align*}
+\mathbf{\hat{b}} := \mathbf{A(A^TA)^{-1}A^T}\mathbf{b}
+\end{align*}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{linProjection}
+	\caption{Projekcija vektora $\mathbf{y}$ u prostor razapet vektorima $x_1$ i $x_2$ \cite{svd_str15} }
+	\label{Fig:projection}	
+\end{figure}
 
-Zanimljiva činjenica je da 
-ukoliko znamo jedno rješenje sustava \ref{eq:sustavProj}, lako je pronaći i sva ostala, ukoliko ona postoje.\\
-Neka je $\mathbf{A}\mathbf{x} - \mathbf{b} = r$ i $\hat{x} \in \R^m$ proizvoljan.\\
-Neka je
+$\mathbf{A(A^TA)^{-1}A^T}$ nazivamo projektor na prostor razapet stupcima matrice $\mathbf{A}$ i obično označavamo s $\mathbf{H}$.\\
+Dakle, $\mathbf{\hat{x}}$ je rješenje problema najmanjih kvadrata ako i samo ako
+vrijedi $\mathbf{A}\mathbf{\hat{x}} = \mathbf{\hat{b}}$, tj.
+$\mathbf{\hat{x}}:= \mathbf{(A^TA)^{-1}A^T}\mathbf{b}$, odnosno $\mathbf{\hat{x}}$
+je \textbf{rješenje problema normalnih jednadžbi} \begin{align}\label{eq:sustavProj}
+A^TA\mathbf{x} = A^Tb.
+\end{align}
+\end{proof}
+
+Detaljniji dokaz teorema može se pronaći u \cite{singer07}, stranica 46.\\
+
+Zanimljivo je da 
+ukoliko znamo jedno rješenje sustava \ref{eq:sustavProj}, lako je pronaći i sva ostala.\\
+Naime, uz $\mathbf{A}\mathbf{x} - \mathbf{b} = r$, $\hat{x} \in \R^m$ proizvoljan i
 \begin{align}
 \hat{r}  &=  \mathbf{A}\mathbf{\hat{x}} - \mathbf{b} \notag \\
 &= r + A\mathbf{x} - A\mathbf{\hat{x}} \notag \\
 &= r - A(\mathbf{\hat{x}} - \mathbf{x}) \notag
 \end{align}
-Tada je $\mathbf{\hat{x}} \in S$ ako i samo ako $\hat{r} = r$,  $ A(\mathbf{\hat{x}} - \mathbf{x}) $, odnosno $\mathbf{\hat{x}} - \mathbf{x} \in \mathcal{N}(A)$.\\
-Ukoliko vrijedi nešto od sljedećega:
+imamo $\mathbf{\hat{x}} \in S$ ako i samo ako $\hat{r} = r$ pa  $ A(\mathbf{\hat{x}} - \mathbf{x}) = 0$, tj. $\mathbf{\hat{x}} - \mathbf{x} \in \mathcal{N}(A)$.\\
+
+Nadalje, ukoliko vrijedi nešto od sljedećega:
 \begin{itemize}
 	\item $A$ ima puni stupčani rang,
 	\item stupci matrice $A$ su linearno nezavisni,
 	\item $A^TA$ je pozitivno definitna,
 \end{itemize}
 $\mathcal{N}(A)$ je trivijalan i rješenje sustava je jedinstveno 
-\vspace{0.5cm}
-\\Vrijede i sljedeće tvrdnje.%
+\vspace{0.2cm}
+\\Vrijedi i sljedeće:%
 \begin{enumerate}
 	\item Općenito, matrica $A^TA$ je simetrična i pozitivno semidefinitna jer za svaki
 	$\mathbf{x} \in \R^m$ vrijedi
@@ -1136,88 +1412,92 @@ while(iter < niter){
 iter = iter +1
 }
 \end{lstlisting}%dipl2.R
-Meroda ipak nažalost ne konvergira. Pokušajmo na sljedeći način.
+%PROVJERITI KODOVE JESU LI SE MIJENJALI NA KRAJU svega
+Metoda ipak nažalost ne konvergira. Pokušajmo na sljedeći način.
+%KAKVOĆA PREKO RMSE = σ̂^2 = hat(e)^T hat(e)/(N − p) p je broj nepoznatih varijabli
 
-
-\subsection{Poboljšan pristup: linearizacija dijela}
-Ideja je linearizirati samo nelinearni dio jednadžbi sustava
-\ref{eq:1}, odnosno  \\ $\sqrt{(x-x_i)^{2}+(y-y_i)^{2}+(z-z_i)^{2}} =: f(x,y,z)$.
-\begin{align*}
-f(x + \Delta x,y+ \Delta y,z + \Delta z) = f_i(x,y,z) + \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z
-\end{align*}
-Analogno kao zu prošlom podpoglavlju, dobivamo:
-\begin{align*}
-	d_i  = f_i(\mathbf{x}_{k+1}) + c(d_T)_{k+1} & = f_i(\mathbf{x}_{k} + \Delta\mathbf{x}_{k}) +  c(d_T)_k 
-	\\ & = f_i(\mathbf{x}_{k}) + \frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k +  c(d_T)_k 
-\end{align*}
-, tj.
-\begin{align*}
-d_i - \sqrt{(x_k-x_i)^{2}+(y_k-y_i)^{2}+(z_k-z_i)^{2}} + c((d_T)_{k+1}-(d_T)_k) & = \\
-\frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k &= 
-\begin{bmatrix}
-\frac{\partial f_i}{\partial x} &
-\frac{\partial f_i}{\partial y} &
-\frac{\partial f_i}{\partial z} &
-\frac{\partial f_i}{\partial d_T}
-\end{bmatrix}
-\begin{bmatrix}
-\Delta x \\
-\Delta y \\
-\Delta z \\
-\Delta d_T
-\end{bmatrix} \\ 
-\end{align*}
-Uz
-\begin{align}
-\mathbf{A} & := \begin{bmatrix}
-\frac{\partial f_1}{\partial x} &
-\frac{\partial f_1}{\partial y} &
-\frac{\partial f_1}{\partial z} &
-c \\
-\frac{\partial f_2}{\partial x} &
-\frac{\partial f_2}{\partial y} &
-\frac{\partial f_2}{\partial z} &
-c \\
-\frac{\partial f_3}{\partial x} &
-\frac{\partial f_3}{\partial y} &
-\frac{\partial f_3}{\partial z} &
-c \\
-\frac{\partial f_4}{\partial x} &
-\frac{\partial f_4}{\partial y} &
-\frac{\partial f_4}{\partial z} &
-c
-\end{bmatrix} \\
-& =  \begin{bmatrix}
-\frac{(x-x_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(y-y_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(z-z_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & c \\
-\frac{(x-x_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(y-y_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(z-z_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & c \\
-\frac{(x-x_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(y-y_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(z-z_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & c \\
-\frac{(x-x_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(y-y_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(z-z_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & c \\
-\end{bmatrix}\\
-\mathbf{x} & :=  \begin{bmatrix}
-\Delta x \\
-\Delta y \\
-\Delta z \\
- d_T
-\end{bmatrix}\\
-\mathbf{b} & := \begin{bmatrix}
-d_1 - \sqrt{(x_k-x_1)^{2}+(y_k-y_1)^{2}+(z_k-z_1)^{2}} \\
-d_2 - \sqrt{(x_k-x_2)^{2}+(y_k-y_2)^{2}+(z_k-z_2)^{2}} \\
-d_3 - \sqrt{(x_k-x_3)^{2}+(y_k-y_3)^{2}+(z_k-z_3)^{2}} \\
-d_4 - \sqrt{(x_k-x_4)^{2}+(y_k-y_4)^{2}+(z_k-z_4)^{2}}
-\end{bmatrix}
-\end{align}
-Budući da $(d_T)_{k+1}$ pripada budućem koraku, njega ne možemo modelirati pa se pretpostavlja da
-će $c((d_T)_{k+1}-(d_T)_{k})$ biti modelirano korištenjem normalnih jednadžbi. Dakle, dobivamo sustav:
-\begin{align}\label{eq:sustav2}
-\mathbf{A}\mathbf{x} = \mathbf{b}
-\end{align}
-%dipl3.R
-Modifikacija ne dovodi do poboljšanja. Naime, dobiva se gotovo identičan sustav jednadžbi s istim problemima.
-Najveći je što matrica $\mathbf{A}$ (ili vektor $\mathbf{x}$, ovisno o definiciji) imaju elemente veličine 10E-1 i 
-10E6 što predstavlja veliki numerički problem. Znatno utječe na točnost izračuna pojedine iteracije i konvergencije sustava.
-Predstavljen problem je rješen uvođenjem $SVD$ dekompozicije i reformulacije problema.
-Donosi se nakon sljedećeg poglavlja. Promotrimo prvo rješavanje probjema određivanja položaja uvođenjem težina, tj. 
-koristeći algoritam \ref{code:iterLSMW}.
+%PROVJERI OVAJ DOLE ZAKOMENTIRANI - NIJE DOBAR JER JE U KORAKU K POTREBNO ODRETIDI
+%DElta_cd_T_{k+1}-DElta_cd_T_{k} <- a k+1 tek treba izračunati
+%\subsection{Poboljšan pristup: linearizacija dijela}
+%Ideja je linearizirati samo nelinearni dio jednadžbi sustava
+%\ref{eq:1}, odnosno  \\ $\sqrt{(x-x_i)^{2}+(y-y_i)^{2}+(z-z_i)^{2}} =: f(x,y,z)$.
+%\begin{align*}
+%f(x + \Delta x,y+ \Delta y,z + \Delta z) = f_i(x,y,z) + \frac{\partial f}{\partial x}\Delta x + \frac{\partial f}{\partial y}\Delta y + \frac{\partial f}{\partial z}\Delta z
+%\end{align*}
+%Analogno kao zu prošlom potpoglavlju, dobivamo:
+%\begin{align*}
+%	d_i  = f_i(\mathbf{x}_{k+1}) + c(d_T)_{k+1} & = f_i(\mathbf{x}_{k} + \Delta\mathbf{x}_{k}) +  c(d_T)_k 
+%	\\ & = f_i(\mathbf{x}_{k}) + \frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k +  c(d_T)_k 
+%\end{align*}
+%, tj.
+%\begin{align*}
+%d_i - \sqrt{(x_k-x_i)^{2}+(y_k-y_i)^{2}+(z_k-z_i)^{2}} + c((d_T)_{k+1}-(d_T)_k) & = \\
+%\frac{\partial f}{\partial x}\Delta x_k + \frac{\partial f}{\partial y}\Delta y_k + \frac{\partial f}{\partial z}\Delta z_k + \frac{\partial f}{\partial d_T}\Delta (d_T)_k &= 
+%\begin{bmatrix}
+%\frac{\partial f_i}{\partial x} &
+%\frac{\partial f_i}{\partial y} &
+%\frac{\partial f_i}{\partial z} &
+%\frac{\partial f_i}{\partial d_T}
+%\end{bmatrix}
+%\begin{bmatrix}
+%\Delta x \\
+%\Delta y \\
+%\Delta z \\
+%\Delta d_T
+%\end{bmatrix} \\ 
+%\end{align*}
+%Uz
+%\begin{align}
+%\mathbf{A} & := \begin{bmatrix}
+%\frac{\partial f_1}{\partial x} &
+%\frac{\partial f_1}{\partial y} &
+%\frac{\partial f_1}{\partial z} &
+%c \\
+%\frac{\partial f_2}{\partial x} &
+%\frac{\partial f_2}{\partial y} &
+%\frac{\partial f_2}{\partial z} &
+%c \\
+%\frac{\partial f_3}{\partial x} &
+%\frac{\partial f_3}{\partial y} &
+%\frac{\partial f_3}{\partial z} &
+%c \\
+%\frac{\partial f_4}{\partial x} &
+%\frac{\partial f_4}{\partial y} &
+%\frac{\partial f_4}{\partial z} &
+%c
+%\end{bmatrix} \\
+%& =  \begin{bmatrix}
+%\frac{(x-x_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(y-y_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & \frac{(z-z_1)}{\sqrt{(x-x_1)^{2}+(y-y_1)^{2}+(z-z_1)^{2}}} & c \\
+%\frac{(x-x_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(y-y_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & \frac{(z-z_2)}{\sqrt{(x-x_2)^{2}+(y-y_2)^{2}+(z-z_2)^{2}}} & c \\
+%\frac{(x-x_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(y-y_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & \frac{(z-z_3)}{\sqrt{(x-x_3)^{2}+(y-y_3)^{2}+(z-z_3)^{2}}} & c \\
+%\frac{(x-x_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(y-y_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & \frac{(z-z_4)}{\sqrt{(x-x_4)^{2}+(y-y_4)^{2}+(z-z_4)^{2}}} & c \\
+%\end{bmatrix}\\
+%\mathbf{x} & :=  \begin{bmatrix}
+%\Delta x \\
+%\Delta y \\
+%\Delta z \\
+% d_T
+%\end{bmatrix}\\
+%\mathbf{b} & := \begin{bmatrix}
+%d_1 - \sqrt{(x_k-x_1)^{2}+(y_k-y_1)^{2}+(z_k-z_1)^{2}} \\
+%d_2 - \sqrt{(x_k-x_2)^{2}+(y_k-y_2)^{2}+(z_k-z_2)^{2}} \\
+%d_3 - \sqrt{(x_k-x_3)^{2}+(y_k-y_3)^{2}+(z_k-z_3)^{2}} \\
+%d_4 - \sqrt{(x_k-x_4)^{2}+(y_k-y_4)^{2}+(z_k-z_4)^{2}}
+%\end{bmatrix}
+%\end{align}
+%Budući da $(d_T)_{k+1}$ pripada budućem koraku, njega ne možemo modelirati pa se pretpostavlja da
+%će $c((d_T)_{k+1}-(d_T)_{k})$ biti modelirano korištenjem normalnih jednadžbi. Dakle, dobivamo sustav:
+%\begin{align}\label{eq:sustav2}
+%\mathbf{A}\mathbf{x} = \mathbf{b}
+%\end{align}
+%%dipl3.R
+%%NA KRAJU PROVJERI KOD
+%Modifikacija ne dovodi do poboljšanja. Naime, dobiva se gotovo identičan sustav jednadžbi s istim problemima.
+%Najveći je što matrica $\mathbf{A}$ (ili vektor $\mathbf{x}$, ovisno o definiciji) imaju elemente veličine 10E-1 i 
+%10E6 što predstavlja veliki numerički problem. Znatno utječe na točnost izračuna pojedine iteracije i konvergencije sustava.
+%Predstavljen problem je rješen uvođenjem $SVD$ dekompozicije i reformulacije problema.
+%Donosi se nakon sljedećeg poglavlja. Promotrimo prvo rješavanje probjema određivanja položaja uvođenjem težina, tj. 
+%koristeći algoritam \ref{code:iterLSMW}.
 
 \subsection{Poboljšan pristup: reformulacija jednadžbi}
 Budući da upravo predložen pristup rješavanja problema jako sporo konvergira, traži se
@@ -1337,8 +1617,7 @@ Treba nam bolje rješenje.
 
 %DODATI GENERIRANE SLIKE 
 
-
-\subsection{Poboljšan pristup: uvođenje težina (WLSM)}%dipl4.R
+\subsection{Poboljšan pristup: uvođenje težina (WLSM)}\label{sec:algTezine}%dipl4.R
 Rezultati pokazuju kako prezentirane metode ne određuju poziciju prijemnika u okvirima dopuštene točnosti.
 Uzrok pronalazimo u pogreški mjerenja s utjecajem u ionosferi.\\
 Iako pretpostavljamo da su pseudo-udaljenosti u potpunosti ispravljene, utjecaj ionosfere nije moguće u potpunosti reducirati jer koristimo samo jedan signal.
@@ -1365,7 +1644,7 @@ Kut elevacije je manji kut koji zatvara vektor od prijemnika do satelita $(x_i,y
 	E_i = \min(l_i, \frac{\pi}{2}-l_i)
 \end{align}\cite{elevation_angle}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\begin{minipage}{0.9\textwidth}
 		\centering
 		\includegraphics[width=1\textwidth]{elev}
@@ -1472,8 +1751,6 @@ Dobivamo opis težina sljedećom jednadžbom:
 Za $\psi = 0.5$, algoritam konvergira sporije (u 55 koraka) s točnošću $10E3$, očekivane točnosti.
 %Portrebno je promotriti do koje točnosti ići i što dalje s tom točnosti, kako ju objasniti.
 %TU stala 
-
-
 
 
 \subsection{Usporedba osnovnog i poboljšanog algoritma} + zaključak zašto je bolji.
@@ -1637,6 +1914,65 @@ J = \begin{bmatrix}
 \end{bmatrix} = (J_n(1:3,1:3))
 \end{align}
 uz $\hat{\mathbf{x}} = \mathbf{x}_n$
-\chapter{Mjere kvalitete "zviježđda"}\label{appendix:DOP}
+\chapter{Mjere kvalitete "zviježđa"}\label{appendix:DOP}
+Proces određivanja položaja prijemnika je najtočniji ukoliko je međusobni položaj korištenih satelita povoljan.
+Međusoban odnos između satelita ovisi o kutu između njih.
+Nepovoljan odnos između satelita rezultira skoro pa zavisnim sustavom jednadžbi. 
+Što je sustav jednadžbi bliži zavisnome, veća je mogućnost da prilikom procesa određivanja položaja prijemnika sustav zaista i postane zavisan. Zavisnost sustava uzrokovana je pogreškama zaokruživanja. One se mogu smanjiti, ali nikada u potpunosti izbjeći.
 
+Jednim imenom se mjere međusobnog odnosa među satelitima ili mjere kvalitete "zviježđa" nazivaju \textit{degradacija točnosti} (\textbf{DOP}, engl. Dilution of precision).
+Niske vrijednosti \textbf{DOP}-a znače povoljan, dok 
+visoke vrijednosti znače nepovoljan međusobni položaj satelita.
+U nastavku navodimo različite \textbf{DOP} mjere \cite{svd_str15}.
+Uz%
+\begin{align}
+\sigma_{0_prior}^2 & := \frac{\mathbf{p_{prior}}^T \mathbf{W}\mathbf{p_{prior}}}{N-4}\\
+\mathbf{p_{prior}} & := (p_1(\mathbf{x_0}),p_2(\mathbf{x_0}),p_3(\mathbf{x_0}),p_4(\mathbf{x_0})) \notag \\
+\hat{\sigma}_0^2 & := \frac{\mathbf{\hat{p}}^T \mathbf{W}\mathbf{\hat{p}}}{N - 4}
+\end{align}
+imamo
+\begin{align}
+\mathbf{Q_{\hat{x}}} & := \hat{\sigma}_0^2(\mathbf{A^1}^T\mathbf{W}\mathbf{A^1})^{-1} \\
+\mathbf{Q_{DOP}} & := \frac{\mathbf{Q_{\hat{x}}}}{\hat{\sigma}_0^2 \sigma_{0_prior}^2} \\
+& = \frac{(\mathbf{A^1}^T\mathbf{W}\mathbf{A^1})^{-1}}{\sigma_{0_prior}^2} \\
+& = \begin{bmatrix}
+q_X^2 & q_{YX} & q_{ZX} & q_{d_TX} \\
+q_{XY} & q_Y^2 & q_{ZY} & q_{cd_TY} \\
+q_{XZ} & q_{YZ} & q_Z^2 & q_{cd_TZ} \\
+q_{Xcd_T} & q_{Ycd_T} & q_{Zcd_T} & q_{cd_T}^2 
+\end{bmatrix}\\
+\mathbf{A^1} & := \begin{bmatrix}
+\mathbf{A}[1:N,1:3] & [1 1 1 1]^T
+\end{bmatrix}
+\end{align}
+Prostorna degradacija točnosti određivanja položaja (PDOP, engl. position DOP) je određena izrazom
+\begin{align}
+PDOP = \sqrt{q_X^2+q_y^2+q_Z^2}
+\end{align}
+Degradacija točnosti određivanaj vremena (TDOP, engl. time DOP) je određena izrazom
+\begin{align}
+TDOP = \sqrt{q_{cd_T}^2}
+\end{align}
+\textbf{DOP} formulacija koja objedunjuje prethodne je geometrijska defradacija točnosti (GDOP, engl. geometric DOP) određena izrazom
+\begin{align}
+GDOP = \sqrt{q_X^2+q_y^2+q_Z^2+q_{cd_T}^2}
+\end{align}
+U praksi najčešće promatramo  vrijednosti $PDOP$-a. Vrijednosti $PDOP$-a ispod 2 se smatraju odličnima, između 2 i 4 dobrima, a do 6 prihvatljivima. Vrijednosti iznad 6 su neprihvatljive i sugeriraju nepogodan međusoban položaj satelita.
+
+Dalje definiramo $HDOP$ i $VDOP$. \\
+Nakon transformacije gornje lijeve podmatrice matrice $\mathbf{Q-{\hat{x}}}$ veličine $3 \times 3$ iz ECEF XYZ koordinata u ENU koordinate u odnosu na poziciju prijemnika, dobivano matricu $\mathbf{Q}_{ENU}$.
+\begin{align}
+\mathbf{Q}_{DOP,ENU} & := \frac{\mathbf{Q}_{ENU}}{\hat{\sigma}_0^2 \sigma_{0_prior}^2} \\
+&=\begin{bmatrix}
+q_E^2 & q_{NE} & q_{UE} \\
+q_{EN} & q_{N}^2 & q_{UN} \\
+q_{EU}^2 & q_{NU} & q_{U}^2 \\
+\end{bmatrix}\\
+HDOP & := \sqrt{q_E^2 + q_{N}} \\
+VDOP & := \sqrt{q_U^2}
+EDOP & := \sqrt{q_E^2 + q_{N}} \\
+NDOP & := \sqrt{q_U^2}
+\end{align}
+gdje $HDOP$ i $VDOP$ nazivamo horizontalna i vertikalna degradacija točnosti, a
+$EDOP$ i $NDOP$ su degradacija točnosti u smeru istoka, odnosno sjevera.
 \end{document}
