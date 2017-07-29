@@ -21,7 +21,7 @@ err <- c(11,11,11,11)
 #while(norm(t(delt)) > 1){
 start.time <- Sys.time()
 
-while(iter < niter){
+while(iter < 100*niter && (max(abs(delt[1:3])) > 1000 || iter == 0)){
   x_ = c(x_0[1:3],x_0[4]*c)
   P = t(apply(RS, 1, function(x) (x-x_))) #x-x_0
   PI = P
@@ -55,11 +55,11 @@ d.x <- d_iter$V2
 d.y <- d_iter$V3
 d.z <- d_iter$V4
 
-plot(iter, log10(abs(d.x)), type = 'l', col = 'red', main = c('LSA Time of execution in [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'log10 of d_X components')
+plot(iter, log10(abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'log10 of d_X components')
 lines(iter, log10(abs(d.y)), type = 'l', col = 'green')
 lines(iter, log10(abs(d.z)), type = 'l', col = 'blue')
 
-plot(iter, (abs(d.x)), type = 'l', col = 'red', main = c('LSA Time of execution in [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'd_X components')
+plot(iter, (abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'd_X components')
 lines(iter, (abs(d.y)), type = 'l', col = 'green')
 lines(iter, (abs(d.z)), type = 'l', col = 'blue')
 
@@ -68,11 +68,11 @@ xx <- err$V2
 yy <- err$V3
 zz <- err$V4
 
-plot(iter, log10(abs(xx)), type = 'l', col = 'red', main = 'LSA Position estimation error from real values', xlab = 'No. of iterations', ylab = 'log10 positioning error [m]')
+plot(iter, log10(abs(xx)), type = 'l', col = 'red', main = 'LSA odstupanje procjene položaja \n od stvarne vrijednosti', xlab = 'broj iteracije', ylab = 'log10 odstupanja [m]')
 lines(iter, log10(abs(yy)), type = 'l', col = 'green')
 lines(iter, log10(abs(zz)), type = 'l', col = 'blue')
 
-plot(iter, (abs(xx)), type = 'l', col = 'red', main = 'LSA Position estimation error from real values', xlab = 'No. of iterations', ylab = 'positioning error [m]')
+plot(iter, (abs(xx)), type = 'l', col = 'red', main = 'LSA odstupanje procjene položaja \n od stvarne vrijednosti', xlab = 'broj iteracije', ylab = 'odstupanje [m]')
 lines(iter, (abs(yy)), type = 'l', col = 'green')
 lines(iter, (abs(zz)), type = 'l', col = 'blue')
 

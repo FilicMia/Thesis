@@ -87,6 +87,19 @@
 % nego u americkoj: tg, ctg, ... (\tgh za tangens hiperbolni)
 % Takodjer su definirane naredbe za Ker i Im (da bi se razlikovala od naredbe za imaginarni dio kompleksnog
 % broja, naredba se zove \slika).
+\lstset{
+	literate=%
+	{ć}{{\'c}}1
+	{č}{{\v{c}}}1
+	{đ}{{\dj{}}}1
+	{š}{{\v{s}}}1
+	{ž}{{\v{z}}}1
+	{Ć}{{\'C}}1
+	{Č}{{\v{C}}}1
+	{Đ}{{\DJ{}}}1
+	{Š}{{\v{S}}}1
+	{Ž}{{\v{Z}}}1
+}
 
 \lstloadlanguages{R}
 \lstdefinelanguage{Renhanced}[]{R}{%
@@ -99,9 +112,9 @@
 \lstset{ 
 	language=R,                     % the language of the code
 	basicstyle=\tiny\ttfamily, % the size of the fonts that are used for the code
-	numbers=left,                   % where to put the line-numbers
-	numberstyle=\tiny\color{Blue},  % the style that is used for the line-numbers
-	stepnumber=1,                   % the step between two line-numbers. If it is 1, each line
+	numbers=left,                  % where to put the line-numbers
+	numberstyle=\tiny\color{codegray},  % the style that is used for the line-numbers
+	stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
 	% will be numbered
 	numbersep=5pt,                  % how far the line-numbers are from the code
 	backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
@@ -114,18 +127,12 @@
 	captionpos=b,                   % sets the caption-position to bottom
 	breaklines=true,                % sets automatic line breaking
 	breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
-	keywordstyle=\color{RoyalBlue},      % keyword style
+	title=\lstname,                 % show the filename of files included with \lstinputlisting;
+	% also try caption instead of title
+	keywordstyle=\color{blue},      % keyword style
 	commentstyle=\color{codegreen},   % comment style
-	stringstyle=\color{ForestGreen}      % string literal style
-	escapeinside={(*}{*)},% escaping to LaTeX
-	fancyvrb=true,% verbatim code is typset by listings
-	extendedchars=false,% prohibit extended chars (chars of codes 128--255)
-	literate={"}{{\texttt{"}}}1{<-}{{$\bm\leftarrow$}}1{<<-}{{$\bm\twoheadleftarrow$}}1
-	{~}{{$\bm\sim$}}1{<=}{{$\bm\le$}}1{>=}{{$\bm\ge$}}1{!=}{{$\bm\neq$}}1{^}{{$^{\bm\wedge}$}}1,% item to replace, text, length of chars
-	alsoletter={.<-},% becomes a letter
-	alsoother={$},% becomes other
-	otherkeywords={!=, ~, $, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},% other keywords
-	deletekeywords={c}% remove keywords 
+	stringstyle=\color{OliveGreen},      % string literal style
+	morekeywords={*,...}            % if you want to add more keywords to the set
 } 
 
 
@@ -1510,62 +1517,12 @@ $\mathbf{A}\mathbf{x} = \mathbf{b}$ \ref{eq:sustav}\\
 metodom najmanjih kvadrata koristeći \textbf{QR} dekompoziciju, tj. rješavajući sustav \ref{eq:sustavQR}.
 
 \subsubsection{Drugi način linearizacije}
-Opisanim perturbacijama, dobivamo sljedeću izvedbu algoritma \ref{code:iterLSM}.
-\begin{lstlisting}[language=R]
-library("MASS","matrixcalc")
-#pseudo-udaljenosti
-c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
-R = read.csv('pseudoranges5a.txt', header = FALSE);
-R <- as.matrix(R[,1])
-#ucitaj koordinate satelita
-S = read.csv('satellites5.txt', header = FALSE)
-S <- as.matrix(S)
-x_0 = c(1,1,1,1) #[x,y,z,d_T] d_t se kasnije mnozi sa c da bi se oduzeo od [x_i,y_i,z_i,d] 
-delt = c(3,3,3,3)
-
-realPosition = c(918074.1038,5703773.539,2693918.9285,0)
-
-unutar = append(S,R)
-RS = matrix(unutar,dim(S)[1],dim(S)[2]+1) # [x_i,y_i,z_i,d] 
-
-iter = 0
-niter = 100
-err <- c(11,11,11,11)
-start.time <- Sys.time()
-
-while(iter < niter){ #ili while(norm(t(delt)) > 1){
-x_ = c(x_0[1:3],x_0[4]*c)
-P = t(apply(RS, 1, function(x) (x-x_))) #x-x_0
-PP = P
-PP[,dim(S)[2]+1] = - c*P[,dim(S)[2]+1] #4. red s -c
-
-PX = P*P
-PX = PX %*% c(-1,-1,-1,1)
-
-delt <- -(1/2)*svd.inverse(PP) %*% PX
-delt <- qr.coef(qr(-2*PI), PX)#
-
-x_0 = x_0 + delt #(x,y,z,c*dT)
-
-cat(c(iter, delt[1:3]),' \r',file="razmakIteracija.txt", append=TRUE) # upisivanje vrijednosti dx radi kasnije analize brzine i tocnosti postupka
-err <- x_0 - realPosition
-cat(c(iter, err[1:3]),' \r',file="stvarnoOdstupanje.txt", append=TRUE)
-
-iter = iter +1
-print(delt)  
-}
-
-end.time <- Sys.time()
-timediff <- end.time - start.time
-\end{lstlisting} %dipl1.R
-Ukoliko bolje promotrimo gornji program sustav rješavamo invertirajući matricu $P\hat{I}$ koristeći SVD dekompoziciju  ili pomoću QR faktorizacije. %
-
-U oba slučaja $\Delta \mathbf{x}$ postaje dovoljno mali već nakon 4. iteracije, ali dobivena greška u 
-procjeni položaja je znatna (10E6).
-Dakle, algoritam konvergira, ali prema lokalnom minimumu.
-Treba nam bolje rješenje.
-
-%DODATI GENERIRANE SLIKE 
+Rješava se sustav \ref{eq:drugaFakt} iterativnim postupkom.\\
+Programski kod izvedbe se nalazi u dodatku \ref{appendix:izvedba} ovoga rada.\\
+Programska izvedba postupka procjene položaja satelitskim navigacijskim sustavom napravljena je u poopćenom obliku. Podržava se slučaj procjene položaja s brojem izmjerenih pseudo-udaljenosti većim ili jednakim 4.
+Svaka iteracija algoritma pronalazi $\Delta \mathbf{x}_k$ je pronađen kao rješenje sustava\\
+$\mathbf{A}\mathbf{x} = \mathbf{b}$ \ref{eq:drugaFakt}\\
+metodom najmanjih kvadrata koristeći \textbf{QR} dekompoziciju.
 
 \subsection{Rasprava o kvaliteti procjene položaja}
 Kvaliteta procjene položaja satelitskim navigacijskim sustavom razmotrena je sa sljedećih stajališta:
@@ -1613,7 +1570,7 @@ Prvom izvedbom osnovnog algoritma za procjenu položaja dobivamo sljedeće rezul
 		\label{fig:1LSAdeltal10}
 	\end{minipage}%
 \end{figure}
-Slike \ref{fig:1LSAdelta} i \ref{fig:1LSAdeltal10} pokazuju kako se izračunata pogreška ($\Delta \mathbf{x}$) procjene položaja nikada istovremeno ne spušta ispod $10^4$ za sve komponente procjene položaja.
+Slike \ref{fig:1LSAdelta} i \ref{fig:1LSAdeltal10} pokazuju kako se izračunata pogreška ($\Delta \mathbf{x}$) procjene položaja nikada istovremeno ne spušta ispod $10^4$ za sve komponente procjene položaja. Algoritam nikada ne konvergira.
 Još više, u svakoj iteraciji je izračunata pogreška veća od $10^4$ za barem dvije komponente.\\
 Ukoliko smanjimo zahtjeve konvergencije algoritma na samo jednu komponentu ispod $10^2$ ili $10^3$,
 metoda konvergira u 2000, odnosno 2400 iteracija. 
@@ -1655,14 +1612,56 @@ manja od 1000.
 
 Vidljivo je da čak i u tim iteracijama
 prava pogreška određivanja položaja ne silazi ispod $10^3$.
+%ZELIMO POBOLJŠANJE
 
 \subsubsection{Drugi način linearizacije}
-%PROVJERITI KODOVE JESU LI SE MIJENJALI NA KRAJU svega
-Metoda ipak nažalost ne konvergira. Pokušajmo na sljedeći način.
+Drugi naćin linearizacije daje drugu izvedbu osnovnog algoritma za procjenu položaja.
+Promatrajući njegovu kvalitetu dobivamo sljedeće rezultate:
+\begin{table}[H]
+	\caption{Kvaliteta prve izvedbe osnovnog algoritma za procjenu položaja u domani navigacijske primjene}
+	%\rowcolors{1}{}{lightgray}
+	\begin{center}
+		\begin{tabular}{|p{3cm}|p{4cm}}
+			\hline
+			\rowcolor{lightgray}NAZIV&   \\
+			\rowcolor{lightgray}&   \\
+			\multirow{-3}{1cm}{ \cellcolor{lightgray}PARAMETRA} & \multirow{-3}{2cm}{\cellcolor{lightgray}VRIJEDNOST} \\
+			\hline
+			\vspace{0.1cm}
+			vrijeme izvršavanja & \vspace{0.1cm}  0.01\\
+			\vspace{0.1cm}
+			broj iteracija do konvergencije & \vspace{0.1cm} $> 6$ \\
+			\vspace{0.1cm}
+			točnost procjene & \vspace{0.1cm} $10^6$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{figure}[H]
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{2LSAdeltal10}
+		\caption{Logaritam vrijednosti $\Delta x$ po komponentama kroz iteracije}
+		\label{fig:2LSAdeltal10}
+	\end{minipage}%	
+	\hspace{1cm}
+	\begin{minipage}{0.48\textwidth}
+		
+		\includegraphics[width=1\textwidth]{2LSAreall10}
+		\caption{Logaritam vrijednosti odstupanja od pravog položaja po komponentama kroz iteracije}
+		\label{fig:2LSAreall10}
+	\end{minipage}%
+\end{figure}
+
+Razmatrajući slike \ref{fig:2LSAdeltal10} i \ref{fig:2LSAreall10} vidljivo je kako druga izvedba
+algoritma \ref{code:iterLSM} dovodi do konvergencije, ali ka krivom rješenju.\\
+Dobivena procjena položaja ima odstupanje $10^6$.
+
 %KAKVOĆA PREKO RMSE = σ̂^2 = hat(e)^T hat(e)/(N − p) p je broj nepoznatih varijabli 
 
 \section{Poboljšan pristup: uvođenje težina (WLSM)}\label{sec:algTezine}%dipl4.R
-Rezultati pokazuju kako prezentirane metode ne određuju poziciju prijemnika u okvirima dopuštene točnosti.
+Rezultati pokazuju kako do prezentirane metode ne mogu odrediti položaj ili određuju položaj prijemnika van okvira dopuštene točnosti.
 Uzrok pronalazimo u pogreški mjerenja s utjecajem u ionosferi.\\
 Iako pretpostavljamo da su pseudo-udaljenosti u potpunosti ispravljene, utjecaj ionosfere nije moguće u potpunosti reducirati jer koristimo samo jedan signal.
 Naime, utjecaj ionosfere najbolje se otklanja korištenjem dva signala različitih frekvencija (s izvorom u istom satelitu). 
@@ -1677,16 +1676,15 @@ Koeficijenti se modeliraju preko elevacijskog kuta satelita koji signal odašilj
 Veći elevacijski kut znači da će satelitski signal dulje putovati kroz ionosferu pa će pogreška
 zbog ionosferskog kašnjenja biti veća (slika \ref{fig:elev}).
 Uvažavajući navedeno i uz konzultaciju s literaturom \cite{ref:13}, \cite{ref:34},
-\cite{ref:45} i \cite{ref:25} koristi se težinski koeficijent vezan za kut elevacije $i$-te jednadžbe, $Ele_i$:
+\cite{ref:45} i \cite{ref:25} koristi se težinski koeficijent vezan za kut elevacije $i$-te jednadžbe, $Ele_i$:%
 \begin{align}\label{eq:elevationTezine1}
 \sigma^2_i = \frac{1}{ \sin ( Ele_i ) }
 \end{align}
-Kut elevacije je manji kut koji zatvara vektor od prijemnika do satelita $(x_i,y_i,z_i)$ s tangencijalnom ravninom na sferu radijusa udaljenosti objekta $(x_k,y_k,z_k)$ od središta Zemlje sa središtem u središtu Zemlje u ECEF koordinatnom sustavu.
-
+Kut elevacije je manji kut koji zatvara vektor od prijemnika do satelita $(x_i,y_i,z_i)$ s tangencijalnom ravninom na sferu radijusa udaljenosti objekta $(x_k,y_k,z_k)$ od središta Zemlje sa središtem u središtu Zemlje u ECEF koordinatnom sustavu \cite{elevation_angle}.%
 \begin{align}\label{eq:elevation}
 	\cos (l_i) = \frac{((x_i,y_i,z_i)-(x_k,y_k,z_k))^T}{\| (x_i,y_i,z_i)-(x_k,y_k,z_k) \|} \frac{S_i}{\| S_i \|} \\
 	E_i = \min(l_i, \frac{\pi}{2}-l_i)
-\end{align}\cite{elevation_angle}
+\end{align}
 
 \begin{figure}[H]
 	\begin{minipage}{0.9\textwidth}
@@ -1779,12 +1777,10 @@ imamo sustav:
 Praksa nerjetko koristi samo jedan signal prilikom postupka procjene položaja i utjecaj ionosfere modelira 
 na opisan način.
 
-\subsubsection{Izvedba}
+\subsection{Izvedba }
 Prilikom izvedbe algoritma koristimo sustav s $i = 7$ jednadžbi.
-Slijedi programski isječak koji izvodi opisanu metodu.
-\begin{lstlisting}[language=R]
-f
-\end{lstlisting}%dipl4.R
+Programski isječak koji izvodi opisanu metodu dan je u dodatku \ref{appendix:izvedba}.
+
 Budući da za težine opisane jednadžbom \ref{eq:elevationTezine1} dobivamo,
 konvergenciju navedenog algoritma u samo jednom koraku s pogreškom točnosti veličine $10E9$,
 uvodimo kut $\psi_0$ koji rješava problem singulariteta funkcije koja opisuje težine.
@@ -1793,8 +1789,51 @@ Dobivamo opis težina sljedećom jednadžbom:
 \sigma^2_i = \frac{1}{ \sin ( Ele_i + \psi_0) }
 \end{align}
 Za $\psi = 0.5$, algoritam konvergira sporije (u 55 koraka) s točnošću $10E3$, očekivane točnosti.
-%Portrebno je promotriti do koje točnosti ići i što dalje s tom točnosti, kako ju objasniti.
-%TU stala 
+
+\subsection{Rasprava o kvaliteti}
+Uvođenjem težina dobivamo i treći izvedbu algoritma za procjenu položaja u domeni navigacijske primjene. Ovoga puta nije izveden osnovni algoritam, već poboljšani. Uvedene su težine.
+
+Promatrajući njegovu kvalitetu dobivamo sljedeće rezultate:
+\begin{table}[H]
+	\caption{Kvaliteta druge izvedbe poboljšanog algoritma za procjenu položaja u domani navigacijske primjene}
+	%\rowcolors{1}{}{lightgray}
+	\begin{center}
+		\begin{tabular}{|p{3cm}|p{4cm}}
+			\hline
+			\rowcolor{lightgray}NAZIV&   \\
+			\rowcolor{lightgray}&   \\
+			\multirow{-3}{1cm}{ \cellcolor{lightgray}PARAMETRA} & \multirow{-3}{2cm}{\cellcolor{lightgray}VRIJEDNOST} \\
+			\hline
+			\vspace{0.1cm}
+			vrijeme izvršavanja & \vspace{0.1cm}  0.45\\
+			\vspace{0.1cm}
+			broj iteracija do konvergencije & \vspace{0.1cm} $55$ \\
+			\vspace{0.1cm}
+			točnost procjene & \vspace{0.1cm} $10^3$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{figure}[H]
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{3LSAdeltal10}
+		\caption{Logaritam vrijednosti $\Delta x$ po komponentama kroz iteracije}
+		\label{fig:3LSAdeltal10}
+	\end{minipage}%	
+	\hspace{1cm}
+	\begin{minipage}{0.48\textwidth}
+		
+		\includegraphics[width=1\textwidth]{3LSAreall10}
+		\caption{Logaritam vrijednosti odstupanja od pravog položaja po komponentama kroz iteracije}
+		\label{fig:3LSAreall10}
+	\end{minipage}%
+\end{figure}
+
+Sa slika \ref{fig:3LSAdeltal10} i \ref{fig:3LSAreall10} je vidljivo kako poboljšana treća izvedba
+(izvedba algoritma \ref{code:iterLSMW}) dovodi do konvergencije rješenju u okvirima očekivane točnosti.\\
+
 
 
 \section{Usporedba osnovnog i poboljšanog algoritma} + zaključak zašto je bolji.
@@ -2023,10 +2062,10 @@ $EDOP$ i $NDOP$ su degradacija točnosti u smeru istoka, odnosno sjevera.
 \chapter{Kodovi izvedbe algoritama}\label{appendix:izvedba}
 \section{Osnovni pristup}
 \subsection{Prvi način linearizacije}
-%\lstinputlisting[language=R]{Rsimulation/dipl2.R}%dipl2.R
-%\subsection{Drugi način linearizacije}
-%\lstinputlisting[language=R]{Rsimulation/dipl3.R}%dipl3.R
-%\section{Poboljšan pristup: uvođenje težina (WLSM)}
-%\lstinputlisting[language=R]{Rsimulation/dipl4.R}%dipl4.R
+\lstinputlisting[language=R]{Rsimulation/dipl2.R}%dipl2.R
+\subsection{Drugi način linearizacije}
+\lstinputlisting[language=R]{Rsimulation/dipl1.R}%dipl1.R
+\section{Poboljšan pristup: uvođenje težina (WLSM)}
+\lstinputlisting[language=R]{Rsimulation/dipl4.R}%dipl4.R
 
 \end{document}

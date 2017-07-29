@@ -137,11 +137,11 @@ d.x <- d_iter$V2
 d.y <- d_iter$V3
 d.z <- d_iter$V4
 
-plot(iter, log10(abs(d.x)), type = 'l', col = 'red', main = c('LSA Time of execution in [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'log10 of d_X components')
+plot(iter, log10(abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u  [s]=', round(timediff, digits = 2)), xlab = 'broj iteracija', ylab = 'log10 deltaX komponenti')
 lines(iter, log10(abs(d.y)), type = 'l', col = 'green')
 lines(iter, log10(abs(d.z)), type = 'l', col = 'blue')
 
-plot(iter, (abs(d.x)), type = 'l', col = 'red', main = c('LSA Time of execution in [s]=', round(timediff, digits = 2)), xlab = 'No. of iterations', ylab = 'd_X components')
+plot(iter, (abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u  [s]=', round(timediff, digits = 2)), xlab = 'broj iteracija', ylab = 'deltaX komponente')
 lines(iter, (abs(d.y)), type = 'l', col = 'green')
 lines(iter, (abs(d.z)), type = 'l', col = 'blue')
 
@@ -150,11 +150,11 @@ xx <- err$V2
 yy <- err$V3
 zz <- err$V4
 
-plot(iter, log10(abs(xx)), type = 'l', col = 'red', main = 'LSA Position estimation error from real values', xlab = 'No. of iterations', ylab = 'log10 positioning error [m]')
+plot(iter, log10(abs(xx)), type = 'l', col = 'red', main = 'LSA odstupanje procjene položaja \n od stvarne vrijednosti', xlab = 'broj iteracija', ylab = 'log10 odstupanje [m]')
 lines(iter, log10(abs(yy)), type = 'l', col = 'green')
 lines(iter, log10(abs(zz)), type = 'l', col = 'blue')
 
-plot(iter, (abs(xx)), type = 'l', col = 'red', main = 'LSA Position estimation error from real values', xlab = 'No. of iterations', ylab = 'positioning error [m]')
+plot(iter, (abs(xx)), type = 'l', col = 'red', main = 'LSA odstupanje procjene položaja \n od stvarne vrijednosti', xlab = 'broj iteracija', ylab = 'odstupanje [m]')
 lines(iter, (abs(yy)), type = 'l', col = 'green')
 lines(iter, (abs(zz)), type = 'l', col = 'blue')
 
@@ -169,5 +169,3 @@ file.remove('razmakIteracija.txt','stvarnoOdstupanje.txt')
 # Zaključujemo kako je model potrebno doratiti kako bi se postigla 
 # 
 # rješenju.
-
-#dipl1 je najbolja. !!!

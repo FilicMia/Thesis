@@ -77,7 +77,7 @@ while(iter < 100*niter && (max(abs(delt[1:3])) > 1000 || iter == 0)){
 end.time <- Sys.time()
 timediff <- end.time - start.time
 
-#grafički prikaz preciznosti i točnosti određivanja položaja kroz iteracije
+#grafički prikaz preciznosti i točnosti odredivanja položaja kroz iteracije
 d_iter <- read.csv('razmakIteracija.txt', header = FALSE, sep = '')
 err <- read.csv('stvarnoOdstupanje.txt', header = FALSE, sep = '')
 

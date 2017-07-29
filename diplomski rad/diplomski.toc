@@ -29,14 +29,15 @@
 \contentsline {subsection}{Izvedba}{45}{section*.33}
 \contentsline {subsubsection}{Prvi na\IeC {\v c}in linearizacije}{45}{section*.34}
 \contentsline {subsubsection}{Drugi na\IeC {\v c}in linearizacije}{46}{section*.35}
-\contentsline {subsection}{Rasprava o kvaliteti procjene polo\IeC {\v z}aja}{47}{section*.36}
-\contentsline {subsubsection}{Prvi na\IeC {\v c}in linearizacije}{47}{section*.37}
-\contentsline {subsubsection}{Drugi na\IeC {\v c}in linearizacije}{49}{section*.42}
+\contentsline {subsection}{Rasprava o kvaliteti procjene polo\IeC {\v z}aja}{46}{section*.36}
+\contentsline {subsubsection}{Prvi na\IeC {\v c}in linearizacije}{46}{section*.37}
+\contentsline {subsubsection}{Drugi na\IeC {\v c}in linearizacije}{48}{section*.42}
 \contentsline {section}{\numberline {4.3}Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{49}{section.4.3}
-\contentsline {subsubsection}{Izvedba}{53}{section*.44}
-\contentsline {section}{\numberline {4.4}Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{53}{section.4.4}
+\contentsline {subsection}{Izvedba }{53}{section*.46}
+\contentsline {subsection}{Rasprava o kvaliteti}{53}{section*.47}
+\contentsline {section}{\numberline {4.4}Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{54}{section.4.4}
 \contentsline {chapter}{\chapternumberline {5}Zaklju\IeC {\v c}ak}{55}{chapter.5}
-\contentsline {chapter}{Bibliografija}{57}{chapter*.45}
+\contentsline {chapter}{Bibliografija}{57}{chapter*.50}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
@@ -46,5 +47,6 @@
 \contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }a"}{71}{appendix.C}
 \contentsline {appendix}{\chapternumberline {D}Kodovi izvedbe algoritama}{75}{appendix.D}
 \contentsline {section}{\numberline {D.1}Osnovni pristup}{75}{section.D.1}
-\contentsline {section}{\numberline {D.2}Pobolj\IeC {\v s}an pristup: reformulacija jednad\IeC {\v z}bi}{77}{section.D.2}
-\contentsline {section}{\numberline {D.3}Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{77}{section.D.3}
+\contentsline {subsection}{Prvi na\IeC {\v c}in linearizacije}{75}{section*.54}
+\contentsline {subsection}{Drugi na\IeC {\v c}in linearizacije}{78}{section*.55}
+\contentsline {section}{\numberline {D.2}Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{80}{section.D.2}
