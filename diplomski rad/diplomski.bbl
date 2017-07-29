@@ -78,6 +78,26 @@
   Pacifika, Međunarodna škola, Sveučilište Beihang za aeronautiku i
   astronautiku. Peking, Kina.
 
+\bibitem {ref:6}
+\btxnamefont {M~\btxlastnamefont {Filić}}, \btxnamefont {R~\btxlastnamefont
+  {Filjar}}\btxandcomma {} \btxandlong {} \btxnamefont {L.~\btxlastnamefont
+  {Ruotsalainen}}, \btxtitlefont {\btxifchangecase {An sdr-based study of
+  multi-gnss positioning performance during fast-developing space weather
+  storm}{An SDR-based Study of Multi-GNSS Positioning Performance During
+  Fast-developing Space Weather Storm}}, 2016, TRANSNAV, 10(3), 395 – 400.
+  doi:\url{10.12716/1001.10.03.03} Dostupno na: \url{http://bit.ly/2fxAvph}
+  [Online; pregledano \today].
+
+\bibitem {ref:8}
+\btxnamefont {M~\btxlastnamefont {Filić}}, \btxnamefont {L~\btxlastnamefont
+  {Grubišić}}\btxandcomma {} \btxandlong {} \btxnamefont {R.~\btxlastnamefont
+  {Filjar}}, \btxtitlefont {\btxifchangecase {The consequence of a gps
+  satellite decommission on the quality of positioning for intelligent
+  transport systems}{The consequence of a GPS satellite decommission on the
+  quality of positioning for Intelligent Transport Systems}}, 2016, Proc of
+  KoREMA Automation in Transport Conference, 14-19. Krapina, Hrvatska,
+  Ljubljana i Maribor, Slovenija.
+
 \bibitem {ref:9}
 \btxnamefont {R~\btxlastnamefont {Filjar}}, \btxtitlefont {\btxifchangecase {A
   study of direct severe space weather effects on gps ionospheric delay}{A
@@ -129,6 +149,12 @@
   statistical computing}}, 2016, Dostupno na: \url{http://www.r-project.org}
   [Online; pregledano \today].
 
+\bibitem {Rsite}
+\btxnamefont {The\btxfnamespacelong R \btxlastnamefont {Foundation}},
+  \btxtitlefont {\btxifchangecase {R programming language}{R programming
+  language}}, Dostupno na: \url{https://cran.r-project.org/}, [Online;
+  pregledano \today].
+
 \bibitem {ref:13}
 \btxnamefont {F.~\btxlastnamefont {Gustafsson}}, \btxtitlefont
   {\btxifchangecase {Statistical sensor fusion. studentlitteratur}{Statistical
@@ -150,6 +176,13 @@
   {\btxvolumeshort {.}~1}, \btxprintmonthyear{.}{May}{2013}{long},
   \url{http://gage.upc.edu/sites/default/files/TEACHING_MATERIAL/GNSS_Book/ESA_GNSS-Book_TM-23_Vol_I.pdf}[Online;
   pregledano \today].
+
+\bibitem {ref:22}
+\btxnamefont {J~\btxlastnamefont {Maindonald}} \btxandlong {} \btxnamefont
+  {W.\btxfnamespacelong J. \btxlastnamefont {Brown}}, \btxtitlefont
+  {\btxifchangecase {Data analysis and graphics using r - an example-based
+  approach}{Data Analysis and Graphics Using R - an Example-Based Approach}},
+  2010, (3rd edition). Cambridge University Press. Cambridge, UK.
 
 \bibitem {GPS:1}
 \btxnamefont {United\btxfnamespacelong States \btxlastnamefont {military}},

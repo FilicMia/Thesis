@@ -7,9 +7,8 @@ Repeated entry---line 319 of file diplomski.bib
  : @misc{gps:2
  :            ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "ref:22"
-Warning--I didn't find a database entry for "ref:6"
-Warning--I didn't find a database entry for "ref:8"
+Name 1 in "Maindonald, J, and Brown, W. J." has a comma at the end for entry ref:22
+while executing---line 1163 of file babamspl.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty language in math:positioning
 Warning--missing publisher in math:positioning
@@ -20,16 +19,32 @@ Warning--empty language in ref:45
 Warning--empty language in GPS:overview
 Warning--empty language in ref:4
 Warning--empty language in ref:5
+Warning--empty language in ref:6
+Warning--empty language in ref:8
 Warning--empty language in ref:9
 Warning--empty language in ref:10
 Warning--empty language in ref:46
 Warning--empty language in ref:47
 Warning--empty language in rinex:303
 Warning--empty language in ref:24
+Warning--empty language in Rsite
 Warning--empty language in ref:13
 Warning--empty language in googleSchoolar1
 Warning--empty language in bookProcessing
 Warning--missing publisher in bookProcessing
+Warning--empty language in ref:22
+Name 1 in "Maindonald, J, and Brown, W. J." has a comma at the end for entry ref:22
+while executing---line 1257 of file babamspl.bst
+Name 1 in "Maindonald, J, and Brown, W. J." has a comma at the end for entry ref:22
+while executing---line 1257 of file babamspl.bst
+Name 1 in "Maindonald, J, and Brown, W. J." has a comma at the end for entry ref:22
+while executing---line 1257 of file babamspl.bst
+Name 1 in "Maindonald, J, and Brown, W. J." has a comma at the end for entry ref:22
+while executing---line 1257 of file babamspl.bst
+Name 1 in "Maindonald, J, and Brown, W. J." has a comma at the end for entry ref:22
+while executing---line 1257 of file babamspl.bst
+Name 1 in "Maindonald, J, and Brown, W. J." has a comma at the end for entry ref:22
+while executing---line 1257 of file babamspl.bst
 Warning--empty language in GPS:1
 Warning--empty language in ref:25
 Warning--empty language in svd_str15
@@ -40,45 +55,45 @@ Warning--empty language in singer07
 Warning--empty language in ref:48
 Warning--empty language in ref:36
 Warning--empty language in ref:38
-You've used 26 entries,
+You've used 30 entries,
             2664 wiz_defined-function locations,
-            722 strings with 10751 characters,
-and the built_in function-call counts, 8558 in all, are:
-= -- 506
-> -- 269
+            736 strings with 11558 characters,
+and the built_in function-call counts, 10005 in all, are:
+= -- 590
+> -- 325
 < -- 1
-+ -- 112
-- -- 84
-* -- 1276
-:= -- 1243
-add.period$ -- 26
-call.type$ -- 26
-change.case$ -- 120
++ -- 136
+- -- 102
+* -- 1503
+:= -- 1450
+add.period$ -- 30
+call.type$ -- 30
+change.case$ -- 141
 chr.to.int$ -- 0
-cite$ -- 55
-duplicate$ -- 477
-empty$ -- 936
-format.name$ -- 253
-if$ -- 1630
+cite$ -- 63
+duplicate$ -- 555
+empty$ -- 1086
+format.name$ -- 304
+if$ -- 1902
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 31
-newline$ -- 102
-num.names$ -- 52
-pop$ -- 362
+int.to.str$ -- 30
+missing$ -- 35
+newline$ -- 114
+num.names$ -- 60
+pop$ -- 425
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 111
 quote$ -- 0
-skip$ -- 209
+skip$ -- 241
 stack$ -- 0
-substring$ -- 132
-swap$ -- 143
+substring$ -- 154
+swap$ -- 169
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
-warning$ -- 29
-while$ -- 52
-width$ -- 28
-write$ -- 182
-(There was 1 error message)
+type$ -- 116
+warning$ -- 33
+while$ -- 60
+width$ -- 32
+write$ -- 205
+(There were 8 error messages)

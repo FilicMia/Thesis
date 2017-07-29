@@ -1,26 +1,31 @@
 \BOOKMARK [0][-]{section*.1}{Sadr\236aj}{}% 1
-\BOOKMARK [0][-]{chapter*.2}{Uvod}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Globalni navigacijski satelitski sustav \(GNSS\)}{}% 3
-\BOOKMARK [0][-]{chapter.2}{Globalni pozicijski sustav \(GPS\)}{}% 4
-\BOOKMARK [1][-]{section.2.1}{C/A PRN kod}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.2}{P kod}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.3}{Pogre\235ke odreivanja polo\236aja i vrste}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.4}{Navigation Message}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.5}{Proces odreivanja polo\236aja}{chapter.2}% 9
-\BOOKMARK [0][-]{chapter.3}{Algoritam procjene polo\236aja \(APP\)}{}% 10
-\BOOKMARK [1][-]{section.3.1}{Iterativna metoda najmanjih kvadrata}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.2}{Metoda zatvorene forme}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.3}{Metoda najbli\236eg susjeda \(maksimalne vjerodostojnosti\)}{chapter.3}% 13
-\BOOKMARK [0][-]{chapter.4}{Programski odreen GPS prijemnik}{}% 14
-\BOOKMARK [1][-]{section.4.1}{Model programski odreenog radioprijamnika}{chapter.4}% 15
-\BOOKMARK [1][-]{section.4.2}{Pojam programski odreenog radioprijemnika}{chapter.4}% 16
-\BOOKMARK [1][-]{section.4.3}{Programski odreen GPS prijemnik}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.4}{Prakticna izvedba korisnickog GPS prijamnika}{chapter.4}% 18
-\BOOKMARK [0][-]{chapter.5}{Prakticna izvedba procjene polo\236aja u domeni navigacijske primjene}{}% 19
-\BOOKMARK [1][-]{section.5.1}{Programski jezik R}{chapter.5}% 20
-\BOOKMARK [1][-]{section.5.2}{Izvedba}{chapter.5}% 21
-\BOOKMARK [1][-]{section.5.3}{Zakljucak}{chapter.5}% 22
-\BOOKMARK [0][-]{chapter*.36}{Bibliografija}{}% 23
-\BOOKMARK [0][-]{appendix.A}{Taylorov red potencija}{}% 24
-\BOOKMARK [0][-]{appendix.B}{Jakobijeva matrica funkcije h, J}{}% 25
-\BOOKMARK [0][-]{appendix.C}{Mjere kvalitete "zvije\236a"}{}% 26
+\BOOKMARK [0][-]{thm.0.0.2}{Uvod}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Globalni pozicijski sustav \(GPS\)}{}% 3
+\BOOKMARK [1][-]{section.1.1}{C/A PRN kod}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{P kod}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{Pogre\235ke odreivanja polo\236aja i vrste}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.4}{Navigation Message}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.5}{Proces odreivanja polo\236aja}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Algoritam procjene polo\236aja \(APP\)}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Iterativna metoda najmanjih kvadrata}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Metoda zatvorene forme}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Metoda najbli\236eg susjeda \(maksimalne vjerodostojnosti\)}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{Programski odreen GPS prijemnik}{}% 13
+\BOOKMARK [1][-]{section.3.1}{Model programski odreenog radioprijamnika}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{Pojam programski odreenog radioprijemnika}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.3}{Programski odreen GPS prijemnik}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.4}{Prakticna izvedba korisnickog GPS prijamnika}{chapter.3}% 17
+\BOOKMARK [0][-]{chapter.4}{Prakticna izvedba procjene polo\236aja u domeni navigacijske primjene}{}% 18
+\BOOKMARK [1][-]{section.4.1}{Programski jezik R}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.2}{Osnovni pristup}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.3}{Pobolj\235an pristup: uvoenje te\236ina \(WLSM\)}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.4}{Usporedba osnovnog i pobolj\235anog algoritma}{chapter.4}% 22
+\BOOKMARK [0][-]{chapter.5}{Zakljucak}{}% 23
+\BOOKMARK [0][-]{chapter*.45}{Bibliografija}{}% 24
+\BOOKMARK [0][-]{appendix.A}{Taylorov red potencija}{}% 25
+\BOOKMARK [0][-]{appendix.B}{Jakobijeva matrica funkcije h, J}{}% 26
+\BOOKMARK [0][-]{appendix.C}{Mjere kvalitete "zvije\236a"}{}% 27
+\BOOKMARK [0][-]{appendix.D}{Kodovi izvedbe algoritama}{}% 28
+\BOOKMARK [1][-]{section.D.1}{Osnovni pristup}{appendix.D}% 29
+\BOOKMARK [1][-]{section.D.2}{Pobolj\235an pristup: reformulacija jednad\236bi}{appendix.D}% 30
+\BOOKMARK [1][-]{section.D.3}{Pobolj\235an pristup: uvoenje te\236ina \(WLSM\)}{appendix.D}% 31

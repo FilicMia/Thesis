@@ -1,40 +1,50 @@
 \select@language {croatian}
 \contentsline {chapter}{Sadr\v {z}aj}{v}{section*.1}
-\contentsline {chapter}{Uvod}{1}{chapter*.2}
-\contentsline {chapter}{\chapternumberline {1}Globalni navigacijski satelitski sustav (GNSS)}{3}{chapter.1}
-\contentsline {chapter}{\chapternumberline {2}Globalni pozicijski sustav (GPS)}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}C/A PRN kod}{8}{section.2.1}
-\contentsline {subsection}{C/A PRN kod i primjene}{8}{section*.7}
-\contentsline {section}{\numberline {2.2}P kod}{9}{section.2.2}
-\contentsline {section}{\numberline {2.3}Pogre\IeC {\v s}ke odre\IeC {\dj }ivanja polo\IeC {\v z}aja i vrste}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Navigation Message}{12}{section.2.4}
-\contentsline {section}{\numberline {2.5}Proces odre\IeC {\dj }ivanja polo\IeC {\v z}aja}{14}{section.2.5}
-\contentsline {chapter}{\chapternumberline {3}Algoritam procjene polo\IeC {\v z}aja (APP)}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Iterativna metoda najmanjih kvadrata}{20}{section.3.1}
-\contentsline {subsection}{Analize pogre\IeC {\v s}ke metode najmanjih kvadrata}{23}{section*.19}
-\contentsline {section}{\numberline {3.2}Metoda zatvorene forme}{25}{section.3.2}
-\contentsline {section}{\numberline {3.3}Metoda najbli\IeC {\v z}eg susjeda (maksimalne vjerodostojnosti)}{27}{section.3.3}
-\contentsline {chapter}{\chapternumberline {4}Programski odre\IeC {\dj }en GPS prijemnik}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Model programski odre\IeC {\dj }enog radioprijamnika}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Pojam programski odre\IeC {\dj }enog radioprijemnika}{30}{section.4.2}
-\contentsline {section}{\numberline {4.3}Programski odre\IeC {\dj }en GPS prijemnik}{31}{section.4.3}
-\contentsline {section}{\numberline {4.4}Prakti\IeC {\v c}na izvedba korisni\IeC {\v c}kog GPS prijamnika}{33}{section.4.4}
-\contentsline {chapter}{\chapternumberline {5}Prakti\IeC {\v c}na izvedba procjene polo\IeC {\v z}aja u domeni navigacijske primjene}{39}{chapter.5}
-\contentsline {section}{\numberline {5.1}Programski jezik R}{39}{section.5.1}
-\contentsline {section}{\numberline {5.2}Izvedba}{40}{section.5.2}
-\contentsline {subsection}{Osnovni pristup}{40}{section*.27}
-\contentsline {subsubsection}{Numeri\IeC {\v c}ka metoda koja dovodi do pobolj\IeC {\v s}anja to\IeC {\v c}nosti rje\IeC {\v s}enja}{44}{section*.29}
-\contentsline {subsubsection}{Izvedba}{44}{section*.30}
-\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: reformulacija jednad\IeC {\v z}bi}{46}{section*.31}
-\contentsline {subsection}{Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{49}{section*.32}
-\contentsline {subsubsection}{Izvedba}{52}{section*.34}
-\contentsline {subsection}{Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{52}{section*.35}
-\contentsline {section}{\numberline {5.3}Zaklju\IeC {\v c}ak}{52}{section.5.3}
-\contentsline {chapter}{Bibliografija}{53}{chapter*.36}
+\contentsline {chapter}{Uvod}{3}{thm.0.0.2}
+\contentsline {chapter}{\chapternumberline {1}Globalni pozicijski sustav (GPS)}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}C/A PRN kod}{6}{section.1.1}
+\contentsline {subsection}{C/A PRN kod i primjene}{6}{section*.7}
+\contentsline {section}{\numberline {1.2}P kod}{7}{section.1.2}
+\contentsline {section}{\numberline {1.3}Pogre\IeC {\v s}ke odre\IeC {\dj }ivanja polo\IeC {\v z}aja i vrste}{7}{section.1.3}
+\contentsline {section}{\numberline {1.4}Navigation Message}{10}{section.1.4}
+\contentsline {section}{\numberline {1.5}Proces odre\IeC {\dj }ivanja polo\IeC {\v z}aja}{12}{section.1.5}
+\contentsline {chapter}{\chapternumberline {2}Algoritam procjene polo\IeC {\v z}aja (APP)}{17}{chapter.2}
+\contentsline {section}{\numberline {2.1}Iterativna metoda najmanjih kvadrata}{18}{section.2.1}
+\contentsline {subsection}{Analize pogre\IeC {\v s}ke metode najmanjih kvadrata}{21}{section*.19}
+\contentsline {section}{\numberline {2.2}Metoda zatvorene forme}{23}{section.2.2}
+\contentsline {section}{\numberline {2.3}Metoda najbli\IeC {\v z}eg susjeda (maksimalne vjerodostojnosti)}{25}{section.2.3}
+\contentsline {chapter}{\chapternumberline {3}Programski odre\IeC {\dj }en GPS prijemnik}{27}{chapter.3}
+\contentsline {section}{\numberline {3.1}Model programski odre\IeC {\dj }enog radioprijamnika}{27}{section.3.1}
+\contentsline {section}{\numberline {3.2}Pojam programski odre\IeC {\dj }enog radioprijemnika}{28}{section.3.2}
+\contentsline {section}{\numberline {3.3}Programski odre\IeC {\dj }en GPS prijemnik}{29}{section.3.3}
+\contentsline {section}{\numberline {3.4}Prakti\IeC {\v c}na izvedba korisni\IeC {\v c}kog GPS prijamnika}{31}{section.3.4}
+\contentsline {chapter}{\chapternumberline {4}Prakti\IeC {\v c}na izvedba procjene polo\IeC {\v z}aja u domeni navigacijske primjene}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}Programski jezik R}{37}{section.4.1}
+\contentsline {section}{\numberline {4.2}Osnovni pristup}{38}{section.4.2}
+\contentsline {subsection}{Prvi na\IeC {\v c}in linearizacije jednad\IeC {\v z}bi sustava}{38}{section*.27}
+\contentsline {subsection}{Drugi na\IeC {\v c}in linearizacije jednad\IeC {\v z}bi sustava}{42}{section*.29}
+\contentsline {subsection}{Numeri\IeC {\v c}ke metode koje potpoma\IeC {\v z}u rje\IeC {\v s}avanje dobivenog (lineariziranog) sustava}{43}{section*.30}
+\contentsline {subsubsection}{QR dekompozicija}{43}{section*.31}
+\contentsline {subsubsection}{SVD dekompozicija}{44}{section*.32}
+\contentsline {subsection}{Izvedba}{45}{section*.33}
+\contentsline {subsubsection}{Prvi na\IeC {\v c}in linearizacije}{45}{section*.34}
+\contentsline {subsubsection}{Drugi na\IeC {\v c}in linearizacije}{46}{section*.35}
+\contentsline {subsection}{Rasprava o kvaliteti procjene polo\IeC {\v z}aja}{47}{section*.36}
+\contentsline {subsubsection}{Prvi na\IeC {\v c}in linearizacije}{47}{section*.37}
+\contentsline {subsubsection}{Drugi na\IeC {\v c}in linearizacije}{49}{section*.42}
+\contentsline {section}{\numberline {4.3}Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{49}{section.4.3}
+\contentsline {subsubsection}{Izvedba}{53}{section*.44}
+\contentsline {section}{\numberline {4.4}Usporedba osnovnog i pobolj\IeC {\v s}anog algoritma}{53}{section.4.4}
+\contentsline {chapter}{\chapternumberline {5}Zaklju\IeC {\v c}ak}{55}{chapter.5}
+\contentsline {chapter}{Bibliografija}{57}{chapter*.45}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
 \select@language {croatian}
-\contentsline {appendix}{\chapternumberline {A}Taylorov red potencija}{63}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Jakobijeva matrica funkcije $\mathbf {h}$, $J$}{65}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }a"}{67}{appendix.C}
+\contentsline {appendix}{\chapternumberline {A}Taylorov red potencija}{67}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Jakobijeva matrica funkcije $\mathbf {h}$, $J$}{69}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Mjere kvalitete "zvije\IeC {\v z}\IeC {\dj }a"}{71}{appendix.C}
+\contentsline {appendix}{\chapternumberline {D}Kodovi izvedbe algoritama}{75}{appendix.D}
+\contentsline {section}{\numberline {D.1}Osnovni pristup}{75}{section.D.1}
+\contentsline {section}{\numberline {D.2}Pobolj\IeC {\v s}an pristup: reformulacija jednad\IeC {\v z}bi}{77}{section.D.2}
+\contentsline {section}{\numberline {D.3}Pobolj\IeC {\v s}an pristup: uvo\IeC {\dj }enje te\IeC {\v z}ina (WLSM)}{77}{section.D.3}
