@@ -1,0 +1,42 @@
+\begin{sazetak}
+Rastući broj tehnoloških i društveno-ekonomskih sustava se zasniva na satelitskom 
+određivanju položaja, npr. snalaženje u prostoru, 
+%(2) pronalazak izgubljenih svari, 
+ analiza prometnih puteva, pridjeljivanje vremensko-položajnih žigova financijskim transakcijama itd.
+Kvaliteta usluge određuje se točnošću procjene položja
+satelitskim sustavima.\\
+Ovaj rad obuhvaća analizu (referentnog) postupaka procjene položaja u domeni navigacijske primjene te
+se otkrivaju potencijalne slabosti i predlaže poboljšanje.
+Analiza algoritma uključuje izvedbu i ocjenu kvalitete izvedbe algoritma korištenjem izmjerenih pseudoudaljenosti i programski određenog GPS prijemnika.
+Programski određen GPS prijemnik je praktično izveden na osobnom računalu. Korišten je u svrhu 
+prikupljanja i obrade opažanja GPS prijemnika u RINEX podatkovnom formatu za ulaz u izvedbe.
+Poboljšanja algoritma analizirana su usporednom analizom poboljšanog i izvornog algoritma.
+\vspace{0.5cm}
+
+Uvodnim se poglavljem uvodi u svijet globalnih satelitskih navigacijskih sustava (engl. Global Navigation Satellite System, GNSS) te se formuliraju ciljevi rada. Prvo poglavlje detaljnije opisuje jedan odabran GNSS, Globaln pozicijsk sustav (GPS), i uvodi i egzaktno definira problem određivanja položaja u domeni navigacijske primjene. Odabrani GNSS se koristi pri prikupljanju eksperimentalih podataka. \\
+Drugo poglavlje opisuje načine pronalaska rješenja problema određivanja položaja definiranog prvim poglavljem.\\
+Pri prikupljanju i predobradi eksperimentalih podataka koristi se GNSS korisnička oprema zasnovana na programski određenom radiju.
+Opis programski određenog radija i korištene GNSS korisničke opreme dan je trećim poglavljem.
+Četvrto poglavlja donosi praktičnu izvedbu osnovnog (referentnog) algoritma za procjenu položaja u domeni navigacijske primjene, razloge za njegovo poboljšenje te izvedbu i opis poboljšanja.
+Peto poglavlje ocjenjuje i uspoređuje kvalitetu dva izvedena algoritma, osnovnog i poboljšanog, nakon čega slijede zaključci.
+\end{sazetak}
+
+\begin{summary}
+Satellite positioning has been recognised as an fundamental underlying technology for growing number
+of modern technology and socio-economic systems, i.e. orientation in space, traffic routes analysis time and space stamping of financial transactions etc. The quality of services provided by those
+systems relies on the satellite positioning performance, especially positioning accuracy. 
+This paper covers the analysis of (reference) position estimation procedures in the navigation application domain, discovering of potential weaknesses and suggesting the improvement.
+The algorithm analysis involves practical performance and rating of the algorithm performance quality using measured pseudorange and programmable GPS receiver.
+A program-specific GPS receiver is practically performed on a personal computer. It was used for 
+collecting and processing the GPS receiver's observations in the RINEX data format to form the input of the algorithm performance.
+Algorithm enhancements were analyzed by a parallel analysis of the improved and original algorithm.
+
+The introductory chapter introduces the world of global navigation satellite systems (GNSS) and formulates the objectives. Chapter one details a selected GNSS, Global Positioning System (GPS), and introduces and defines the problem of positioning in the navigation application domain.
+Selected GNSS is used when collecting experimental data. \\
+The second chapter describes solution finding methods of the problem defined by chapter one. \\
+GNSS user equipment based on program-specific radio is used when collecting and pre-processing experimental data.
+The description of the programmable radio and the GNSS user equipment used are given with the third chapter.
+Chapter Four provides a practical performance of the basic (benchmark) algorithm for position assessment in the navigation application domain, the reasons for its improvement and performance and description of the improvement.
+The fifth chapter evaluates and compares the quality of two derived algorithms, basic and improved, followed by conclusions. 
+\end{summary}
+

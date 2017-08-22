@@ -3,11 +3,11 @@ library("MASS","matrixcalc")
 
 #pseudo-udaljenosti
 c <- 2.99792458E+08 # brzina svjetlosti [m/s], po GPS standardu
-R = read.csv('pseudoranges5a.txt', header = FALSE);
+R = read.csv('pseudorangesb.txt', header = FALSE);
 R <- as.matrix(R[,1])
 
 #učitaj koordinate satelita
-S = read.csv('satellites5.txt', header = FALSE)
+S = read.csv('satellites.txt', header = FALSE)
 S <- as.matrix(S)
 x_0 = c(1,1,1,1) #[x,y,z,d_T] d_t se kasnije množi sa c da bi se oduzeo od [x_i,y_i,z_i,d] 
 delt = c(1000,1000,1000,3)
@@ -27,7 +27,7 @@ err <- c(11,11,11,11)
 start.time <- Sys.time()
 
 b = R
-while(iter < 100*niter && (max(abs(delt[1:3])) > 1000 || iter == 0)){
+while(iter < 100000*niter && (max(abs(delt[1:3])) > 1000 || iter == 0)){
 
   x_iter = c(x_0[1:3],0) #delta x_iter
   AA = t(apply(RS, 1, function(x) (x_iter - x))) 
@@ -50,22 +50,22 @@ while(iter < 100*niter && (max(abs(delt[1:3])) > 1000 || iter == 0)){
   b = R - D - c*x_0[nCols]
   
   #upisivanje vrijednosti dx radi kasnije analize brzine i točnosti postupka
-  if(iter%%10 == 0){
+  if(iter%%100000 == 0){
     cat(c(iter, delt[1:3]),' \r',file="razmakIteracija.txt", append=TRUE) 
     err <- x_0 - realPosition
     cat(c(iter, err[1:3]),' \r',file="stvarnoOdstupanje.txt", append=TRUE) 
     print(A_iter) 
   }
-  if(abs(delt[1]) < 100 ||
+  if(iter < 2000 && (abs(delt[1]) < 100 ||
      abs(delt[2]) < 100 ||
-     abs(delt[3]) < 100){
+     abs(delt[3]) < 100)){
     cat(c(iter, delt[1:3]),' \r',file="razmakIteracija100.txt", append=TRUE) 
     cat(c(iter, err[1:3]),' \r',file="stvarnoOdstupanje100.txt", append=TRUE) 
   }
   
-  if(abs(delt[1]) < 1000 ||
+  if(iter < 2000 && (abs(delt[1]) < 1000 ||
      abs(delt[2]) < 1000 ||
-     abs(delt[3]) < 1000 ){
+     abs(delt[3]) < 1000) ){
     cat(c(iter, delt[1:3]),' \r',file="razmakIteracija1000.txt", append=TRUE) 
     cat(c(iter, err[1:3]),' \r',file="stvarnoOdstupanje1000.txt", append=TRUE) 
   }
@@ -86,11 +86,11 @@ d.x <- d_iter$V2
 d.y <- d_iter$V3
 d.z <- d_iter$V4
 
-plot(iter, log10(abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'log10 delta_x po komponentama')
+plot(iter, log10(abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'log10 delta_x po komponentama[m]')
 lines(iter, log10(abs(d.y)), type = 'l', col = 'green')
 lines(iter, log10(abs(d.z)), type = 'l', col = 'blue')
 
-plot(iter, (abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'delta_x po komponentama')
+plot(iter, (abs(d.x)), type = 'l', col = 'red', main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'delta_x po komponentama [m]')
 lines(iter, (abs(d.y)), type = 'l', col = 'green')
 lines(iter, (abs(d.z)), type = 'l', col = 'blue')
 
@@ -110,6 +110,7 @@ lines(iter, (abs(zz)), type = 'l', col = 'blue')
 
 file.remove('razmakIteracija.txt','stvarnoOdstupanje.txt')
 
+timediff = 0
 d_iter100 <- read.csv('razmakIteracija100.txt', header = FALSE, sep = '')
 err100 <- read.csv('stvarnoOdstupanje100.txt', header = FALSE, sep = '')
 
@@ -118,13 +119,13 @@ d.x <- d_iter100$V2
 d.y <- d_iter100$V3
 d.z <- d_iter100$V4
 
-plot(iter, log10(abs(d.x)), type = 'p', col = 'red', 
-     main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'log10 delta_x po komponentama')
+plot(iter, log10(abs(d.x)), type = 'p', col = 'red', ylim = c(0,log10(max(abs(c(d.x,d.y,d.z))))),
+     main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'log10 delta_x po komponentama [m]')
 lines(iter, log10(abs(d.y)), type = 'p', col = 'green')
 lines(iter, log10(abs(d.z)), type = 'p', col = 'blue')
 
 plot(iter, (abs(d.x)), type = 'p', col = 'red', 
-     main = c('(< 100 [m] bar 1 koordinati) LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'delta_x po komponentama')
+     main = c('(< 100 [m] barem 1 koordinata) LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'delta_x po komponentama [m]')
 lines(iter, (abs(d.y)), type = 'p', col = 'green')
 lines(iter, (abs(d.z)), type = 'p', col = 'blue')
 
@@ -133,13 +134,13 @@ xx <- err100$V2
 yy <- err100$V3
 zz <- err100$V4
 
-plot(iter, log10(abs(xx)), type = 'p', col = 'red', 
-     main = 'LSA pogreška od stvarnog položaja \n (< 100 [m] bar 1 koordinati)', xlab = 'Broj iteracija', ylab = 'log10 pogreška [m]')
+plot(iter, log10(abs(xx)), type = 'p', col = 'red', ylim = c(0,log10(max(abs(c(xx,yy,zz))))),
+     main = 'LSA pogreška od stvarnog položaja \n (< 100 [m] barem 1 koordinata)', xlab = 'Broj iteracija', ylab = 'log10 pogreška [m]')
 lines(iter, log10(abs(yy)), type = 'p', col = 'green')
 lines(iter, log10(abs(zz)), type = 'p', col = 'blue')
 
 plot(iter, (abs(xx)), type = 'p', col = 'red', 
-     main = 'LSA pogreška od stvarnog položaja \n (< 100 [m] bar 1 koordinati)', xlab = 'Broj iteracija', ylab = 'pogreška [m]')
+     main = 'LSA pogreška od stvarnog položaja \n (< 100 [m] barem 1 koordinata)', xlab = 'Broj iteracija', ylab = 'pogreška [m]')
 lines(iter, (abs(yy)), type = 'p', col = 'green')
 lines(iter, (abs(zz)), type = 'p', col = 'blue')
 
@@ -152,13 +153,13 @@ d.x <- d_iter1000$V2
 d.y <- d_iter1000$V3
 d.z <- d_iter1000$V4
 
-plot(iter, log10(abs(d.x)), type = 'p', col = 'red', 
-     main = c('(1000) LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'log10 delta_x po komponentama')
+plot(iter, log10(abs(d.x)), type = 'p', col = 'red', ylim = c(0,log10(max(abs(c(d.x,d.y,d.z))))),
+     main = c('LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'log10 delta_x po komponentama [m]')
 lines(iter, log10(abs(d.y)), type = 'p', col = 'green')
 lines(iter, log10(abs(d.z)), type = 'p', col = 'blue')
 
-plot(iter, (abs(d.x)), type = 'p', col = 'red', 
-     main = c('(< 1000 [m] bar 1 koordinati)\n LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2)), xlab = 'Broj iteracija', ylab = 'delta_x po komponentama')
+plot(iter, (abs(d.x)), type = 'p', col = 'red', ylim = c(0,max(abs(c(d.x,d.y,d.z)))),
+     main = c(' LSA vrijeme izvršavanja u [s]=', round(timediff, digits = 2),' (< 1000 [m] barem 1 koordinata)\n'), xlab = 'Broj iteracija', ylab = 'delta_x po komponentama [m]')
 lines(iter, (abs(d.y)), type = 'p', col = 'green')
 lines(iter, (abs(d.z)), type = 'p', col = 'blue')
 
@@ -167,13 +168,13 @@ xx <- err1000$V2
 yy <- err1000$V3
 zz <- err1000$V4
 
-plot(iter, log10(abs(xx)), type = 'p', col = 'red', 
-     main = 'LSA pogreška od stvarnog položaja \n (< 1000 [m] bar 1 koordinati)', xlab = 'Broj iteracija', ylab = 'log10 pogreška [m]')
+plot(iter, log10(abs(xx)), type = 'p', col = 'red', ylim = c(0,log10(max(abs(c(xx,yy,zz))))),,
+     main = 'LSA pogreška od stvarnog položaja \n (< 1000 [m] barem 1 koordinata)', xlab = 'Broj iteracija', ylab = 'log10 pogreška [m]')
 lines(iter, log10(abs(yy)), type = 'p', col = 'green')
 lines(iter, log10(abs(zz)), type = 'p', col = 'blue')
 
-plot(iter, (abs(xx)), type = 'p', col = 'red', 
-     main = 'LSA pogreška od stvarnog položaja \n (< 1000 [m] bar 1 koordinati)', xlab = 'Broj iteracija', ylab = 'pogreška [m]')
+plot(iter, (abs(xx)), type = 'p', col = 'red', ylim = c(0,max(abs(c(xx,yy,zz)))),
+     main = 'LSA pogreška od stvarnog položaja \n (< 1000 [m] barem 1 koordinata)', xlab = 'Broj iteracija', ylab = 'pogreška [m]')
 lines(iter, (abs(yy)), type = 'p', col = 'green')
 lines(iter, (abs(zz)), type = 'p', col = 'blue')
 

@@ -22,46 +22,52 @@
 
 \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
 \bibitem {math:positioning}
-\btxnamefont {Simo \btxlastnamefont {Ali-Löytty}}, \btxnamefont {Jussi
-  \btxlastnamefont {Collin}}, \btxnamefont {Helena \btxlastnamefont
-  {Leppäkoski}}, \btxnamefont {Hanna \btxlastnamefont {Sairo}}\btxandcomma {}
-  \btxandlong {} \btxnamefont {Niilo \btxlastnamefont {Sirola}},
-  \btxpublisherfont {\btxtitlefont {\btxifchangecase {Mathematics and methods
-  for positioning}{Mathematics and methods for Positioning}}}, 2008,
-  \url{http://math.tut.fi/courses/MAT-45806/mathematics_and_methods_for_positioning_2008.pdf}
-  [Online: pregledano \today].
+\btxnamefont {S.~\btxlastnamefont {Ali-Löytty}}, \btxnamefont
+  {J.~\btxlastnamefont {Collin}}, \btxnamefont {H.~\btxlastnamefont
+  {Leppäkoski}}, \btxnamefont {H.~\btxlastnamefont {Sairo}}\btxandcomma {}
+  \btxandlong {} \btxnamefont {N.~\btxlastnamefont {Sirola}}, \btxpublisherfont
+  {\btxtitlefont {\btxifchangecase {Mathematics and methods for
+  positioning}{Mathematics and methods for Positioning}}}, 2008, Tempare
+  University of Technology, Tempare, Finska [Dostupno na:
+  \url{http://math.tut.fi/courses/MAT-45806/mathematics_and_methods_for_positioning_2008.pdf},
+  pregledano \today].
 
 \bibitem {gps:2}
-\btxnamefont {\btxlastnamefont {Anon.}}, \btxjtitlefont {\btxifchangecase
+\btxnamefont {\btxlastnamefont {Anon}}, \btxjtitlefont {\btxifchangecase
   {Vulnerability assessment of the transportation infrastructure relying on the
   global positioning system}{Vulnerability assessment of the transportation
   infrastructure relying on the Global Positioning System}}, \btxjournalfont
-  {John A. Volpe National Transportation Systems Center, Tech. Rep.} (2001).
+  {John A. Volpe National Transportation Systems Center, Tech. Rep.} (2001),
+  Cambridge, MA, 2001.
 
-\bibitem {elevation_angle}
-\btxnamefont {Kai \btxlastnamefont {Borre}}, \btxnamefont
-  {Dennis\btxfnamespacelong M. \btxlastnamefont {Akos}}, \btxnamefont {Nicolaj
-  \btxlastnamefont {Bertelsen}}, \btxnamefont {Peter \btxlastnamefont
-  {Rinder}}\btxandcomma {} \btxandlong {} \btxnamefont {Holdt\btxfnamespacelong
-  Jensen \btxlastnamefont {Søren}}, \btxtitlefont {\btxifchangecase {A
-  software-defined gps and galileo receiver: A single-frequency approach}{A
-  Software-Defined GPS and Galileo Receiver: A Single-Frequency Approach}},
-  2007,
-  \url{https://books.google.hr/books?id=x2g6XTEkb8oC&pg=PA132&lpg=PA132&dq=R+elevation+between+satellite+and+the+receiver&source=bl&ots=cUuR3wNbPX&sig=3JqlYjPp7WQ0h_y-WwBxJook5Bs&hl=sl&sa=X&ved=0ahUKEwjw7MrI6YbVAhUKB8AKHSx1CqIQ6AEIbDAJ#v=onepage&q=R%20elevation%20between%20satellite%20and%20the%20receiver&f=false}
-  [Online; pregledano \today].
+\bibitem {fazno:kodno}
+\btxnamefont {Dragan \btxlastnamefont {Blagojević}}, \btxtitlefont
+  {\btxifchangecase {Teorija satelitskog pozicioniranja}{Teorija satelitskog
+  pozicioniranja}}, [Dostupno na:
+  \url{http://web.grf.bg.ac.rs/p/learning/teorija_satelitskog_pozicioniranja_1415876930596.pdf},
+  pregledano \today].
 
 \bibitem {ref:45}
 \btxnamefont {R.\btxfnamespacelong G. \btxlastnamefont {Brown}} \btxandlong {}
   \btxnamefont {P.\btxfnamespacelong W.\btxfnamespacelong C. \btxlastnamefont
   {Hwang}}, \btxtitlefont {\btxifchangecase {Introduction to random signals and
   applied kalman filtering}{Introduction to Random Signals and Applied Kalman
-  Filtering}}, 2009, (3rd ed). John Wiley and Sons. New York, NY.
+  Filtering}}, 2009, John Wiley and Sons. New York, NY.
+
+\bibitem {svd_Rexample}
+\btxnamefont {C.~\btxlastnamefont {Corcoran}}, \btxtitlefont {\btxifchangecase
+  {Stat 6550: Singular value decomposition in r}{STAT 6550: Singular Value
+  Decomposition in R}}, 2007, Skripta uz predavanja, Utah State University,
+  [Dostupno na:
+  \url{http://www.math.usu.edu/~corcoran/classes/old/07spring6550/examples/svd.pdf}
+  , pregledano \today].
 
 \bibitem {GPS:overview}
-\btxnamefont {\btxlastnamefont {{Dana, P. H.}}}, \btxtitlefont
-  {\btxifchangecase {Global positioning system overview}{Global positioning
-  system overview}}, \url{http://www.colorado.edu/geography/gcraft/notes/},
-  1994, [Online; pregledano 9-Feb-2017].
+\btxnamefont {\btxlastnamefont {{Dana, P.H.}}}, \btxtitlefont {\btxifchangecase
+  {Global positioning system overview}{Global positioning system overview}},
+  1994, University of Colorado, Boulder, CO [Dostupno na:
+  \url{http://www.colorado.edu/geography/gcraft/notes/}, pregledano
+  9-Feb-2017].
 
 \bibitem {ref:4}
 \btxnamefont {J\btxfnamespacelong A \btxlastnamefont {Farrell}}, \btxtitlefont
@@ -71,25 +77,25 @@
 \bibitem {ref:5}
 \btxnamefont {M.~\btxlastnamefont {Filić}}, \btxtitlefont {\btxifchangecase
   {Laboratory session 4: Gnss positioning performance assessment using
-  rtklib/rtkpost and r}{Laboratory Session 4: GNSS positioning performance
-  assessment using RTKLIB/RTKPOST and R}}, 2017, (nastavni materijal).
-  Diplomski studij satelitske navigacije, Regionalni UN centar za akademsko
-  obrazovanje u svemirskim znanostima i tehnologijama za područje Azije i
-  Pacifika, Međunarodna škola, Sveučilište Beihang za aeronautiku i
-  astronautiku. Peking, Kina.
+  rtklib/rtkpost and r, (nastavni materijal)}{Laboratory Session 4: GNSS
+  positioning performance assessment using RTKLIB/RTKPOST and R, (nastavni
+  materijal)}}, 2017, Diplomski studij satelitske navigacije, Regionalni UN
+  centar za akademsko obrazovanje u svemirskim znanostima i tehnologijama za
+  područje Azije i Pacifika, Međunarodna škola, Sveučilište Beihang za
+  aeronautiku i astronautiku. Peking, Kina.
 
 \bibitem {ref:6}
-\btxnamefont {M~\btxlastnamefont {Filić}}, \btxnamefont {R~\btxlastnamefont
+\btxnamefont {M.~\btxlastnamefont {Filić}}, \btxnamefont {R.~\btxlastnamefont
   {Filjar}}\btxandcomma {} \btxandlong {} \btxnamefont {L.~\btxlastnamefont
   {Ruotsalainen}}, \btxtitlefont {\btxifchangecase {An sdr-based study of
   multi-gnss positioning performance during fast-developing space weather
   storm}{An SDR-based Study of Multi-GNSS Positioning Performance During
   Fast-developing Space Weather Storm}}, 2016, TRANSNAV, 10(3), 395 – 400.
-  doi:\url{10.12716/1001.10.03.03} Dostupno na: \url{http://bit.ly/2fxAvph}
-  [Online; pregledano \today].
+  doi:\url{10.12716/1001.10.03.03} [Dostupno na: \url{http://bit.ly/2fxAvph},
+  pregledano \today].
 
 \bibitem {ref:8}
-\btxnamefont {M~\btxlastnamefont {Filić}}, \btxnamefont {L~\btxlastnamefont
+\btxnamefont {M.~\btxlastnamefont {Filić}}, \btxnamefont {L.~\btxlastnamefont
   {Grubišić}}\btxandcomma {} \btxandlong {} \btxnamefont {R.~\btxlastnamefont
   {Filjar}}, \btxtitlefont {\btxifchangecase {The consequence of a gps
   satellite decommission on the quality of positioning for intelligent
@@ -99,11 +105,11 @@
   Ljubljana i Maribor, Slovenija.
 
 \bibitem {ref:9}
-\btxnamefont {R~\btxlastnamefont {Filjar}}, \btxtitlefont {\btxifchangecase {A
+\btxnamefont {R.~\btxlastnamefont {Filjar}}, \btxtitlefont {\btxifchangecase {A
   study of direct severe space weather effects on gps ionospheric delay}{A
   Study of Direct Severe Space Weather Effects on GPS Ionospheric Delay}},
-  2008, Journal of Navigation, 61, 115-128,
-  \url{http://dx.doi.org/10.1017/S0373463307004420}[Online; pregledano \today].
+  2008, Journal of Navigation, 61, 115-128, [Dostupno na:
+  \url{http://dx.doi.org/10.1017/S0373463307004420}, pregledano \today].
 
 \bibitem {ref:10}
 \btxnamefont {R.~\btxlastnamefont {Filjar}}, \btxnamefont {D.~\btxlastnamefont
@@ -111,9 +117,9 @@
   {Kos}}, \btxtitlefont {\btxifchangecase {Single-frequency horizontal gps
   positioning error response to a moderate ionospheric storm over northern
   adriatic}{Single-frequency Horizontal GPS positioning Error Response to a
-  Moderate Ionospheric Storm over Northern Adriatic}}, 2013, Chapter in:
-  Weintrit, A. (editor) (2013). Advances in Marine Navigation. Taylor and
-  Francis Group. London, UK.
+  Moderate Ionospheric Storm over Northern Adriatic}}, 2013, Poglavlje u
+  knjizi: Weintrit, A. (editor) Advances in Marine Navigation (2013). Taylor
+  and Francis Group, London, UK.
 
 \bibitem {ref:46}
 \btxnamefont {R~\btxlastnamefont {Filjar}}, \btxnamefont {D~\btxlastnamefont
@@ -131,66 +137,66 @@
   position estimation by cloud-based gnss sdr receiver architecture
   utilisation}{Enhancing Performance of GNSS Position Estimation by Cloud-based
   GNSS SDR Receiver Architecture Utilisation}}, 2013, Proc of IEEE
-  InternationalSymposium ELMAR 2013, 315-318. Zadar, Croatia.
+  International Symposium ELMAR 2013, 315-318, Zadar, Croatia.
 
 \bibitem {rinex:303}
 \btxnamefont {RINEX\btxfnamespacelong Working\btxfnamespacelong
   Group\btxfnamespacelong \&\btxfnamespacelong Radio\btxfnamespacelong
   Technical\btxfnamespacelong Commission for \btxlastnamefont {Maritime
   Services Special Committee 104 (RTCM-SC104)}}, \btxtitlefont
-  {\btxifchangecase {Rinex 3.03}{RINEX 3.03}}, 2015,
-  \url{https://igscb.jpl.nasa.gov/igscb/data/format/rinex303.pdf} [Online;
-  pregledano \today].
+  {\btxifchangecase {Rinex 3.03}{RINEX 3.03}}, 2015, [Dostupno na:
+  \url{https://igscb.jpl.nasa.gov/igscb/data/format/rinex303.pdf}, pregledano
+  \today].
 
 \bibitem {ref:24}
 \btxnamefont {R\btxfnamespacelong Foundation for \btxlastnamefont
   {Statistical~Computing}}, \btxtitlefont {\btxifchangecase {R: A language and
   environment for statistical computing}{R: A language and environment for
-  statistical computing}}, 2016, Dostupno na: \url{http://www.r-project.org}
-  [Online; pregledano \today].
+  statistical computing}}, 2016, [Dostupno na: \url{http://www.r-project.org},
+  pregledano \today].
 
 \bibitem {Rsite}
 \btxnamefont {The\btxfnamespacelong R \btxlastnamefont {Foundation}},
   \btxtitlefont {\btxifchangecase {R programming language}{R programming
-  language}}, Dostupno na: \url{https://cran.r-project.org/}, [Online;
-  pregledano \today].
+  language}}, [Dostupno na: \url{https://cran.r-project.org/}, pregledano
+  \today].
 
 \bibitem {ref:13}
 \btxnamefont {F.~\btxlastnamefont {Gustafsson}}, \btxtitlefont
-  {\btxifchangecase {Statistical sensor fusion. studentlitteratur}{Statistical
-  sensor fusion. Studentlitteratur}}, 2010, Linkoeping University. Linkoeping,
+  {\btxifchangecase {Statistical sensor fusion, studentlitteratur}{Statistical
+  sensor fusion, Studentlitteratur}}, 2010, Linkoeping University. Linkoeping,
   Švedska.
 
 \bibitem {googleSchoolar1}
 \btxnamefont {Y.~\btxlastnamefont {He}} \btxandlong {} \btxnamefont
   {A.~\btxlastnamefont {Bilgic}}, \btxtitlefont {\btxifchangecase {Iterative
   least squares method for global positioning system}{Iterative least squares
-  method for global positioning system}}, 2011,
-  \url{https://pdfs.semanticscholar.org/fcb1/86f5b7feb713e970fd076498e93a77f7f2fc.pdf}[Online;
+  method for global positioning system}}, 2011, [Dostupno na:
+  \url{https://pdfs.semanticscholar.org/fcb1/86f5b7feb713e970fd076498e93a77f7f2fc.pdf},
   pregledano \today].
 
-\bibitem {bookProcessing}
-\btxnamefont {\btxlastnamefont {{J. Sanz Subirana, J.M. Juan Zornoza and M.
-  Hernández-Pajares}}}, \btxtitlefont {\btxifchangecase {{Fundamentals and
-  Algorithms}}{{Fundamentals and Algorithms}}}, \btxpublisherfont
-  {\btxvolumeshort {.}~1}, \btxprintmonthyear{.}{May}{2013}{long},
-  \url{http://gage.upc.edu/sites/default/files/TEACHING_MATERIAL/GNSS_Book/ESA_GNSS-Book_TM-23_Vol_I.pdf}[Online;
-  pregledano \today].
+\bibitem {svd_QR_normalEquations_comparison_str42}
+\btxnamefont {D.~\btxlastnamefont {Kao}}, \btxtitlefont {\btxifchangecase {Qr
+  factorization and singular value decomposition}{QR Factorization and Singular
+  Value Decomposition}}, 2016, Skripta uz predavanja, Princeton University,
+  Princeton, NY [Dostupno na:
+  \url{http://www.cs.princeton.edu/courses/archive/fall11/cos323/notes/cos323_f11_lecture09_svd.pdf}
+  , pregledano \today].
 
 \bibitem {ref:22}
-\btxnamefont {J~\btxlastnamefont {Maindonald}} \btxandlong {} \btxnamefont
+\btxnamefont {J.~\btxlastnamefont {Maindonald}} \btxandlong {} \btxnamefont
   {W.\btxfnamespacelong J. \btxlastnamefont {Brown}}, \btxtitlefont
   {\btxifchangecase {Data analysis and graphics using r - an example-based
   approach}{Data Analysis and Graphics Using R - an Example-Based Approach}},
-  2010, (3rd edition). Cambridge University Press. Cambridge, UK.
+  2010, Cambridge University Press. Cambridge, UK.
 
 \bibitem {GPS:1}
 \btxnamefont {United\btxfnamespacelong States \btxlastnamefont {military}},
   \btxtitlefont {\btxifchangecase {Global positioning system standard
   positioning service signal specification}{GLOBAL POSITIONING SYSTEM STANDARD
-  POSITIONING SERVICE SIGNAL SPECIFICATION}},
+  POSITIONING SERVICE SIGNAL SPECIFICATION}}, 1995, [Dostupno na:
   \url{http://www.gps.gov/technical/ps/1995-SPS-signal-specification.pdf},
-  1995, [Online; pregledano \today].
+  pregledano \today].
 
 \bibitem {ref:25}
 \btxnamefont {A.\btxfnamespacelong A. \btxlastnamefont {Nielsen}},
@@ -203,51 +209,69 @@
 \btxnamefont {Allan\btxfnamespacelong Aasbjerg \btxlastnamefont {Nielsen}},
   \btxtitlefont {\btxifchangecase {Least squares adjustment: Linear and
   nonlinear weighted regression analysis}{Least Squares Adjustment: Linear and
-  Nonlinear Weighted Regression Analysis}}, 2013,
+  Nonlinear Weighted Regression Analysis}}, 2013, [Dostupno na:
   \url{http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/2804/pdf/imm2804.pdf}
-  [Online; pregledano \today].
+  , pregledano \today].
 
-\bibitem {math:tay}
-\btxnamefont {\btxlastnamefont {{PMF}}}, \btxtitlefont {\btxifchangecase
-  {Redovi potencija i taylorovi redovi}{Redovi potencija i Taylorovi redovi}},
-  \url{https://web.math.pmf.unizg.hr/nastava/analiza/files/ch3_3.pdf}, 2009,
-  [Online; pregledano 9-Feb-2017].
+\bibitem {LSA:weights}
+\btxnamefont {N.~\btxlastnamefont {Rahemi}}, \btxnamefont {M.R.
+  \btxlastnamefont {Mosavi}}, \btxnamefont {A.\btxfnamespacelong A.
+  \btxlastnamefont {Abedi}}\btxandcomma {} \btxandlong {} \btxnamefont
+  {S.~\btxlastnamefont {Mirzakuchaki}}, \btxtitlefont {\btxifchangecase
+  {Accurate solution of navigation equations in gps receivers for very high
+  velocities using pseudorange measurements}{Accurate Solution of Navigation
+  Equations in GPS Receivers for Very High Velocities Using Pseudorange
+  Measurements}}, [Dostupno na:
+  \url{https://www.hindawi.com/archive/2014/435891/}, pregledano \today].
 
 \bibitem {RStudio}
 \btxnamefont {\btxlastnamefont {RStudio}}, \btxtitlefont {\btxifchangecase
-  {Rstudio}{RStudio}}, 2016, \url{https://www.rstudio.com/} [Online; pregledano
-  \today].
+  {Rstudio}{RStudio}}, 2016, [Dostupno na: \url{https://www.rstudio.com/},
+  pregledano \today].
 
 \bibitem {ref:34}
-\btxnamefont {J\btxfnamespacelong et\btxfnamespacelong al. \btxlastnamefont
-  {Sanz~Subirana}}, \btxtitlefont {\btxifchangecase {Gnss data processing –
-  volume i: Fundamentals and algorithms}{GNSS Data Processing – Volume I:
-  Fundamentals and Algorithms}}, 2013, European Space Agency (ESA). Nordwijk,
-  Nizozemska. \url{http://bit.ly/1QV4KAL}[Online; pregledano \today].
+\btxnamefont {J.~\btxlastnamefont {Sanz~Subirana}} \btxandlong {} \btxnamefont
+  {\btxlastnamefont {ostali}}, \btxtitlefont {\btxifchangecase {Gnss data
+  processing – volume i: Fundamentals and algorithms}{GNSS Data Processing
+  – Volume I: Fundamentals and Algorithms}}, 2013, European Space Agency
+  (ESA). Nordwijk, Nizozemska. \url{http://bit.ly/1QV4KAL}, pregledano \today].
+
+\bibitem {svd_QR_normalEquations}
+\btxnamefont {\btxlastnamefont {SIAM}}, \btxtitlefont {\btxifchangecase {Linear
+  least squares problems}{Linear Least Squares Problems}}, [Dostupno na:
+  \url{https://sites.math.washington.edu/~morrow/498_13/demmelsvd.pdf} ,
+  pregledano \today].
 
 \bibitem {singer07}
 \btxnamefont {Saša \btxlastnamefont {Singer}}, \btxtitlefont {\btxifchangecase
   {Numerička matematika, 7. predavanje}{Numerička matematika, 7.
-  predavanje}}, 2017,
-  \url{http://degiorgi.math.hr/~singer/num_mat/NM_1617/07.pdf}[Online;
-  pregledano \today].
+  predavanje}}, 2017, [Dostupno na:
+  \url{http://degiorgi.math.hr/~singer/num_mat/NM_1617/07.pdf}, pregledano
+  \today].
 
 \bibitem {ref:48}
 \btxnamefont {T.~\btxlastnamefont {Suzuki}}, \btxtitlefont {\btxifchangecase
   {Programska knjižnica gnss-sdrlib v2.0 beta}{Programska knjižnica
-  GNSS-SDRLIB v2.0 Beta}}, 2017, \url{https://github.com/taroz/GNSS-SDRLIB}
-  [Online; pregledano \today].
+  GNSS-SDRLIB v2.0 Beta}}, 2017, [Dostupno na:
+  \url{https://github.com/taroz/GNSS-SDRLIB}, pregledano \today].
 
 \bibitem {ref:36}
 \btxnamefont {T.~\btxlastnamefont {Takasu}}, \btxtitlefont {\btxifchangecase
   {Rtklib open-source software package.}{RTKLIB open-source software
-  package.}}, 2017, \url{http://bit.ly/2gXSd42} [Online; pregledano \today].
+  package.}}, 2017, [Dostupno na: \url{http://bit.ly/2gXSd42} , pregledano
+  \today].
 
 \bibitem {ref:38}
-\btxnamefont {M\btxfnamespacelong et\btxfnamespacelong al. \btxlastnamefont
-  {Thomas}}, \btxtitlefont {\btxifchangecase {Global navigation space systems:
-  reliance and vulnerabilities}{Global Navigation Space Systems: reliance and
-  vulnerabilities}}, 2011, The Royal Academy of Engineering. London, UK.
-  \url{http://bit.ly/1vrIenu}[Online; pregledano \today].
+\btxnamefont {M.~\btxlastnamefont {Thomas}} \btxandlong {} \btxnamefont
+  {\btxlastnamefont {ostali}}, \btxtitlefont {\btxifchangecase {Global
+  navigation space systems: reliance and vulnerabilities}{Global Navigation
+  Space Systems: reliance and vulnerabilities}}, 2011, The Royal Academy of
+  Engineering. London, UK. \url{http://bit.ly/1vrIenu}, pregledano \today].
+
+\bibitem {geo:slikeSustava}
+\btxnamefont {Zdravka \btxlastnamefont {Šimić}}, \btxtitlefont
+  {\btxifchangecase {Geodezija 1}{Geodezija 1}}, Geodetska tehnička škola
+  Zagreb, [Dostupno na: \url{http://docplayer.gr/44835179-Zdravka-simic.html},
+  pregledano \today].
 
 \end{thebibliography}
